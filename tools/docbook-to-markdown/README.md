@@ -17,6 +17,14 @@ OASIS Standard as published at
 | `verify_md.py` | Comparison of the Markdown against the published HTML |
 | `allow.json` | Accepted deviations between the two, each with a reason |
 
+## Provenance
+
+The tooling and the generated Markdown are provided by OASIS staff (TC
+Administration) as a formatting service. The generated Markdown reproduces the
+text of the TC's approved DMLex Version 1.0 OASIS Standard without technical
+change. The tooling is OASIS staff infrastructure and is not a contribution to
+the TC's work product.
+
 ## Requirements
 
 - Python 3.8 or later (standard library only)
