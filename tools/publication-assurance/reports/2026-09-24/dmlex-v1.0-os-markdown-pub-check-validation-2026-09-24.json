@@ -1,0 +1,2010 @@
+{
+  "report": "pub-check publication validation",
+  "condition_detail": [
+    {
+      "check": "stage-name",
+      "condition": "Stage directory name carries a two-digit revision number",
+      "pulls": "the stage directory name",
+      "observed": "stage_directory: os",
+      "compares_to": "valid stage prefixes must carry a two-digit suffix (csd01, never bare csd)",
+      "result": "PASS"
+    },
+    {
+      "check": "stage-name",
+      "condition": "Stage token is not a retired abbreviation",
+      "pulls": "the alphabetic prefix of the stage directory name",
+      "observed": "stage_directory: os",
+      "compares_to": "retired token set (csprd, cnprd, cos, csdpr, cndpr) per Naming Directives v1.7",
+      "result": "PASS"
+    },
+    {
+      "check": "stage-name",
+      "condition": "Stage token is a recognized current stage",
+      "pulls": "the alphabetic prefix of the stage directory name",
+      "observed": "stage_directory: os",
+      "compares_to": "valid stage set: wd, csd, cs, cnd, cn, os, ps, psd, pn, pnd, errata",
+      "result": "PASS"
+    },
+    {
+      "check": "version-naming",
+      "condition": "Version directory matches the vN.N(.N) convention",
+      "pulls": "the version directory name from the package path",
+      "observed": "version_directory: v1.0; delivery_stem: dmlex-v1.0-os",
+      "compares_to": "the Naming Directives version-segment pattern vN.N(.N), e.g. v1.0, v2.0.1",
+      "result": "PASS"
+    },
+    {
+      "check": "version-naming",
+      "condition": "Version embedded in the delivery filename agrees with the version directory",
+      "pulls": "the version segment embedded in the delivery filename stem",
+      "observed": "version_directory: v1.0; delivery_stem: dmlex-v1.0-os",
+      "compares_to": "the version directory the package publishes under",
+      "result": "PASS"
+    },
+    {
+      "check": "version-naming",
+      "condition": "Delivery filename embeds the version segment",
+      "pulls": "the delivery filename stem",
+      "observed": "version_directory: v1.0; delivery_stem: dmlex-v1.0-os",
+      "compares_to": "the Naming Directives filename shape <base>-<version>-<stage>",
+      "result": "PASS"
+    },
+    {
+      "check": "revision-collision",
+      "condition": "The submitted stage does not already exist on the live site",
+      "pulls": "the HTTP status of the this-stage URL on docs.oasis-open.org",
+      "observed": "Stage /os/ is already published at https://docs.oasis-open.org/lexidma/dmlex/v1.0/os/: a NEW submission for v1.0 must use the next revision number instead. Ignore this warning if you are re-checking the published package itself.",
+      "compares_to": "expected non-200 for a NEW submission; an existing stage means the revision must increment",
+      "result": "WARN"
+    },
+    {
+      "check": "filenames",
+      "condition": "The stage directory contains delivery items at all",
+      "pulls": "the file listing of the stage directory root",
+      "observed": "stems: dmlex-v1.0-os; delivery_files: dmlex-v1.0-os.html, dmlex-v1.0-os.md, dmlex-v1.0-os.pdf; formats_present: html, md, pdf; required_formats: html, md, pdf",
+      "compares_to": "at least one delivery item (md/docx/odt/html/pdf) must be present",
+      "result": "PASS"
+    },
+    {
+      "check": "filenames",
+      "condition": "All delivery items share one basename",
+      "pulls": "the set of delivery-item filename stems",
+      "observed": "stems: dmlex-v1.0-os; delivery_files: dmlex-v1.0-os.html, dmlex-v1.0-os.md, dmlex-v1.0-os.pdf; formats_present: html, md, pdf; required_formats: html, md, pdf",
+      "compares_to": "exactly one distinct stem across md/docx/odt/html/pdf",
+      "result": "PASS"
+    },
+    {
+      "check": "filenames",
+      "condition": "Delivery filename carries no working token",
+      "pulls": "the delivery filename stem",
+      "observed": "stems: dmlex-v1.0-os; delivery_files: dmlex-v1.0-os.html, dmlex-v1.0-os.md, dmlex-v1.0-os.pdf; formats_present: html, md, pdf; required_formats: html, md, pdf",
+      "compares_to": "forbidden working tokens: draft, tmp, rc (files are named for the published stage)",
+      "result": "PASS"
+    },
+    {
+      "check": "filenames",
+      "condition": "Delivery filename ends in the stage suffix",
+      "pulls": "the delivery filename stem",
+      "observed": "stems: dmlex-v1.0-os; delivery_files: dmlex-v1.0-os.html, dmlex-v1.0-os.md, dmlex-v1.0-os.pdf; formats_present: html, md, pdf; required_formats: html, md, pdf",
+      "compares_to": "the stage directory name as a -<stage> suffix",
+      "result": "PASS"
+    },
+    {
+      "check": "filenames",
+      "condition": "All required delivery formats are present",
+      "pulls": "the set of delivery formats found in the package",
+      "observed": "stems: dmlex-v1.0-os; delivery_files: dmlex-v1.0-os.html, dmlex-v1.0-os.md, dmlex-v1.0-os.pdf; formats_present: html, md, pdf; required_formats: html, md, pdf",
+      "compares_to": "the track's required set: html+pdf plus the authoritative source (md, docx, or odt)",
+      "result": "PASS"
+    },
+    {
+      "check": "filenames",
+      "condition": "An authoritative source artifact travels with the renderings",
+      "pulls": "the set of source formats found in the package root",
+      "observed": "stems: dmlex-v1.0-os; delivery_files: dmlex-v1.0-os.html, dmlex-v1.0-os.md, dmlex-v1.0-os.pdf; formats_present: html, md, pdf; required_formats: html, md, pdf",
+      "compares_to": "at least one authoritative source (.md, .docx, or .odt) expected beside HTML/PDF",
+      "result": "PASS"
+    },
+    {
+      "check": "stage-uri-live",
+      "condition": "Every Previous-stage and Latest-stage URI the cover declares actually retrieves",
+      "pulls": "a live HEAD request for each docs.oasis-open.org URI in the Previous/Latest stage blocks",
+      "observed": "previous_stage_urls: https://docs.oasis-open.org/lexidma/dmlex/v1.0/cs01/dmlex-v1.0-cs01.html, https://docs.oasis-open.org/lexidma/dmlex/v1.0/cs01/dmlex-v1.0-cs01.pdf; latest_stage_urls: https://docs.oasis-open.org/lexidma/dmlex/v1.0/dmlex-v1.0.html, https://docs.oasis-open.org/lexidma/dmlex/v1.0/dmlex-v1.0.pdf; stage_uris_fetched: 4; latest_created_by_this_publication: (none)",
+      "compares_to": "a definitive 404/410 from the published site (transport failures and non-404 errors stay INFO)",
+      "result": "PASS"
+    },
+    {
+      "check": "front-matter",
+      "condition": "Markdown front matter carries a This-stage URL block",
+      "pulls": "URLs under the 'This Stage/Version' heading in the markdown",
+      "observed": "this_stage_urls: https://docs.oasis-open.org/lexidma/dmlex/v1.0/os/dmlex-v1.0-os.html, https://docs.oasis-open.org/lexidma/dmlex/v1.0/os/dmlex-v1.0-os.pdf; latest_stage_urls: https://docs.oasis-open.org/lexidma/dmlex/v1.0/dmlex-v1.0.html, https://docs.oasis-open.org/lexidma/dmlex/v1.0/dmlex-v1.0.pdf",
+      "compares_to": "at least one URL must be declared",
+      "result": "PASS"
+    },
+    {
+      "check": "front-matter",
+      "condition": "Every stage URL is under docs.oasis-open.org",
+      "pulls": "each URL in the This/Latest stage blocks",
+      "observed": "this_stage_urls: https://docs.oasis-open.org/lexidma/dmlex/v1.0/os/dmlex-v1.0-os.html, https://docs.oasis-open.org/lexidma/dmlex/v1.0/os/dmlex-v1.0-os.pdf; latest_stage_urls: https://docs.oasis-open.org/lexidma/dmlex/v1.0/dmlex-v1.0.html, https://docs.oasis-open.org/lexidma/dmlex/v1.0/dmlex-v1.0.pdf",
+      "compares_to": "the canonical site prefix https://docs.oasis-open.org/",
+      "result": "PASS"
+    },
+    {
+      "check": "front-matter",
+      "condition": "This-stage URLs carry the version and stage path segments",
+      "pulls": "each URL in the This-stage block",
+      "observed": "this_stage_urls: https://docs.oasis-open.org/lexidma/dmlex/v1.0/os/dmlex-v1.0-os.html, https://docs.oasis-open.org/lexidma/dmlex/v1.0/os/dmlex-v1.0-os.pdf; latest_stage_urls: https://docs.oasis-open.org/lexidma/dmlex/v1.0/dmlex-v1.0.html, https://docs.oasis-open.org/lexidma/dmlex/v1.0/dmlex-v1.0.pdf",
+      "compares_to": "the package's /<version>/ and /<stage>/ path segments",
+      "result": "PASS"
+    },
+    {
+      "check": "front-matter",
+      "condition": "Every This-stage URL points at a file included in the package",
+      "pulls": "the filename each This-stage URL points at",
+      "observed": "this_stage_urls: https://docs.oasis-open.org/lexidma/dmlex/v1.0/os/dmlex-v1.0-os.html, https://docs.oasis-open.org/lexidma/dmlex/v1.0/os/dmlex-v1.0-os.pdf; latest_stage_urls: https://docs.oasis-open.org/lexidma/dmlex/v1.0/dmlex-v1.0.html, https://docs.oasis-open.org/lexidma/dmlex/v1.0/dmlex-v1.0.pdf",
+      "compares_to": "the set of delivery filenames actually in the package",
+      "result": "PASS"
+    },
+    {
+      "check": "front-matter",
+      "condition": "The This-stage block lists all three artifacts (md, html, pdf)",
+      "pulls": "the artifact extensions listed in the This-stage block",
+      "observed": "This-stage block does not list the .md artifact.",
+      "compares_to": "the full delivery set: .md, .html, .pdf",
+      "result": "WARN"
+    },
+    {
+      "check": "front-matter",
+      "condition": "Latest-stage URLs point at the persistent version root",
+      "pulls": "each URL in the Latest-stage block",
+      "observed": "this_stage_urls: https://docs.oasis-open.org/lexidma/dmlex/v1.0/os/dmlex-v1.0-os.html, https://docs.oasis-open.org/lexidma/dmlex/v1.0/os/dmlex-v1.0-os.pdf; latest_stage_urls: https://docs.oasis-open.org/lexidma/dmlex/v1.0/dmlex-v1.0.html, https://docs.oasis-open.org/lexidma/dmlex/v1.0/dmlex-v1.0.pdf",
+      "compares_to": "must NOT contain the /<stage>/ segment (latest is the version-root path)",
+      "result": "PASS"
+    },
+    {
+      "check": "front-matter",
+      "condition": "Latest-stage URLs are under the package's version directory",
+      "pulls": "each URL in the Latest-stage block",
+      "observed": "this_stage_urls: https://docs.oasis-open.org/lexidma/dmlex/v1.0/os/dmlex-v1.0-os.html, https://docs.oasis-open.org/lexidma/dmlex/v1.0/os/dmlex-v1.0-os.pdf; latest_stage_urls: https://docs.oasis-open.org/lexidma/dmlex/v1.0/dmlex-v1.0.html, https://docs.oasis-open.org/lexidma/dmlex/v1.0/dmlex-v1.0.pdf",
+      "compares_to": "the package's /<version>/ path segment",
+      "result": "PASS"
+    },
+    {
+      "check": "front-matter",
+      "condition": "Any docs.oasis-open.org URL declaring a different version is intentional",
+      "pulls": "every docs.oasis-open.org URL in the markdown outside Previous/Related-work blocks",
+      "observed": "URL declares version v2.1 (package is v1.0): http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html>* -- confirm this is an intentional external reference.",
+      "compares_to": "the package's own version; a different version is a stale-draft tell unless external",
+      "result": "WARN"
+    },
+    {
+      "check": "front-matter",
+      "condition": "No Latest-labelled line cites a stage-pinned URL for this spec",
+      "pulls": "URLs on lines labelled 'Latest' in the prose",
+      "observed": "this_stage_urls: https://docs.oasis-open.org/lexidma/dmlex/v1.0/os/dmlex-v1.0-os.html, https://docs.oasis-open.org/lexidma/dmlex/v1.0/os/dmlex-v1.0-os.pdf; latest_stage_urls: https://docs.oasis-open.org/lexidma/dmlex/v1.0/dmlex-v1.0.html, https://docs.oasis-open.org/lexidma/dmlex/v1.0/dmlex-v1.0.pdf",
+      "compares_to": "the persistent version-root form (no /<stage>/ segment)",
+      "result": "PASS"
+    },
+    {
+      "check": "uri-chars",
+      "condition": "No underscore appears in a This/Latest-stage document URI",
+      "pulls": "the percent-decoded path of each This-stage and Latest-stage cover URI",
+      "observed": "cover_uris_scanned: 4",
+      "compares_to": "Naming Directives v1.7 s3: '_' is barred from any filename or directory name used in a document URI",
+      "result": "PASS"
+    },
+    {
+      "check": "member-uri",
+      "condition": "No OASIS member-only (Kavi) URI is cited in the package",
+      "pulls": "every oasis-open.org /apps/org/ or /committees/download.php URL in the md and html",
+      "observed": "Cites an OASIS member-only (Kavi) URI: https://www.oasis-open.org/committees/download.php. Naming Directives v1.7 s6.6 bars password-protected member-only references from any TC document that is or may become public.",
+      "compares_to": "Naming Directives v1.7 s6.6: member-only (password-protected) Kavi references must not appear in public TC documents",
+      "result": "BLOCKER"
+    },
+    {
+      "check": "front-matter",
+      "condition": "HTML cover carries a This-version URL block",
+      "pulls": "URLs following 'This version/stage' on the rendered HTML cover",
+      "observed": "NA: DOCX-render condition; this package carries no Word source",
+      "compares_to": "at least one URL must be present",
+      "result": "NA"
+    },
+    {
+      "check": "front-matter",
+      "condition": "Cover This-version URLs carry the version and stage segments",
+      "pulls": "each URL in the cover's This-version block",
+      "observed": "NA: DOCX-render condition; this package carries no Word source",
+      "compares_to": "the package's /<version>/ and /<stage>/ path segments",
+      "result": "NA"
+    },
+    {
+      "check": "front-matter",
+      "condition": "Cover Latest-version URLs point at the persistent version root",
+      "pulls": "each URL in the cover's Latest-version block",
+      "observed": "NA: DOCX-render condition; this package carries no Word source",
+      "compares_to": "must NOT contain the /<stage>/ segment",
+      "result": "NA"
+    },
+    {
+      "check": "residue",
+      "condition": "No editor TODO markers left in prose",
+      "pulls": "prose of the markdown and HTML (code blocks stripped)",
+      "observed": "scanned: html, markdown",
+      "compares_to": "the patterns TODO(...) and TODO: must not occur",
+      "result": "PASS"
+    },
+    {
+      "check": "residue",
+      "condition": "No bare 'tbd' placeholder sections",
+      "pulls": "prose of the markdown and HTML (code blocks stripped)",
+      "observed": "scanned: html, markdown",
+      "compares_to": "no line consisting solely of 'tbd'",
+      "result": "PASS"
+    },
+    {
+      "check": "residue",
+      "condition": "No template editor-instruction text left in the published prose",
+      "pulls": "prose of the markdown and HTML (code blocks stripped)",
+      "observed": "scanned: html, markdown",
+      "compares_to": "the OASIS Board-approved work product templates, which state that 'All template instructions ... need to be deleted prior to publication'; an imperative to remove/delete something 'before publication' or 'prior to publication' surviving in the prose means an instruction block reached publication",
+      "result": "PASS"
+    },
+    {
+      "check": "residue",
+      "condition": "No 'Will be filled in' placeholders (early-stage tolerated, must resolve before CS)",
+      "pulls": "prose of the markdown and HTML (code blocks stripped)",
+      "observed": "scanned: html, markdown",
+      "compares_to": "the phrase 'Will be filled in' must not occur",
+      "result": "PASS"
+    },
+    {
+      "check": "html-title",
+      "condition": "HTML title carries no working residue",
+      "pulls": "the <title> element text",
+      "observed": "title: Data Model for Lexicography (DMLex) Version 1.0",
+      "compares_to": "must not end in tmp, draft, or wip",
+      "result": "PASS"
+    },
+    {
+      "check": "html-title",
+      "condition": "HTML title is a plausible document title",
+      "pulls": "the <title> element text and its length",
+      "observed": "title: Data Model for Lexicography (DMLex) Version 1.0",
+      "compares_to": "a full spec title (at least 8 characters)",
+      "result": "PASS"
+    },
+    {
+      "check": "html-residue",
+      "condition": "No stale pandoc title-block header in the HTML",
+      "pulls": "the HTML body",
+      "observed": "title_block_headers: 0; runner_paths: 0",
+      "compares_to": "the <header id=\"title-block-header\"> element must be absent (lint D2)",
+      "result": "PASS"
+    },
+    {
+      "check": "html-residue",
+      "condition": "No CI runner paths in HTML hrefs or srcs",
+      "pulls": "every href/src attribute in the HTML",
+      "observed": "title_block_headers: 0; runner_paths: 0",
+      "compares_to": "the /home/runner/ path prefix must not occur (lint D3)",
+      "result": "PASS"
+    },
+    {
+      "check": "html-residue",
+      "condition": "The document title appears in exactly one H1",
+      "pulls": "the count of <h1> elements matching the title text",
+      "observed": "title_block_headers: 0; runner_paths: 0",
+      "compares_to": "exactly 1 (more renders the title twice on the PDF cover, lint D1)",
+      "result": "PASS"
+    },
+    {
+      "check": "html-anchors",
+      "condition": "Every internal fragment link resolves to an anchor",
+      "pulls": "each internal href (#...) and the set of element ids/anchor names",
+      "observed": "internal_links: 292; anchors: 663; unresolved: 0",
+      "compares_to": "every referenced fragment must exist as an id or <a name>",
+      "result": "PASS"
+    },
+    {
+      "check": "html-anchors",
+      "condition": "The HTML carries a linked table of contents",
+      "pulls": "the count of internal fragment links",
+      "observed": "internal_links: 292; anchors: 663; unresolved: 0",
+      "compares_to": "at least one expected (a spec HTML without any is missing its TOC links)",
+      "result": "PASS"
+    },
+    {
+      "check": "md-links",
+      "condition": "No dual `[url](url)` links in the markdown",
+      "pulls": "every `[text](target)` link where text is itself a URL",
+      "observed": "links_scanned: 269",
+      "compares_to": "text and target being the same URL calls for a bare autolink or real anchor text",
+      "result": "PASS"
+    },
+    {
+      "check": "md-links",
+      "condition": "No bare URL runs into '.\\' without a space",
+      "pulls": "each markdown line ending a URL with .\\",
+      "observed": "links_scanned: 269",
+      "compares_to": "the safe form '. \\' (otherwise pandoc pulls the period and backslash into the href)",
+      "result": "PASS"
+    },
+    {
+      "check": "fence-collapse",
+      "condition": "No opening code fence carries trailing text in its info string",
+      "pulls": "each opening fence line's info string",
+      "observed": "fences_scanned: 632",
+      "compares_to": "a bare language token or curly-attribute form; trailing text collapses the block (lint D6)",
+      "result": "PASS"
+    },
+    {
+      "check": "image-policy",
+      "condition": "No empty img src attributes",
+      "pulls": "each <img> tag's src attribute",
+      "observed": "img_tags: 50; image_payload_bytes: 779378",
+      "compares_to": "src must be non-empty",
+      "result": "PASS"
+    },
+    {
+      "check": "image-policy",
+      "condition": "No absolute-path image sources",
+      "pulls": "each <img> tag's src attribute",
+      "observed": "img_tags: 50; image_payload_bytes: 779378",
+      "compares_to": "a leading / resolves outside the package on publication",
+      "result": "PASS"
+    },
+    {
+      "check": "image-policy",
+      "condition": "No path-traversal image sources",
+      "pulls": "each <img> tag's src attribute",
+      "observed": "img_tags: 50; image_payload_bytes: 779378",
+      "compares_to": "the path must not contain .. segments",
+      "result": "PASS"
+    },
+    {
+      "check": "image-policy",
+      "condition": "No responsive srcset image constructs",
+      "pulls": "each <img> tag's attributes",
+      "observed": "img_tags: 50; image_payload_bytes: 779378",
+      "compares_to": "the publication pipeline's self-containment policy refuses srcset",
+      "result": "PASS"
+    },
+    {
+      "check": "image-policy",
+      "condition": "No <picture> elements",
+      "pulls": "the HTML body",
+      "observed": "img_tags: 50; image_payload_bytes: 779378",
+      "compares_to": "the publication pipeline's self-containment policy refuses <picture>",
+      "result": "PASS"
+    },
+    {
+      "check": "image-policy",
+      "condition": "Every image file is under the per-image size cap",
+      "pulls": "the byte size of each image file in the package",
+      "observed": "img_tags: 50; image_payload_bytes: 779378",
+      "compares_to": "the pipeline's 2MB per-image refusal cap",
+      "result": "PASS"
+    },
+    {
+      "check": "image-policy",
+      "condition": "No SVG carries script content",
+      "pulls": "the body of each .svg file",
+      "observed": "img_tags: 50; image_payload_bytes: 779378",
+      "compares_to": "<script> elements are active content, refused on docs.oasis-open.org",
+      "result": "PASS"
+    },
+    {
+      "check": "image-policy",
+      "condition": "No SVG carries inline event handlers",
+      "pulls": "the body of each .svg file",
+      "observed": "img_tags: 50; image_payload_bytes: 779378",
+      "compares_to": "on*= attributes are active content, refused",
+      "result": "PASS"
+    },
+    {
+      "check": "image-policy",
+      "condition": "No SVG references external image or use targets",
+      "pulls": "the body of each .svg file",
+      "observed": "img_tags: 50; image_payload_bytes: 779378",
+      "compares_to": "external <image>/<use> hrefs break self-containment",
+      "result": "PASS"
+    },
+    {
+      "check": "image-policy",
+      "condition": "Total image payload is under the cumulative cap",
+      "pulls": "the summed byte size of all image files",
+      "observed": "img_tags: 50; image_payload_bytes: 779378",
+      "compares_to": "the pipeline's 5MB cumulative inlining cap",
+      "result": "PASS"
+    },
+    {
+      "check": "pdf-cover",
+      "condition": "The document title appears exactly once on the PDF cover page",
+      "pulls": "the count of title occurrences in the PDF's first page text",
+      "observed": "title: Data Model for Lexicography (DMLex) Version 1.0; cover_page_occurrences: 1; runner_path_in_pdf: False",
+      "compares_to": "exactly 1 (more means stale title-block residue baked into the render, assertion A1)",
+      "result": "PASS"
+    },
+    {
+      "check": "pdf-cover",
+      "condition": "No CI runner path anywhere in the PDF text",
+      "pulls": "the full extracted PDF text",
+      "observed": "title: Data Model for Lexicography (DMLex) Version 1.0; cover_page_occurrences: 1; runner_path_in_pdf: False",
+      "compares_to": "the /home/runner/ path must not occur (assertion A2)",
+      "result": "PASS"
+    },
+    {
+      "check": "schema-id",
+      "condition": "Every .json file in the package parses as JSON",
+      "pulls": "each .json file's content",
+      "observed": "json_files: 2; expected_id_root: https://docs.oasis-open.org/lexidma/dmlex/v1.0/",
+      "compares_to": "must parse without error",
+      "result": "PASS"
+    },
+    {
+      "check": "schema-id",
+      "condition": "A flattened $id under the version root is a conscious convention",
+      "pulls": "each schema's declared $id",
+      "observed": "json_files: 2; expected_id_root: https://docs.oasis-open.org/lexidma/dmlex/v1.0/",
+      "compares_to": "the file's publish path; a version-root flattened $id (CSAF v2.0 style) needs a copy at that location",
+      "result": "PASS"
+    },
+    {
+      "check": "schema-id",
+      "condition": "Each schema's $id agrees with where the file publishes",
+      "pulls": "each schema's declared $id",
+      "observed": "schemas/JSON/dmlex.schema.json: $id is 'http://docs.oasis-open.org/lexidma/ns/dmlex-1.0' but the file publishes under 'https://docs.oasis-open.org/lexidma/dmlex/v1.0/'. An implementer following the $id gets a 404 or the wrong document. | schemas/JSON/dmlex_no-crosslingual.schema.json: $id is 'http://docs.oasis-open.org/lexidma/ns/dmlex-1.0' but the file publishes under 'https://docs.oasis-open.org/lexidma/dmlex/v1.0/'. An implementer following the $id gets a 404 or the wrong document.",
+      "compares_to": "the canonical latest-version URL derived from the package path",
+      "result": "BLOCKER x2"
+    },
+    {
+      "check": "schema-id",
+      "condition": "Schema-internal self-references agree with the declared $id",
+      "pulls": "every docs.oasis-open.org .json URL inside each schema body",
+      "observed": "json_files: 2; expected_id_root: https://docs.oasis-open.org/lexidma/dmlex/v1.0/",
+      "compares_to": "the schema's own declared $id",
+      "result": "PASS"
+    },
+    {
+      "check": "pdf-sync",
+      "condition": "The PDF cross-check toolchain is available",
+      "pulls": "the PATH lookup for pdftotext (poppler)",
+      "observed": "pdftotext: present; this_stage_base_in_pdf: True",
+      "compares_to": "pdftotext present; absent means the PDF front-matter cross-check is skipped here and runs at intake",
+      "result": "PASS"
+    },
+    {
+      "check": "pdf-sync",
+      "condition": "pdftotext executes against the PDF",
+      "pulls": "the pdftotext process outcome",
+      "observed": "pdftotext: present; this_stage_base_in_pdf: True",
+      "compares_to": "a clean execution",
+      "result": "PASS"
+    },
+    {
+      "check": "pdf-sync",
+      "condition": "The PDF is machine-readable",
+      "pulls": "pdftotext's exit status on the delivery PDF",
+      "observed": "pdftotext: present; this_stage_base_in_pdf: True",
+      "compares_to": "exit 0",
+      "result": "PASS"
+    },
+    {
+      "check": "pdf-sync",
+      "condition": "The PDF front matter carries the canonical this-stage URL",
+      "pulls": "the first three pages of extracted PDF text",
+      "observed": "pdftotext: present; this_stage_base_in_pdf: True",
+      "compares_to": "the this-stage base URL declared by the package front matter",
+      "result": "PASS"
+    },
+    {
+      "check": "pdf-sync",
+      "condition": "The PDF cites no unexpected other version of this spec",
+      "pulls": "every this-spec version URL in the extracted PDF text",
+      "observed": "pdftotext: present; this_stage_base_in_pdf: True",
+      "compares_to": "the package's own version (previous-stage citations expected, anything else confirmed)",
+      "result": "PASS"
+    },
+    {
+      "check": "template",
+      "condition": "All required template front-matter sections are present",
+      "pulls": "the markdown headings",
+      "observed": "sections_found: Abstract, Chair(s), Citation format, Editor(s), Latest stage/version, Notices, Previous stage/version, Status, Technical Committee / Open Project, This stage/version; conformance_section: True",
+      "compares_to": "the template's required set: This/Previous/Latest stage, Technical Committee, Chairs, Editors, Abstract",
+      "result": "PASS"
+    },
+    {
+      "check": "template",
+      "condition": "Front-matter sections appear in template order",
+      "pulls": "the order of found front-matter sections",
+      "observed": "sections_found: Abstract, Chair(s), Citation format, Editor(s), Latest stage/version, Notices, Previous stage/version, Status, Technical Committee / Open Project, This stage/version; conformance_section: True",
+      "compares_to": "the canonical template ordering",
+      "result": "PASS"
+    },
+    {
+      "check": "template",
+      "condition": "A Conformance section exists",
+      "pulls": "the markdown headings",
+      "observed": "sections_found: Abstract, Chair(s), Citation format, Editor(s), Latest stage/version, Notices, Previous stage/version, Status, Technical Committee / Open Project, This stage/version; conformance_section: True",
+      "compares_to": "the TC Process requirement: every Standards Track Work Product carries conformance clauses",
+      "result": "PASS"
+    },
+    {
+      "check": "template-css",
+      "condition": "A non-canonical stylesheet keeps the template font family",
+      "pulls": "the primary font-family declared by the HTML's own stylesheet",
+      "observed": "stylesheet_links: 1; inline_style_blocks: 1",
+      "compares_to": "the template look: Liberation Sans / Arial / Helvetica",
+      "result": "PASS"
+    },
+    {
+      "check": "template-css",
+      "condition": "The HTML carries a stylesheet",
+      "pulls": "the HTML's <link rel=stylesheet> and <style> elements",
+      "observed": "stylesheet_links: 1; inline_style_blocks: 1",
+      "compares_to": "at least one styling source must be present",
+      "result": "PASS"
+    },
+    {
+      "check": "package-refs",
+      "condition": "Every file the document cites under its own stage path is included in the package",
+      "pulls": "each cited URL under the this-stage base and the package file tree",
+      "observed": "The document cites https://docs.oasis-open.org/lexidma/dmlex/v1.0/os/schemas/informativeCopiesOf3rdPartySchemas/NVH/dmlex.nvh under its own stage path, but 'schemas/informativeCopiesOf3rdPartySchemas/NVH/dmlex.nvh' is not in the package: it will 404 on publication.",
+      "compares_to": "the cited relative path must exist as a file in the package",
+      "result": "BLOCKER"
+    },
+    {
+      "check": "link-mismatch",
+      "condition": "Visible URL text and its link target agree",
+      "pulls": "each `[shown-url](target-url)` pair in the prose",
+      "observed": "Visible URL and link target disagree: text shows 'https://docs.oasis-open.org/lexidma/dmlex/v1.0/csd04/dmlex-v1.0-csd04.pdf.pdf' but links to 'https://docs.oasis-open.org/lexidma/dmlex/v1.0/csd04/dmlex-v1.0-csd04.pdf'. One of them is wrong. | Visible URL and link target disagree: text shows 'https://docs.oasis-open.org/lexidma/dmlex/v1.0/csd03/dmlex-v1.0-csd03.pdf.pdf' but links to 'https://docs.oasis-open.org/lexidma/dmlex/v1.0/csd03/dmlex-v1.0-csd03.pdf'. One of them is wrong.",
+      "compares_to": "shown and target must be the same URL (a disagreement is a rename artifact)",
+      "result": "BLOCKER x2"
+    },
+    {
+      "check": "link-mismatch",
+      "condition": "Anchor text that displays a URL agrees with the anchor's href",
+      "pulls": "each <a> whose visible text is an absolute URL, paired with its href, from the rendered HTML",
+      "observed": "Visible link text and href disagree in the HTML: the text shows 'https://docs.oasis-open.org/lexidma/dmlex/v1.0/csd04/dmlex-v1.0-csd04.pdf.pdf' but the link targets 'https://docs.oasis-open.org/lexidma/dmlex/v1.0/csd04/dmlex-v1.0-csd04.pdf'. One of them is wrong; readers cite what they see, not what the anchor resolves to. | Visible link text and href disagree in the HTML: the text shows 'https://docs.oasis-open.org/lexidma/dmlex/v1.0/csd03/dmlex-v1.0-csd03.pdf.pdf' but the link targets 'https://docs.oasis-open.org/lexidma/dmlex/v1.0/csd03/dmlex-v1.0-csd03.pdf'. One of them is wrong; readers cite what they see, not what the anchor resolves to.",
+      "compares_to": "the displayed URL and the href must name the same resource (scheme, www., and trailing-slash differences and ellipsis display-truncation excepted); readers cite what they see",
+      "result": "BLOCKER x2"
+    },
+    {
+      "check": "ref-rfc",
+      "condition": "An [RFCnnnn] references entry's URL cites the same RFC number as its label",
+      "pulls": "each RFC number embedded in an ietf.org / rfc-editor.org URL inside the entry window that follows an [RFCnnnn] label",
+      "observed": "markdown_rfc_reference_entries: 0; html_rfc_reference_entries: 6",
+      "compares_to": "the RFC number in the entry's own label; a disagreement means the label or the linked document is stale",
+      "result": "PASS"
+    },
+    {
+      "check": "ref-rfc",
+      "condition": "An [RFCnnnn] references entry's body text cites the same RFC number as its label and URL",
+      "pulls": "each 'RFC nnnn' mention in the entry window that follows an [RFCnnnn] label, excluding mentions excused by obsoletes/supersedes/replaces/updates/see phrasing",
+      "observed": "markdown_rfc_reference_entries: 0; html_rfc_reference_entries: 6",
+      "compares_to": "the RFC number in the entry's label and URL (numbers drift when a reference is upgraded to a successor RFC and the prose is not)",
+      "result": "PASS"
+    },
+    {
+      "check": "boilerplate-dup",
+      "condition": "The template's 'send comments' status paragraph appears exactly once",
+      "pulls": "the count of 'should send comments on this' occurrences in the prose",
+      "observed": "markdown_comments_paragraphs: 1; html_comments_paragraphs: 1",
+      "compares_to": "exactly one occurrence per the Board-approved template (a duplicate rides in on a stale template merge and truncates the sentence it collides with)",
+      "result": "PASS"
+    },
+    {
+      "check": "double-slash",
+      "condition": "No relative link path contains a double slash",
+      "pulls": "each relative link target in the prose",
+      "observed": "double_slash_paths: 0",
+      "compares_to": "single slashes only (the CDN 404s a double slash even where browsers tolerate it)",
+      "result": "PASS"
+    },
+    {
+      "check": "cover-hr",
+      "condition": "No horizontal rule between the OASIS logo and the title",
+      "pulls": "the first 600 characters of the markdown",
+      "observed": "Horizontal rule between the OASIS logo and the title: the publication CSS treats <hr/> as a page break, which opens the PDF with a blank page. Harmless in other renderers; remove if publishing through the OASIS HTML-to-PDF path.",
+      "compares_to": "no --- / *** / ___ rule after the logo (the publication CSS renders it as a PDF page break)",
+      "result": "WARN"
+    },
+    {
+      "check": "pdf-fonts",
+      "condition": "pdffonts executes against the PDF",
+      "pulls": "the pdffonts process outcome",
+      "observed": "NA: pdffonts unavailable or the package declares no font authority",
+      "compares_to": "a clean execution",
+      "result": "NA"
+    },
+    {
+      "check": "pdf-fonts",
+      "condition": "The PDF's embedded fonts are declared by the package's own CSS",
+      "pulls": "the font base names embedded in the PDF (pdffonts)",
+      "observed": "NA: pdffonts unavailable or the package declares no font authority",
+      "compares_to": "the font families declared in the package's HTML/CSS (its own typography authority)",
+      "result": "NA"
+    },
+    {
+      "check": "manifest",
+      "condition": "manifest.json parses as JSON",
+      "pulls": "the manifest.json content",
+      "observed": "NA: no manifest.json in the package (noted as informational)",
+      "compares_to": "must parse without error",
+      "result": "NA"
+    },
+    {
+      "check": "manifest",
+      "condition": "Every manifest item exists in the package",
+      "pulls": "each path listed in the manifest",
+      "observed": "NA: no manifest.json in the package (noted as informational)",
+      "compares_to": "the package file tree",
+      "result": "NA"
+    },
+    {
+      "check": "manifest",
+      "condition": "Every manifest sha256 matches the file's actual digest",
+      "pulls": "the sha256 of each manifest-listed file",
+      "observed": "NA: no manifest.json in the package (noted as informational)",
+      "compares_to": "the digest recorded in the manifest",
+      "result": "NA"
+    },
+    {
+      "check": "junk-files",
+      "condition": "No working directories inside the package",
+      "pulls": "every directory name in the package tree",
+      "observed": "files_walked: 66",
+      "compares_to": "forbidden set: __MACOSX, .git, .venv, venv, node_modules",
+      "result": "PASS"
+    },
+    {
+      "check": "junk-files",
+      "condition": "No OS junk or editor backup files in the package",
+      "pulls": "every filename in the package tree",
+      "observed": "files_walked: 66",
+      "compares_to": "forbidden: .DS_Store, Thumbs.db, desktop.ini, and ~ / .bak / .orig / .swp suffixes",
+      "result": "PASS"
+    },
+    {
+      "check": "case",
+      "condition": "Every filename in the package is lowercase",
+      "pulls": "every filename in the package tree",
+      "observed": "Mixed-case filename 'core/databaseDiagrams/inflectedForm.svg': the publication host is case-sensitive and canonical paths are lowercase; lowercase citations of this file will 404. (auxiliary file: warning; published precedent exists, e.g. -DIFF.pdf) | Mixed-case filename 'core/databaseDiagrams/partOfSpeech.svg': the publication host is case-sensitive and canonical paths are lowercase; lowercase citations of this file will 404. (auxiliary file: warning; published precedent exists, e.g. -DIFF.pdf) | Mixed-case filename 'core/databaseDiagrams/lexicographicResource.svg': the publication host is case-sensitive and canonical paths are lowercase; lowercase citations of this file will 404. (auxiliary file: warning; published precedent exists, e.g. -DIFF.pdf) | ... and 25 more (full list in the JSON record)",
+      "compares_to": "its lowercase form (the publication origin is case-sensitive; the canonical logo filename is exempt)",
+      "result": "WARN x28"
+    },
+    {
+      "check": "case",
+      "condition": "Every self-referential docs.oasis-open.org URL path is lowercase (markdown source)",
+      "pulls": "every docs.oasis-open.org URL in the prose (markdown source on the md track, rendered HTML on the DOCX track)",
+      "observed": "Mixed-case path in docs.oasis-open.org URL (host is case-sensitive): https://docs.oasis-open.org/lexidma/dmlex/v1.0/os/schemas/JSON/> | Mixed-case path in docs.oasis-open.org URL (host is case-sensitive): https://docs.oasis-open.org/lexidma/dmlex/v1.0/os/schemas/JSON/dmlex.schema.json) | Mixed-case path in docs.oasis-open.org URL (host is case-sensitive): https://docs.oasis-open.org/lexidma/dmlex/v1.0/os/schemas/JSON/dmlex_no-crosslingual.schema.json) | ... and 6 more (full list in the JSON record)",
+      "compares_to": "its lowercase form (case-sensitive origin; /templates/ paths exempt)",
+      "result": "WARN x9"
+    },
+    {
+      "check": "case",
+      "condition": "Every self-referential docs.oasis-open.org URL path is lowercase (HTML render)",
+      "pulls": "every docs.oasis-open.org URL in the prose (markdown source on the md track, rendered HTML on the DOCX track)",
+      "observed": "NA: evaluated on the markdown-source row for this package",
+      "compares_to": "its lowercase form (case-sensitive origin; /templates/ paths exempt)",
+      "result": "NA"
+    },
+    {
+      "check": "odt-integrity",
+      "condition": "The ODT source opens as a ZIP archive",
+      "pulls": "the result of opening the .odt with the stdlib zip reader",
+      "observed": "NA: ODT-source condition; this package carries no ODT source",
+      "compares_to": "a readable OpenDocument container",
+      "result": "NA"
+    },
+    {
+      "check": "odt-integrity",
+      "condition": "The ODT archive carries a mimetype member",
+      "pulls": "the archive member listing",
+      "observed": "NA: ODT-source condition; this package carries no ODT source",
+      "compares_to": "the OpenDocument package requirement of a mimetype entry",
+      "result": "NA"
+    },
+    {
+      "check": "odt-integrity",
+      "condition": "The declared mimetype is an OpenDocument type",
+      "pulls": "the content of the mimetype member",
+      "observed": "NA: ODT-source condition; this package carries no ODT source",
+      "compares_to": "the application/vnd.oasis.opendocument.* family",
+      "result": "NA"
+    },
+    {
+      "check": "odt-integrity",
+      "condition": "The ODT archive carries the document body (content.xml)",
+      "pulls": "the archive member listing",
+      "observed": "NA: ODT-source condition; this package carries no ODT source",
+      "compares_to": "the OpenDocument package requirement of a content.xml body",
+      "result": "NA"
+    },
+    {
+      "check": "odt-integrity",
+      "condition": "The ODT document body parses as XML",
+      "pulls": "content.xml, parsed with the stdlib XML parser",
+      "observed": "NA: ODT-source condition; this package carries no ODT source",
+      "compares_to": "well-formed XML",
+      "result": "NA"
+    },
+    {
+      "check": "odt-integrity",
+      "condition": "The ODT carries no embedded macros or scripts",
+      "pulls": "archive member paths under Basic/ and Scripts/",
+      "observed": "NA: ODT-source condition; this package carries no ODT source",
+      "compares_to": "the host's active-content policy (none permitted, same as SVG scripts)",
+      "result": "NA"
+    },
+    {
+      "check": "symlinks",
+      "condition": "No symlink points at itself or an ancestor directory",
+      "pulls": "each symlink's resolved target",
+      "observed": "symlinks_found: 0",
+      "compares_to": "must not equal or contain its own directory (deploys materialize symlinks into unbounded recursion)",
+      "result": "PASS"
+    },
+    {
+      "check": "dead-lists",
+      "condition": "No reference to a lists.oasis-open.org mailing address (markdown source)",
+      "pulls": "every @lists.oasis-open.org address in the prose (markdown source on the md track, rendered HTML on the DOCX track)",
+      "observed": "md_lists_addresses: (none)",
+      "compares_to": "the dead-infrastructure rule: that mail host silently fails; comments route via Higher Logic",
+      "result": "PASS"
+    },
+    {
+      "check": "dead-lists",
+      "condition": "No reference to a lists.oasis-open.org mailing address (HTML render)",
+      "pulls": "every @lists.oasis-open.org address in the prose (markdown source on the md track, rendered HTML on the DOCX track)",
+      "observed": "NA: evaluated on the markdown-source row for this package",
+      "compares_to": "the dead-infrastructure rule: that mail host silently fails; comments route via Higher Logic",
+      "result": "NA"
+    },
+    {
+      "check": "dead-lists",
+      "condition": "Links into the retired list archives are flagged for verification",
+      "pulls": "lists.oasis-open.org/archives links in the prose",
+      "observed": "md_lists_addresses: (none)",
+      "compares_to": "each must be individually verified while the archive infrastructure is retired",
+      "result": "PASS"
+    },
+    {
+      "check": "rfc-keywords",
+      "condition": "Normative key words are backed by an RFC 2119 citation",
+      "pulls": "normative key words (MUST, SHALL, SHOULD, MAY, ...) found in the prose",
+      "observed": "normative_keywords_present: True; rfc2119_cited: True; rfc8174_cited: True",
+      "compares_to": "an RFC 2119 citation must be present when key words are used",
+      "result": "PASS"
+    },
+    {
+      "check": "rfc-keywords",
+      "condition": "RFC 2119 citation is paired with RFC 8174",
+      "pulls": "the RFC citations in the document",
+      "observed": "normative_keywords_present: True; rfc2119_cited: True; rfc8174_cited: True",
+      "compares_to": "the current template cites both 2119 and 8174 (uppercase-only clarification)",
+      "result": "PASS"
+    },
+    {
+      "check": "logo",
+      "condition": "The cover logo is the canonical OASIS logo",
+      "pulls": "each logo image source in the markdown",
+      "observed": "logo_sources: https://docs.oasis-open.org/templates/OASISLogo-v3.0.png",
+      "compares_to": "https://docs.oasis-open.org/templates/OASISLogo-v3.0.png",
+      "result": "PASS"
+    },
+    {
+      "check": "previous-stage",
+      "condition": "A stage past 01 cites its previous stage",
+      "pulls": "the URLs in the markdown's Previous-stage block",
+      "observed": "pulled: the URLs in the markdown's Previous-stage block; no violating instance found",
+      "compares_to": "at least one docs.oasis-open.org URL required when the revision number exceeds 01",
+      "result": "PASS"
+    },
+    {
+      "check": "previous-stage",
+      "condition": "A stage past 01 cites its previous stage on the HTML cover",
+      "pulls": "the URLs in the cover's Previous-version block",
+      "observed": "NA: DOCX-render condition; this package carries no Word source",
+      "compares_to": "at least one docs.oasis-open.org URL required when the revision number exceeds 01",
+      "result": "NA"
+    },
+    {
+      "check": "date-sync",
+      "condition": "The markdown front-matter date appears in the HTML",
+      "pulls": "the document date heading from the markdown",
+      "observed": "document_date: 29 April 2025; copyright_year: 2025",
+      "compares_to": "the rendered HTML text (absence means the HTML came from a different revision)",
+      "result": "PASS"
+    },
+    {
+      "check": "date-sync",
+      "condition": "The copyright year matches the document date year",
+      "pulls": "the year in the OASIS copyright line",
+      "observed": "document_date: 29 April 2025; copyright_year: 2025",
+      "compares_to": "the year of the front-matter document date",
+      "result": "PASS"
+    },
+    {
+      "check": "generator",
+      "condition": "A DOCX-native render was produced by Microsoft Word",
+      "pulls": "the HTML Generator meta content",
+      "observed": "NA: DOCX-render condition; this package carries no Word source",
+      "compares_to": "must contain 'Microsoft Word' (a LibreOffice render differs in kind from the TC's precedent)",
+      "result": "NA"
+    },
+    {
+      "check": "vml-fallback",
+      "condition": "Every VML image has an <![if !vml]> img fallback",
+      "pulls": "the counts of v:imagedata elements and vml-fallback img tags",
+      "observed": "vml_images: 0; img_fallbacks: 0",
+      "compares_to": "fallback count must cover VML count (the invisible-cover-logo class)",
+      "result": "PASS"
+    },
+    {
+      "check": "asset-refs",
+      "condition": "Every relative src/href the HTML references is included in the package",
+      "pulls": "each package-relative src/href in the HTML (attribute values flattened across Word line wraps)",
+      "observed": "HTML references 'schemas/informativeCopiesOf3rdPartySchemas/NVH/dmlex.nvh' which is not in the package; it 404s on publication.",
+      "compares_to": "the package file tree; a missing target 404s on publication",
+      "result": "BLOCKER"
+    },
+    {
+      "check": "conformance-structure",
+      "condition": "At least one Conformance heading is a genuine top-level numbered section (not nested deeper than the document's modal top-level depth, and not under an Annex/Appendix ancestor)",
+      "pulls": "every heading's nesting level, leading number prefix, and Annex/Appendix ancestor chain (markdown ATX headings, or rendered HTML h1-h6 on the DOCX-native track), with code-block content stripped first",
+      "observed": "stage_prefix: os; headings_scanned: 327; conformance_candidates: 1; modal_top_level: 1; modal_confidence: high; profiles_found: 1; clauses_extracted: 0; previous_stage_url: https://docs.oasis-open.org/lexidma/dmlex/v1.0/cs01/dmlex-v1.0-cs01.html; previous_stage_resolved: True; previous_stage_is_html: True; cs_to_os_transition: True",
+      "compares_to": "handbook-Conformance.txt: 'a separate, top-level numbered section of the work product (not a subsection buried elsewhere)'; BLOCKER at cs/os (WARN at wd/csd, or when the modal-depth signal itself is low-confidence)",
+      "result": "PASS"
+    },
+    {
+      "check": "conformance-structure",
+      "condition": "Each conformance profile scope yields at least one extracted clause identifier",
+      "pulls": "numbered sub-headings and paragraph-leading 'Clause N'/bracketed target-id labels within the Conformance section span, scoped per named profile",
+      "observed": "Conformance section is not populated with numbered clauses: no clause identifiers were extracted.",
+      "compares_to": "handbook-WPQualityRequirements.txt: 'a set of numbered conformance clauses to which any implementation must adhere'; BLOCKER at cs/os, WARN at wd/csd; an empty Conformance section is reported at either tier",
+      "result": "WARN"
+    },
+    {
+      "check": "conformance-structure",
+      "condition": "No clause identifier repeats within the same profile scope",
+      "pulls": "the extracted clause-identifier set, scoped per named conformance profile (Core/Extended-style sub-headings matching 'Profile'/'Level')",
+      "observed": "stage_prefix: os; headings_scanned: 327; conformance_candidates: 1; modal_top_level: 1; modal_confidence: high; profiles_found: 1; clauses_extracted: 0; previous_stage_url: https://docs.oasis-open.org/lexidma/dmlex/v1.0/cs01/dmlex-v1.0-cs01.html; previous_stage_resolved: True; previous_stage_is_html: True; cs_to_os_transition: True",
+      "compares_to": "handbook-Conformance.txt: 'individually numbered conformance clauses ... so that implementers and Statements of Use can cite specific clauses by number'; BLOCKER at cs/os, WARN at wd/csd",
+      "result": "PASS"
+    },
+    {
+      "check": "conformance-structure",
+      "condition": "Every (profile, clause number) pair in the previous stage is still present in this stage (append-only extension is fine; removal/renumbering, including a whole profile silently disappearing, is flagged)",
+      "pulls": "the ((profile, clause number) -> content hash) map extracted from the resolvable previous-stage artifact, diffed against this stage's map",
+      "observed": "stage_prefix: os; headings_scanned: 327; conformance_candidates: 1; modal_top_level: 1; modal_confidence: high; profiles_found: 1; clauses_extracted: 0; previous_stage_url: https://docs.oasis-open.org/lexidma/dmlex/v1.0/cs01/dmlex-v1.0-cs01.html; previous_stage_resolved: True; previous_stage_is_html: True; cs_to_os_transition: True",
+      "compares_to": "handbook-WPQualityRequirements.txt 'Key principles': 'Clause numbering must be unique and stable across revisions'. Guidelines-sourced (recommended, not mandatory) so WARN-tier informational, never BLOCKER, and never fired for the CS->OS transition (that gets the zero-tolerance override instead)",
+      "result": "PASS"
+    },
+    {
+      "check": "conformance-structure",
+      "condition": "A (profile, clause number) pair missing from this stage does not reappear under a DIFFERENT number in the same profile with the same content (a disguised renumber-via-delete-and-re-add)",
+      "pulls": "content-hash collisions between a previous-stage clause and any current-stage clause, scoped within the same profile",
+      "observed": "stage_prefix: os; headings_scanned: 327; conformance_candidates: 1; modal_top_level: 1; modal_confidence: high; profiles_found: 1; clauses_extracted: 0; previous_stage_url: https://docs.oasis-open.org/lexidma/dmlex/v1.0/cs01/dmlex-v1.0-cs01.html; previous_stage_resolved: True; previous_stage_is_html: True; cs_to_os_transition: True",
+      "compares_to": "the same Guidelines stability principle as 'removed/renumbered'; WARN-tier informational",
+      "result": "PASS"
+    },
+    {
+      "check": "conformance-structure",
+      "condition": "At the CS->OS transition, the current (profile, clause id) key set is a byte-for-byte match to the approved-CS key set, scoped per profile, so a whole profile silently dropped while a surviving profile happens to reuse its bare clause numbers is still caught",
+      "pulls": "the (profile, clause-identifier) sets extracted from the OS package and from the artifact named by its Previous-stage URI (verified to be the approved CS by stage token), each parsed with the extractor matching that artifact's own format (markdown or rendered HTML)",
+      "observed": "stage_prefix: os; headings_scanned: 327; conformance_candidates: 1; modal_top_level: 1; modal_confidence: high; profiles_found: 1; clauses_extracted: 0; previous_stage_url: https://docs.oasis-open.org/lexidma/dmlex/v1.0/cs01/dmlex-v1.0-cs01.html; previous_stage_resolved: True; previous_stage_is_html: True; cs_to_os_transition: True",
+      "compares_to": "handbook-Conformance.txt 'OASIS Standard os': 'Conformance clauses are preserved unchanged from the approved Committee Specification' (TC Process 2.9): zero tolerance, always BLOCKER",
+      "result": "PASS"
+    },
+    {
+      "check": "conformance-structure",
+      "condition": "A clause whose (profile, number) key is unchanged at CS->OS is flagged for manual confirmation when its content hash changed",
+      "pulls": "content-hash comparison, per (profile, clause number) key, between the approved CS and the OS package, restricted to keys present in both sets",
+      "observed": "stage_prefix: os; headings_scanned: 327; conformance_candidates: 1; modal_top_level: 1; modal_confidence: high; profiles_found: 1; clauses_extracted: 0; previous_stage_url: https://docs.oasis-open.org/lexidma/dmlex/v1.0/cs01/dmlex-v1.0-cs01.html; previous_stage_resolved: True; previous_stage_is_html: True; cs_to_os_transition: True",
+      "compares_to": "handbook-WPQualityRequirements.txt 'Allowed changes during publication': coordinated non-material changes are permitted (TC Process 2.2.4); not itself a zero-tolerance failure, so WARN/manual-review, never an automatic BLOCKER",
+      "result": "PASS"
+    },
+    {
+      "check": "conformance-structure",
+      "condition": "At the CS->OS transition, the approved-CS baseline artifact must be resolvable to verify clause-set preservation at all",
+      "pulls": "the resolution outcome (local sibling stage directory, then network fetch) of the Previous-stage URI naming the approved CS",
+      "observed": "stage_prefix: os; headings_scanned: 327; conformance_candidates: 1; modal_top_level: 1; modal_confidence: high; profiles_found: 1; clauses_extracted: 0; previous_stage_url: https://docs.oasis-open.org/lexidma/dmlex/v1.0/cs01/dmlex-v1.0-cs01.html; previous_stage_resolved: True; previous_stage_is_html: True; cs_to_os_transition: True",
+      "compares_to": "TC Process 2.9's preservation obligation cannot be verified for a Standards Track OS approval if the CS baseline is unreachable, so it is elevated to BLOCKER rather than reported as a silent WARN",
+      "result": "PASS"
+    },
+    {
+      "check": "conformance-structure",
+      "condition": "A general (non-CS->OS) stability diff that could not resolve its previous-stage artifact says so in the report",
+      "pulls": "the resolution outcome of the Previous-stage URI",
+      "observed": "stage_prefix: os; headings_scanned: 327; conformance_candidates: 1; modal_top_level: 1; modal_confidence: high; profiles_found: 1; clauses_extracted: 0; previous_stage_url: https://docs.oasis-open.org/lexidma/dmlex/v1.0/cs01/dmlex-v1.0-cs01.html; previous_stage_resolved: True; previous_stage_is_html: True; cs_to_os_transition: True",
+      "compares_to": "the general stability check is WARN-tier informational; an unresolvable prior artifact (first publication is a separate, silent no-op) still surfaces the gap as a WARN",
+      "result": "PASS"
+    },
+    {
+      "check": "references-split",
+      "condition": "A bare 'References' heading carrying 2+ direct reference entries is split into separately labeled Normative/Informative child headings (or is too small a sample, 0 or 1 entries, to judge)",
+      "pulls": "H1-H3 headings normalizing to 'references' plus the distinct reference-entry IDs found directly in that heading's own span (before its first immediate-child heading)",
+      "observed": "stage_prefix: os; stage_track: standards; references_headings_found: 0",
+      "compares_to": "handbook-WPQualityChecklist.txt editorial quality checklist bullet: 'normative references listed separately from informative references' (WARN: staff-maintained best-practice checklist, not a TC Process must/shall clause)",
+      "result": "PASS"
+    },
+    {
+      "check": "references-split",
+      "condition": "No reference-entry ID appears under both a Normative References heading and an Informative References heading anywhere in the document",
+      "pulls": "the set of reference-entry IDs found in the span of every 'normative references'-classified heading, and the same for every 'informative references'-classified heading",
+      "observed": "stage_prefix: os; stage_track: standards; references_headings_found: 0",
+      "compares_to": "the two ID sets must not intersect; a shared ID is a labeling inconsistency or editorial duplication (handbook-WPQualityChecklist.txt same checklist bullet)",
+      "result": "PASS"
+    },
+    {
+      "check": "content-labels",
+      "condition": "Every Examples/Illustrative-Examples/Sample-<noun> heading carries a structural content-type label (heading suffix, first-sentence lead/predicate, labeled ancestor heading, or document-wide blanket statement)",
+      "pulls": "markdown ATX/setext headings (or, DOCX-native track, rendered HTML h1-h6 elements via an HTMLParser walk, entities decoded), in document order, each with its heading text, nesting level, and the first sentence of the body block immediately following it",
+      "observed": "Examples-pattern heading 'A.1 Examples (Informative) <a id='examples'></a>' (markdown line 5708) carries no content-type label (heading suffix, first-sentence statement, labeled ancestor heading, or document-wide blanket statement): the Handbook classifies Examples as non-normative content and says it should be clearly labelled 'Non-normative' (or 'Informative').",
+      "compares_to": "handbook-Conformance.txt 'Normative versus non-normative content': Examples content is classified non-normative and 'should be clearly labelled'",
+      "result": "WARN"
+    },
+    {
+      "check": "stage-token",
+      "condition": "Previous-stage URL stage token is not a retired abbreviation",
+      "pulls": "the stage-abbreviation token extracted from the Previous-stage URL's directory segment and/or filename stem",
+      "observed": "applicability: not applicable (stage 'os' is not csd/cnd)",
+      "compares_to": "retired token set (csprd, cnprd, cos, csdpr, cndpr) per Naming Directives v1.7; WARN with a legacy-URI verification caveat since a pre-2024 Previous-stage URI may permanently retain a retired token (naming-directives.txt 6.3 Resource Permanence)",
+      "result": "PASS"
+    },
+    {
+      "check": "stage-token",
+      "condition": "Previous-stage URL stage token matches the document's own current csd/cnd stage abbreviation or the track's approved-stage counterpart",
+      "pulls": "the stage-abbreviation token extracted from the Previous-stage URL's directory segment and/or filename stem",
+      "observed": "applicability: not applicable (stage 'os' is not csd/cnd)",
+      "compares_to": "the document's own current stage token, or the track's approved-stage set (csd: cs/os/errata; cnd: cn) when the block links a previous VERSION at its own approved stage (handbook-PublicReviews.txt: the cover page URIs 'should all reflect the csd stage abbreviation')",
+      "result": "PASS"
+    },
+    {
+      "check": "stage-token",
+      "condition": "Latest-stage URL's filename embeds no stage-abbreviation/revision token at all",
+      "pulls": "the filename-stem-position stage-abbreviation token (if any) extracted from the Latest-stage URL",
+      "observed": "applicability: not applicable (stage 'os' is not csd/cnd)",
+      "compares_to": "naming-directives.txt 6.2: the Latest-stage locator URI 'does not contain the path component [stage-abbrev][revisionNumber] or stage identifier in the filename', an absolute prohibition independent of whether the token matches the current stage",
+      "result": "PASS"
+    },
+    {
+      "check": "title-version",
+      "condition": "The rendered cover-page title incorporates the package's own Version identifier",
+      "pulls": "the resolved cover-page title text (HTML <title>/<h1> on the markdown track, the MsoTitle-styled or first non-empty non-logo cover paragraph on the DOCX-native track)",
+      "observed": "stage: os; title_source: HTML <title>/<h1>; title_text: Data Model for Lexicography (DMLex) Version 1.0; evaluated: no",
+      "compares_to": "naming-directives.txt 5.1: 'A Version identifier must also be incorporated into a Work Product name/title'",
+      "result": "PASS"
+    },
+    {
+      "check": "title-version",
+      "condition": "The Version cited in the title agrees with the package's own Version identifier",
+      "pulls": "the numeric run of the rightmost 'Version <n>' token in the resolved title",
+      "observed": "stage: os; title_source: HTML <title>/<h1>; title_text: Data Model for Lexicography (DMLex) Version 1.0; evaluated: no",
+      "compares_to": "the package's own Version identifier (the version directory segment, with a leading 'v' stripped per naming-directives.txt Section 4's [version-id] grammar)",
+      "result": "PASS"
+    },
+    {
+      "check": "title-version",
+      "condition": "The title's Version token is composed as '<name/identifier> Version <number>' with no forbidden punctuation before it and only a sanctioned continuation after it",
+      "pulls": "the characters immediately preceding and following the rightmost 'Version <n>' token in the resolved title, and the stage token's track classification",
+      "observed": "stage: os; title_source: HTML <title>/<h1>; title_text: Data Model for Lexicography (DMLex) Version 1.0; evaluated: no",
+      "compares_to": "naming-directives.txt Section 7: MUST for Standards Track (csd/cs/os/errata) -> BLOCKER; SHOULD for Non-Standards Track (cnd/cn) -> WARN with the 'reasonable grounds for alternate constructions' exception; WARN also for any stage token outside the six Section-5.2-enumerated tokens (track unresolved, no corpus citation, never escalated to BLOCKER on an uncited classification)",
+      "result": "PASS"
+    },
+    {
+      "check": "title-oasis-prefix",
+      "condition": "The Work Product title (the <h1> identified by _h1_title_match_info's 'exact' or 'singular-related-fallback' classification) does not begin with the word 'OASIS'",
+      "pulls": "the <h1> text identified by _h1_title_match_info: either the single <h1> exactly matching the rendered <title> text (the same match check_html's own D1 lint uses for its duplicate-title finding), or, when no exact match exists, the document's sole <h1> when it shares a prefix relationship with <title> (e.g. a trailing brand suffix on <title> alone), flagged lower-confidence in that case",
+      "observed": "title_source: not applicable -- html-residue D1 classification is 'ambiguous': 0 <h1> element(s) exactly matching the <title> text out of 14 <h1> element(s) total (need exactly 1 matching, or exactly 1 <h1> total as a fallback)",
+      "compares_to": "naming-directives.txt s7: 'Preferably, a title should not begin with the name \"OASIS\" except on the recommendation of Project Administration for special cases.' Section 7's lead sentence track-scopes this to BLOCKER (Standards Track, must-observe) / WARN (Non-Standards Track, should-follow with an additional alternate-construction escape valve).",
+      "result": "PASS"
+    },
+    {
+      "check": "authors",
+      "condition": "A Technical Report/Technical Report Draft names its Authors on the cover page (heading or title-block byline)",
+      "pulls": "a '## Authors'/'## Author(s)' heading (scoped to the front-matter window through Abstract), or a 'by <Name>' title-block byline (scoped to the title/type-label window), on a package whose cover-adjacent type label is Technical Report or Technical Report Draft",
+      "observed": "work_product_type: oasis standard",
+      "compares_to": "TC Handbook, Technical Reports: 'A Technical Report has one or more named Authors ... recorded on the cover page'",
+      "result": "PASS"
+    },
+    {
+      "check": "authors",
+      "condition": "The Authors heading/byline is not empty or placeholder-only (tbd/n/a/none), including list/task/blockquote-dressed variants",
+      "pulls": "each line under the Authors heading (or the byline content), with list/task/blockquote markup and whitespace stripped",
+      "observed": "work_product_type: oasis standard",
+      "compares_to": "at least one non-placeholder named entry must remain",
+      "result": "PASS"
+    },
+    {
+      "check": "authors",
+      "condition": "A Technical Report Draft's Authors section is not left on the registry's own tolerated 'Will be filled in' placeholder indefinitely (WARN while still a TRD)",
+      "pulls": "the Authors heading content (or byline content) when it normalizes to exactly the 'will be filled in' placeholder, on a package classified TRD",
+      "observed": "work_product_type: oasis standard",
+      "compares_to": "the existing residue-check precedent (check='residue') tolerating 'Will be filled in' pre-CS, scoped here to the Authors record of an in-progress Technical Report Draft",
+      "result": "PASS"
+    },
+    {
+      "check": "authors",
+      "condition": "An approved (non-draft) Technical Report's Authors section is resolved, not still the 'Will be filled in' placeholder",
+      "pulls": "the Authors heading content (or byline content) on a package classified as the final Technical Report (not TRD)",
+      "observed": "work_product_type: oasis standard",
+      "compares_to": "the TRD-stage 'will be filled in' tolerance does not survive Full Majority Vote approval to the final Technical Report",
+      "result": "PASS"
+    },
+    {
+      "check": "name-chars",
+      "condition": "No underscore in an identifying (document-URI-bearing) package name",
+      "pulls": "the stage directory name, the version directory name, each stage-root delivery-item filename sharing the package's established basename, and any Multi-Part partN-name directory/file",
+      "observed": "names_scanned: 91; identifying_stage: os; identifying_version: v1.0; multi_part_dirs: (none); junk_dirs_skipped: (none)",
+      "compares_to": "STRICT allowlist [A-Za-z0-9.-]. Naming Directives v1.7 s3: an UNDERSCORE 'must never be used in a filename or directory name that is used in a document URI'",
+      "result": "PASS"
+    },
+    {
+      "check": "name-chars",
+      "condition": "No character outside the sixty-four permitted characters in an identifying package name",
+      "pulls": "the stage directory name, the version directory name, each stage-root delivery-item filename sharing the package's established basename, and any Multi-Part partN-name directory/file",
+      "observed": "names_scanned: 91; identifying_stage: os; identifying_version: v1.0; multi_part_dirs: (none); junk_dirs_skipped: (none)",
+      "compares_to": "STRICT allowlist [A-Za-z0-9.-]. Naming Directives v1.7 s3: 'TCs must use only the sixty-four characters from among alphanumerics [A-Za-z0-9] and the two punctuation characters ... PERIOD ... and ... HYPHEN'",
+      "result": "PASS"
+    },
+    {
+      "check": "name-chars",
+      "condition": "No character outside the sixty-four permitted characters plus UNDERSCORE in a supporting (non-identifying) package name",
+      "pulls": "every filename and directory basename in the package tree outside the identifying set",
+      "observed": "names_scanned: 91; identifying_stage: os; identifying_version: v1.0; multi_part_dirs: (none); junk_dirs_skipped: (none)",
+      "compares_to": "BASE allowlist [A-Za-z0-9._-]. Naming Directives v1.7 s3 base 'must use only' clause, with UNDERSCORE included per the conditional tolerance",
+      "result": "PASS"
+    },
+    {
+      "check": "name-chars",
+      "condition": "An identifying (document-URI-bearing) package name is non-empty",
+      "pulls": "the stage directory name, the version directory name, each stage-root delivery-item filename sharing the package's established basename, and any Multi-Part partN-name directory/file",
+      "observed": "names_scanned: 91; identifying_stage: os; identifying_version: v1.0; multi_part_dirs: (none); junk_dirs_skipped: (none)",
+      "compares_to": "STRICT test ^[A-Za-z0-9.-]+$: the '+' quantifier requires at least one character, so an empty identifying name trivially fails the sixty-four-permitted-character allowlist; mirrors how check_stage_name's and check_version_naming's own fullmatch patterns already reject an empty stage/version token without any special-casing",
+      "result": "PASS"
+    },
+    {
+      "check": "extension-count",
+      "condition": "A stage-directory-root delivery item (the established document-identifier stem plus one packaged format) carries at least one file extension",
+      "pulls": "each delivery-item basename in items, with the 'filenames' check's already-validated shared stem subtracted from the front (only when the basename shares a clean extension boundary with the stem)",
+      "observed": "tier_a_files_checked: dmlex-v1.0-os.html, dmlex-v1.0-os.md, dmlex-v1.0-os.pdf; tier_a_severity: BLOCKER; tier_b_files_checked: 63; tier_b_flagged: (none)",
+      "compares_to": "Naming Directives v1.7 s4: 'A single file(name) extension must be used in each filename except for a recognized set of extensionless filenames in common use.' BLOCKER at published stages, WARN at wd (s5.2 Note: working drafts 'may use any file naming pattern preferred by the TC'); wd-stage match is case-folded.",
+      "result": "PASS"
+    },
+    {
+      "check": "extension-count",
+      "condition": "A stage-directory-root delivery item carries exactly one file extension after the stem (or one blessed compound: tar.gz/tar.bz2/tar.xz, and only when that compound is the WHOLE remaining suffix)",
+      "pulls": "each delivery-item basename in items, with the shared stem subtracted from the front, split into trailing dot-segments (an empty segment from a doubled or trailing dot is kept, so a malformed name is still counted)",
+      "observed": "tier_a_files_checked: dmlex-v1.0-os.html, dmlex-v1.0-os.md, dmlex-v1.0-os.pdf; tier_a_severity: BLOCKER; tier_b_files_checked: 63; tier_b_flagged: (none)",
+      "compares_to": "Naming Directives v1.7 s4's single-extension rule, structurally against the same stem boundary the 'filenames' check already validates. BLOCKER at published stages, WARN at wd.",
+      "result": "PASS"
+    },
+    {
+      "check": "extension-count",
+      "condition": "A non-delivery-item (Tier B) file with zero dots is one of the three literally recognized extensionless names",
+      "pulls": "every file basename in the package tree outside the Tier A delivery-item set, junk-files' forbidden names and forbidden directories, and dotfiles",
+      "observed": "tier_a_files_checked: dmlex-v1.0-os.html, dmlex-v1.0-os.md, dmlex-v1.0-os.pdf; tier_a_severity: BLOCKER; tier_b_files_checked: 63; tier_b_flagged: (none)",
+      "compares_to": "Naming Directives v1.7 s9: 'Exceptions to the rule that every filename must include a file extension include: CATALOG or catalog, README, ChangeLog.' Non-blocking WARN per s4's Applicability carve-out for non-identification-pattern files.",
+      "result": "PASS"
+    },
+    {
+      "check": "extension-count",
+      "condition": "A non-delivery-item (Tier B) dotted filename's penultimate segment does not look like a known extension token (or the trailing pair is a blessed compound)",
+      "pulls": "every dotted file basename in the package tree outside the Tier A delivery-item set, junk-files' forbidden names and forbidden directories, and dotfiles; its last two dot-segments",
+      "observed": "tier_a_files_checked: dmlex-v1.0-os.html, dmlex-v1.0-os.md, dmlex-v1.0-os.pdf; tier_a_severity: BLOCKER; tier_b_files_checked: 63; tier_b_flagged: (none)",
+      "compares_to": "A disclosed, non-exhaustive known-extension-token vocabulary (not an IANA-derived classification); flagged only as a non-blocking heuristic pattern-match advisory per s4's Applicability carve-out for non-identification-pattern files (schemas, images, WSDLs, XML/JSON artifacts).",
+      "result": "PASS"
+    },
+    {
+      "check": "extension-conformance",
+      "condition": "Every root principal/stage-identifying filename and every Multi-Part named-part filename uses an extension that matches a common OASIS publication rendering format",
+      "pulls": "the file extension token (lowercased, split on the last '.') of every root-level filename that shares the package's known delivery stem, and every filename anywhere in the package whose stem is that same delivery stem plus '-part<N>-<partName>'",
+      "observed": "principal_files: dmlex-v1.0-os.html, dmlex-v1.0-os.md, dmlex-v1.0-os.pdf; named_part_files: (none)",
+      "compares_to": "a curated allowlist of common OASIS document/publication rendering-format extensions (txt, md, html, htm, pdf, doc, docx, odt, ods, odp, xls, xlsx, ppt, pptx, rtf, xml, json, epub), per Naming Directives Section 4 'File extensions should conform to industry best practice, matching well-known IANA MIME Media Types'; filenames on the Section 9 extensionless allowlist (CATALOG, catalog, README, ChangeLog) are exempt",
+      "result": "PASS"
+    },
+    {
+      "check": "artifact-naming",
+      "condition": "A non-document-identifier artifact's own filename does not embed a stage+revision token",
+      "pulls": "the full basename of every package file outside the delivery items, the delivery-stem-plus-recognized-suffix set (multi-part -partN-partName / public-review-metadata / comment-resolution-log, each restricted to the extensions a real prose side-file carries), and package-management files (manifest, checksum manifests, exact README/LICENSE variants, _audit/, OS junk)",
+      "observed": "supporting_files_scanned: 63; stage_revision_matches: 0",
+      "compares_to": "Naming Directives s4: 'it is considered inadvisable to incorporate instance-specific [stage][revision] data for any release in filenames other than in the document identifier files ... thus mySchema.xsd but NOT mySchema-csd02.xsd'; TCs are advised to use named subdirectories and retain stable/identical filenames per s5.2/5.3's stage-abbreviation and two-digit-revision definitions",
+      "result": "PASS"
+    },
+    {
+      "check": "multi-part-naming",
+      "condition": "Every Multi-Part Work Product part filename embeds the identical WP-abbrev token",
+      "pulls": "the WP-abbrev token from every stage-root and part-subdirectory filename matching the Multi-Part Naming Directives grammar (<WP-abbrev>-<version-id>-<stage-abbrev><rev>-part<N>-<partName>)",
+      "observed": "part_subdirs_scanned: (none); part_subdirs_unreadable: (none); matched_part_grammar_files: (none); part_grammar_files: 0; distinct_parts: 0; naming20_entries_scanned: 3; naming20_cores_resolved: dmlex-v1.0-os; naming20_core: dmlex-v1.0-os; naming20_distinct_tails: ",
+      "compares_to": "the set of distinct WP-abbrev tokens across all matched part filenames must collapse to exactly one value, per TC Process 2.2.3's single Work Product name and the Handbook's Multi-part work products restatement",
+      "result": "PASS"
+    },
+    {
+      "check": "multi-part-naming",
+      "condition": "Every Multi-Part Work Product part filename embeds the identical version-id token",
+      "pulls": "the version-id token from every stage-root and part-subdirectory filename matching the Multi-Part Naming Directives grammar (<WP-abbrev>-<version-id>-<stage-abbrev><rev>-part<N>-<partName>)",
+      "observed": "part_subdirs_scanned: (none); part_subdirs_unreadable: (none); matched_part_grammar_files: (none); part_grammar_files: 0; distinct_parts: 0; naming20_entries_scanned: 3; naming20_cores_resolved: dmlex-v1.0-os; naming20_core: dmlex-v1.0-os; naming20_distinct_tails: ",
+      "compares_to": "the set of distinct version-id tokens across all matched part filenames must collapse to exactly one value, per TC Process 2.2.3's single Work Product version number and the Handbook's Multi-part work products restatement",
+      "result": "PASS"
+    },
+    {
+      "check": "multi-part-naming",
+      "condition": "No bare CORE.ext delivery filename coexists with genuine part files",
+      "pulls": "delivery-item stems sharing one <wp>-<version>-<stage> core, and their tails",
+      "observed": "part_subdirs_scanned: (none); part_subdirs_unreadable: (none); matched_part_grammar_files: (none); part_grammar_files: 0; distinct_parts: 0; naming20_entries_scanned: 3; naming20_cores_resolved: dmlex-v1.0-os; naming20_core: dmlex-v1.0-os; naming20_distinct_tails: ",
+      "compares_to": "naming-directives.txt s4: the single-part bare-CORE filename rule does not apply once the package is multi-part",
+      "result": "PASS"
+    },
+    {
+      "check": "multi-part-naming",
+      "condition": "Every non-canonical delivery filename sharing the package core carries a well-formed -part<N>-<name> segment",
+      "pulls": "the tail (text after the resolved <wp>-<version>-<stage> core) of each in-scope delivery filename",
+      "observed": "part_subdirs_scanned: (none); part_subdirs_unreadable: (none); matched_part_grammar_files: (none); part_grammar_files: 0; distinct_parts: 0; naming20_entries_scanned: 3; naming20_cores_resolved: dmlex-v1.0-os; naming20_core: dmlex-v1.0-os; naming20_distinct_tails: ",
+      "compares_to": "Naming Directives v1.7 s4 multi-part filename grammar: literal lowercase 'part' + Arabic numeral + hyphen + partName, positioned before the extension",
+      "result": "PASS"
+    },
+    {
+      "check": "multi-part-naming",
+      "condition": "A part file discovered inside an Option-1 URI part-subdirectory agrees with that subdirectory's own [partNumber]-[partName] segment",
+      "pulls": "the part number/name parsed from the filename tail and from its containing part-subdirectory name",
+      "observed": "part_subdirs_scanned: (none); part_subdirs_unreadable: (none); matched_part_grammar_files: (none); part_grammar_files: 0; distinct_parts: 0; naming20_entries_scanned: 3; naming20_cores_resolved: dmlex-v1.0-os; naming20_core: dmlex-v1.0-os; naming20_distinct_tails: ",
+      "compares_to": "naming-directives.txt s6.1 (Option 1): the subdirectory segment and the filename's part identifier must name the same part",
+      "result": "PASS"
+    },
+    {
+      "check": "multi-part-naming",
+      "condition": "Each part number maps to exactly one partName across every format variant and discovery location",
+      "pulls": "the (number, partName) pairs extracted from every in-scope filename tail",
+      "observed": "part_subdirs_scanned: (none); part_subdirs_unreadable: (none); matched_part_grammar_files: (none); part_grammar_files: 0; distinct_parts: 0; naming20_entries_scanned: 3; naming20_cores_resolved: dmlex-v1.0-os; naming20_core: dmlex-v1.0-os; naming20_distinct_tails: ",
+      "compares_to": "Naming Directives v1.7 s4: partNumber identifies one distinct separately-titled prose part, not two",
+      "result": "PASS"
+    },
+    {
+      "check": "multi-part-naming",
+      "condition": "Part numbering for a multi-part package begins at 1",
+      "pulls": "the sorted set of unique part numbers found across the package's in-scope delivery filenames",
+      "observed": "part_subdirs_scanned: (none); part_subdirs_unreadable: (none); matched_part_grammar_files: (none); part_grammar_files: 0; distinct_parts: 0; naming20_entries_scanned: 3; naming20_cores_resolved: dmlex-v1.0-os; naming20_core: dmlex-v1.0-os; naming20_distinct_tails: ",
+      "compares_to": "naming-directives.txt s4: partNumber begins with the number '1' (for Part 1)",
+      "result": "PASS"
+    },
+    {
+      "check": "multi-part-naming",
+      "condition": "Part numbering for a multi-part package is contiguous with no gaps",
+      "pulls": "the sorted set of unique part numbers found across the package's in-scope delivery filenames",
+      "observed": "part_subdirs_scanned: (none); part_subdirs_unreadable: (none); matched_part_grammar_files: (none); part_grammar_files: 0; distinct_parts: 0; naming20_entries_scanned: 3; naming20_cores_resolved: dmlex-v1.0-os; naming20_core: dmlex-v1.0-os; naming20_distinct_tails: ",
+      "compares_to": "naming-directives.txt s4: partNumber increases monotonically (2, 3, 4, ...) for other parts, i.e. the exact sequence [1, 2, ..., N]",
+      "result": "PASS"
+    },
+    {
+      "check": "public-review-metadata",
+      "condition": "A live, published csd/cnd stage directory confirmed (by tiered evidence) and successfully scanned to have undergone TC public review carries the required public-review-metadata companion file",
+      "pulls": "the LIVE docs.oasis-open.org stage-directory-root filename listing (fetched over the network, post-publication audit only), plus a same-revision comment-resolution-log or a downstream cs/errata stage's own Previous-stage cover URL as evidence the review occurred",
+      "observed": "pulled: the LIVE docs.oasis-open.org stage-directory-root filename listing (fetched over the network, post-publication audit only), plus a same-revision comment-resolution-log or a downstream cs/errata stage's own Previous-stage cover URL as evidence the review occurred; no violating instance found",
+      "compares_to": "the exact, case-sensitive filename [WP-abbrev]-[version-id]-[stage-abbrev][revisionNumber]-public-review-metadata.html (naming-directives.txt 5.2; handbook-Naming.txt 'Public-review metadata filename (new in v1.7)')",
+      "result": "PASS"
+    },
+    {
+      "check": "public-review-metadata",
+      "condition": "A present public-review-metadata companion file is non-empty",
+      "pulls": "the byte length of the fetched companion file",
+      "observed": "pulled: the byte length of the fetched companion file; no violating instance found",
+      "compares_to": "naming-directives.txt 5.2: the file 'provides a publication history of the Work Product' (content validation itself is out of scope for this check; only non-zero size is tested here)",
+      "result": "PASS"
+    },
+    {
+      "check": "public-review-metadata",
+      "condition": "A public-review-metadata companion file listed in the live directory is actually reachable so its content can be evaluated",
+      "pulls": "the HTTP status of a direct fetch of the listed companion filename",
+      "observed": "pulled: the HTTP status of a direct fetch of the listed companion filename; no violating instance found",
+      "compares_to": "a listing entry alone is not proof of a readable file; an unreachable listed file stays an open advisory rather than a silent, unreviewed pass",
+      "result": "PASS"
+    },
+    {
+      "check": "comment-resolution-log",
+      "condition": "A file resembling a comment-resolution-log, if present in a CSD/CND stage directory that itself carries a public-review-metadata file, carries the exact basename Naming Directives prescribes",
+      "pulls": "the sibling file listing of the stage directory root (immediate siblings of the document-identifier files only, per naming-directives.txt's 'directory with the CSD or CND' scoping); whether any sibling basename (extension stripped, hyphen/underscore-normalized) contains 'commentresolutionlog' without exactly matching the expected basename under a plausible-format extension",
+      "observed": "gate: not applicable: stage 'os' is not csd/cnd",
+      "compares_to": "the expected basename [stem]-comment-resolution-log against naming-directives.txt s5.2's filename pattern for a produced comment resolution log",
+      "result": "PASS"
+    },
+    {
+      "check": "comment-resolution-log",
+      "condition": "Where in-package evidence (a later-stage sibling directory) shows a CSD/CND public review has demonstrably concluded, a comment-resolution-log basename match was sought and not found",
+      "pulls": "the sibling file listing of the stage directory root; the presence of a later-stage sibling directory (cs/os/errata for a csd gate, cn for a cnd gate) alongside this stage directory, as the review-concluded closure signal",
+      "observed": "gate: not applicable: stage 'os' is not csd/cnd",
+      "compares_to": "tc-process.txt s2.6/s2.7 (comment disposition is required to be posted to the TC's e-mail lists; the downstream approval ballot may only commence once every comment is resolved) against handbook-PublicReviews.txt's 'best practice, not a normative filing mandate' framing for HOW that record is kept",
+      "result": "PASS"
+    },
+    {
+      "check": "normdef-refs",
+      "condition": "Every candidate normative-definition file (schema/grammar/code plain-text file, excluding example/sample/test-case/non-normative and pipeline/asset directories) is referenced from the Work Product",
+      "pulls": "each candidate file's package-relative path and basename, tested via structured link/href/src/schemaLocation/$ref target extraction (path-level, then basename-level) against the spec's own text (or rendered HTML on the DOCX track), every OTHER candidate file's own content and extracted targets, and manifest.json (package root only)/top-level README-or-index text, all normalized (URL-decode, Unicode NFC)",
+      "observed": "candidates: schemas/JSON/dmlex.schema.json, schemas/JSON/dmlex_no-crosslingual.schema.json, schemas/XML/dmlex.xsd, schemas/XML/dmlex_no-crosslingual.xsd; orphans: 0; ambiguous_basename_only: 0",
+      "compares_to": "TC Process 2.2.5: 'Each text file must be referenced from the Work Product; and'. Standards Track (csd, cs, os, errata) only",
+      "result": "PASS"
+    },
+    {
+      "check": "normdef-refs",
+      "condition": "A basename-only match among candidate files sharing that basename in different directories is flagged for confirmation rather than silently satisfying the requirement for every tied file",
+      "pulls": "candidate files sharing an identical basename in different package directories, and whether any reference to that basename in the corpus is path-qualified",
+      "observed": "candidates: schemas/JSON/dmlex.schema.json, schemas/JSON/dmlex_no-crosslingual.schema.json, schemas/XML/dmlex.xsd, schemas/XML/dmlex_no-crosslingual.xsd; orphans: 0; ambiguous_basename_only: 0",
+      "compares_to": "TC Process 2.2.5's reference requirement; an ambiguous basename-only match does not unambiguously resolve which file was referenced",
+      "result": "PASS"
+    },
+    {
+      "check": "uri-alias",
+      "condition": "No live META-refresh element in any delivered HTML file",
+      "pulls": "every <meta> tag in each .html/.htm/.xhtml file, HTML-tokenized (comments/<script>/<style>/<pre>/<code>/<template> excluded)",
+      "observed": "prong_a_html_files_scanned: 1; prong_b_files_hashed: 66; prong_b_duplicate_buckets: 0; prong_b_unreadable_entries_skipped: 0; prong_c_md_block_urls_scanned: 6; prong_c_md_anchor_links_scanned: 924; prong_c_md_bare_urls_scanned: 40",
+      "compares_to": "Naming Directives v1.7 s6.5(a): unauthorized URI aliasing via META-refresh elements is barred",
+      "result": "PASS"
+    },
+    {
+      "check": "uri-alias",
+      "condition": "No stage-root delivery file or manifest-cited file (by exact package-relative path) shares byte-identical content with another package-relative path",
+      "pulls": "sha256 of every regular file (symlinks resolved to their in-package target's bytes) in the stage/revision directory",
+      "observed": "prong_a_html_files_scanned: 1; prong_b_files_hashed: 66; prong_b_duplicate_buckets: 0; prong_b_unreadable_entries_skipped: 0; prong_c_md_block_urls_scanned: 6; prong_c_md_anchor_links_scanned: 924; prong_c_md_bare_urls_scanned: 40",
+      "compares_to": "Naming Directives v1.7 s6.5(b): preparing files with identical content under two different filenames within a published instance is barred",
+      "result": "PASS"
+    },
+    {
+      "check": "uri-alias",
+      "condition": "An ancillary (non-delivery, non-manifest-cited) duplicate is flagged for review, not treated as a s6.5(b) aliasing risk",
+      "pulls": "sha256 buckets whose members are all non-citable paths (LICENSE/NOTICE/schemas/test-fixtures/asset directories/etc.)",
+      "observed": "prong_a_html_files_scanned: 1; prong_b_files_hashed: 66; prong_b_duplicate_buckets: 0; prong_b_unreadable_entries_skipped: 0; prong_c_md_block_urls_scanned: 6; prong_c_md_anchor_links_scanned: 924; prong_c_md_bare_urls_scanned: 40",
+      "compares_to": "the package's own delivery-item paths and manifest.json authoritative/delivery-role paths",
+      "result": "PASS"
+    },
+    {
+      "check": "uri-alias",
+      "condition": "The markdown Previous-stage block cites no redirect/URL-shortening domain",
+      "pulls": "every URL under the 'Previous Stage/Version' heading",
+      "observed": "prong_a_html_files_scanned: 1; prong_b_files_hashed: 66; prong_b_duplicate_buckets: 0; prong_b_unreadable_entries_skipped: 0; prong_c_md_block_urls_scanned: 6; prong_c_md_anchor_links_scanned: 924; prong_c_md_bare_urls_scanned: 40",
+      "compares_to": "the seed redirect-service domain list (tinyurl.com, bit.ly, goo.gl, ow.ly, t.co, is.gd, buff.ly, rebrand.ly, tiny.cc, cutt.ly, shorturl.at, rb.gy, purl.oclc.org)",
+      "result": "PASS"
+    },
+    {
+      "check": "uri-alias",
+      "condition": "The DOCX-native rendered cover's This/Previous/Latest-version fields cite no redirect/URL-shortening domain",
+      "pulls": "every URL (visible text or href) between the This/Previous/Latest-version labels on the rendered HTML cover",
+      "observed": "NA: DOCX-render condition; this package carries no Word source",
+      "compares_to": "the seed redirect-service domain list",
+      "result": "NA"
+    },
+    {
+      "check": "uri-alias",
+      "condition": "Plain-prose anchor text that names oasis-open.org does not link to a redirect/URL-shortening domain (markdown source)",
+      "pulls": "the visible/anchor text of every `[shown](target)` (md) or `<a>shown</a>` (html) construct whose shown text is not itself a URL (a shown-is-a-URL mismatch is the existing link-mismatch check's territory)",
+      "observed": "prong_a_html_files_scanned: 1; prong_b_files_hashed: 66; prong_b_duplicate_buckets: 0; prong_b_unreadable_entries_skipped: 0; prong_c_md_block_urls_scanned: 6; prong_c_md_anchor_links_scanned: 924; prong_c_md_bare_urls_scanned: 40",
+      "compares_to": "the seed redirect-service domain list, gated on the anchor text literally containing 'oasis-open.org'",
+      "result": "PASS"
+    },
+    {
+      "check": "uri-alias",
+      "condition": "Plain-prose anchor text that names oasis-open.org does not link to a redirect/URL-shortening domain (HTML render)",
+      "pulls": "the visible/anchor text of every `[shown](target)` (md) or `<a>shown</a>` (html) construct whose shown text is not itself a URL (a shown-is-a-URL mismatch is the existing link-mismatch check's territory)",
+      "observed": "NA: evaluated on the markdown-source row for this package",
+      "compares_to": "the seed redirect-service domain list, gated on the anchor text literally containing 'oasis-open.org'",
+      "result": "NA"
+    },
+    {
+      "check": "uri-alias",
+      "condition": "A bare URL's enclosing sentence that names oasis-open.org does not point at a redirect/URL-shortening domain (markdown source)",
+      "pulls": "the sentence-bounded prose window (nearest sentence terminator or paragraph break either side) around every bare URL not part of a link construct",
+      "observed": "prong_a_html_files_scanned: 1; prong_b_files_hashed: 66; prong_b_duplicate_buckets: 0; prong_b_unreadable_entries_skipped: 0; prong_c_md_block_urls_scanned: 6; prong_c_md_anchor_links_scanned: 924; prong_c_md_bare_urls_scanned: 40",
+      "compares_to": "the seed redirect-service domain list, gated on the sentence window literally containing 'oasis-open.org'",
+      "result": "PASS"
+    },
+    {
+      "check": "uri-alias",
+      "condition": "A bare URL's enclosing sentence that names oasis-open.org does not point at a redirect/URL-shortening domain (HTML render)",
+      "pulls": "the sentence-bounded prose window (nearest sentence terminator or paragraph break either side) around every bare URL not part of a link construct",
+      "observed": "NA: evaluated on the markdown-source row for this package",
+      "compares_to": "the seed redirect-service domain list, gated on the sentence window literally containing 'oasis-open.org'",
+      "result": "NA"
+    },
+    {
+      "check": "xml-namespace",
+      "condition": "An http(s) namespace's tail matches the docs.oasis-open.org/[tc-shortname]/ns/xxxx pattern",
+      "pulls": "targetNamespace on the root of each packaged .xsd/.wsdl (incl. wsdl:types-embedded schemas), and the ns attribute on the root grammar/element of each .rng",
+      "observed": "schema_files_scanned: 2; schema_files_excluded: 0; tc_shortname: lexidma; namespaces_declared: http://docs.oasis-open.org/lexidma/ns/dmlex-1.0; parse_failures: (none)",
+      "compares_to": "Naming Directives s8 pattern http(s)://docs.oasis-open.org/[tc-shortname]/ns/xxxx, xxxx restricted to the s3 sixty-four-character set plus internal '/', terminating in '/', '#', or alphanumeric; BLOCKER when the tc-shortname has no pattern-grandfather allowlist entry",
+      "result": "PASS"
+    },
+    {
+      "check": "xml-namespace",
+      "condition": "A pattern-mismatched namespace's tc-shortname is a confirmed-approved pre-2012 pattern grandfather",
+      "pulls": "the same pattern-mismatched namespace URI, matched against the pattern-grandfather allowlist",
+      "observed": "schema_files_scanned: 2; schema_files_excluded: 0; tc_shortname: lexidma; namespaces_declared: http://docs.oasis-open.org/lexidma/ns/dmlex-1.0; parse_failures: (none)",
+      "compares_to": "Naming Directives v1.2 s9: pre-2012 practice 'may be grandfathered, if approved by Project Administration': WARN when listed but approval is not machine-confirmable at check time",
+      "result": "PASS"
+    },
+    {
+      "check": "xml-namespace",
+      "condition": "The same namespace tail is declared under one scheme only, package-wide",
+      "pulls": "every http(s) namespace URI declared by any packaged .xsd/.wsdl(+embedded)/.rng in the package, grouped by scheme-stripped tail",
+      "observed": "schema_files_scanned: 2; schema_files_excluded: 0; tc_shortname: lexidma; namespaces_declared: http://docs.oasis-open.org/lexidma/ns/dmlex-1.0; parse_failures: (none)",
+      "compares_to": "Naming Directives s8: 'While either \"http\" or \"https\" may be used ... they are not interchangeable. One or the other must be used consistently.'",
+      "result": "PASS"
+    },
+    {
+      "check": "xml-namespace",
+      "condition": "A urn:-scheme declared namespace's TC is on the URN-grandfather allowlist",
+      "pulls": "the urn:-scheme namespace URI and its owning tc-shortname",
+      "observed": "schema_files_scanned: 2; schema_files_excluded: 0; tc_shortname: lexidma; namespaces_declared: http://docs.oasis-open.org/lexidma/ns/dmlex-1.0; parse_failures: (none)",
+      "compares_to": "Naming Directives s8: URN-based namespaces 'must not be declared otherwise', permitted only for TCs that already used the feature (or Maintenance Activity TCs), approved by Project Administration",
+      "result": "PASS"
+    },
+    {
+      "check": "xml-namespace",
+      "condition": "A RELAX NG grammar declares only one namespace, on its root grammar/element node",
+      "pulls": "every ns attribute on non-root nodes of a .rng file, compared to the root node's ns",
+      "observed": "schema_files_scanned: 2; schema_files_excluded: 0; tc_shortname: lexidma; namespaces_declared: http://docs.oasis-open.org/lexidma/ns/dmlex-1.0; parse_failures: (none)",
+      "compares_to": "this check only validates the root-level self-declared namespace; a differing non-root ns is flagged for manual review rather than silently dropped",
+      "result": "PASS"
+    },
+    {
+      "check": "ns-segment",
+      "condition": "This-stage and Latest-stage cover URIs do not reuse the reserved /ns/ path segment",
+      "pulls": "the This-stage and Latest-stage URL(s) from the markdown front matter (md track) or the rendered HTML cover (docx-native track, via the shared html_cover_urls() helper)",
+      "observed": "cover_uris_scanned: 6; this_stage_urls: https://docs.oasis-open.org/lexidma/dmlex/v1.0/os/dmlex-v1.0-os.html, https://docs.oasis-open.org/lexidma/dmlex/v1.0/os/dmlex-v1.0-os.pdf; previous_stage_urls: https://docs.oasis-open.org/lexidma/dmlex/v1.0/cs01/dmlex-v1.0-cs01.html, https://docs.oasis-open.org/lexidma/dmlex/v1.0/cs01/dmlex-v1.0-cs01.pdf; latest_stage_urls: https://docs.oasis-open.org/lexidma/dmlex/v1.0/dmlex-v1.0.html, https://docs.oasis-open.org/lexidma/dmlex/v1.0/dmlex-v1.0.pdf",
+      "compares_to": "handbook-Naming.txt: '/ns/ ... is for namespace identifiers, not for retrievable documents. Do not use /ns/ in the URI of a document you intend to publish as a retrievable resource'",
+      "result": "PASS"
+    },
+    {
+      "check": "ns-segment",
+      "condition": "Previous-stage cover URI does not reuse the reserved /ns/ path segment (non-blocking, manual-review if it does: an immutable inherited citation)",
+      "pulls": "the Previous-stage URL from the markdown front matter (md track) or the rendered HTML cover (docx-native track, via the shared html_cover_urls() helper)",
+      "observed": "cover_uris_scanned: 6; this_stage_urls: https://docs.oasis-open.org/lexidma/dmlex/v1.0/os/dmlex-v1.0-os.html, https://docs.oasis-open.org/lexidma/dmlex/v1.0/os/dmlex-v1.0-os.pdf; previous_stage_urls: https://docs.oasis-open.org/lexidma/dmlex/v1.0/cs01/dmlex-v1.0-cs01.html, https://docs.oasis-open.org/lexidma/dmlex/v1.0/cs01/dmlex-v1.0-cs01.pdf; latest_stage_urls: https://docs.oasis-open.org/lexidma/dmlex/v1.0/dmlex-v1.0.html, https://docs.oasis-open.org/lexidma/dmlex/v1.0/dmlex-v1.0.pdf",
+      "compares_to": "handbook-Naming.txt's /ns/ reservation rule, applied to an already-published prior-stage citation the current package cannot alter",
+      "result": "PASS"
+    }
+  ],
+  "artifact_title": "Data Model for Lexicography (DMLex) Version 1.0 OASIS Standard, Markdown edition",
+  "tc": "lexidma",
+  "stage": "os",
+  "slug": "dmlex-v1.0-os-markdown",
+  "target": "lexidma/dmlex/v1.0/os, rendered by tools/publication-assurance/render.sh from MColetta-OASIS/lexidma, branch markdown-conversion",
+  "target_local_path": "/Users/michaelcoletta/h/lexidma-pa-out/lexidma/dmlex/v1.0/os",
+  "ticket": "TCADMIN-4742",
+  "date": "2026-09-24",
+  "tool": "oasis_pub_check.py (OASIS-Docs/publication-assurance)",
+  "total_checks": 170,
+  "total_classes": 58,
+  "classes_clean": 44,
+  "checks_in_clean_classes": 126,
+  "blockers": 9,
+  "exit_code": 1,
+  "severity_counts": {
+    "BLOCKER": 9,
+    "WARN": 43,
+    "INFO": 12
+  },
+  "note": "The v1.0 OASIS Standard is published and cannot change. Every blocker here is present in the published DocBook edition itself and is reproduced faithfully by the conversion; see the publication audit report, findings F2 to F6.",
+  "publication_ready": false,
+  "classes": [
+    {
+      "check": "artifact-naming",
+      "conditions": 1,
+      "result": "PASS",
+      "findings": []
+    },
+    {
+      "check": "asset-refs",
+      "conditions": 1,
+      "result": "BLOCKER",
+      "findings": [
+        {
+          "severity": "BLOCKER",
+          "message": "HTML references 'schemas/informativeCopiesOf3rdPartySchemas/NVH/dmlex.nvh' which is not in the package; it 404s on publication."
+        }
+      ]
+    },
+    {
+      "check": "authors",
+      "conditions": 4,
+      "result": "PASS",
+      "findings": []
+    },
+    {
+      "check": "boilerplate-dup",
+      "conditions": 1,
+      "result": "PASS",
+      "findings": []
+    },
+    {
+      "check": "case",
+      "conditions": 3,
+      "result": "WARN",
+      "findings": [
+        {
+          "severity": "WARN",
+          "message": "Mixed-case path in docs.oasis-open.org URL (host is case-sensitive): https://docs.oasis-open.org/lexidma/dmlex/v1.0/os/schemas/JSON/>"
+        },
+        {
+          "severity": "WARN",
+          "message": "Mixed-case path in docs.oasis-open.org URL (host is case-sensitive): https://docs.oasis-open.org/lexidma/dmlex/v1.0/os/schemas/JSON/dmlex.schema.json)"
+        },
+        {
+          "severity": "WARN",
+          "message": "Mixed-case path in docs.oasis-open.org URL (host is case-sensitive): https://docs.oasis-open.org/lexidma/dmlex/v1.0/os/schemas/JSON/dmlex_no-crosslingual.schema.json)"
+        },
+        {
+          "severity": "WARN",
+          "message": "Mixed-case path in docs.oasis-open.org URL (host is case-sensitive): https://docs.oasis-open.org/lexidma/dmlex/v1.0/os/schemas/RDF/>"
+        },
+        {
+          "severity": "WARN",
+          "message": "Mixed-case path in docs.oasis-open.org URL (host is case-sensitive): https://docs.oasis-open.org/lexidma/dmlex/v1.0/os/schemas/XML/>"
+        },
+        {
+          "severity": "WARN",
+          "message": "Mixed-case path in docs.oasis-open.org URL (host is case-sensitive): https://docs.oasis-open.org/lexidma/dmlex/v1.0/os/schemas/XML/dmlex.xsd)"
+        },
+        {
+          "severity": "WARN",
+          "message": "Mixed-case path in docs.oasis-open.org URL (host is case-sensitive): https://docs.oasis-open.org/lexidma/dmlex/v1.0/os/schemas/XML/dmlex_no-crosslingual.xsd)"
+        },
+        {
+          "severity": "WARN",
+          "message": "Mixed-case path in docs.oasis-open.org URL (host is case-sensitive): https://docs.oasis-open.org/lexidma/dmlex/v1.0/os/schemas/informativeCopiesOf3rdPartySchemas/>"
+        },
+        {
+          "severity": "WARN",
+          "message": "Mixed-case path in docs.oasis-open.org URL (host is case-sensitive): https://docs.oasis-open.org/lexidma/dmlex/v1.0/os/schemas/informativeCopiesOf3rdPartySchemas/NVH/dmlex.nvh)"
+        },
+        {
+          "severity": "WARN",
+          "message": "Mixed-case filename 'core/databaseDiagrams/inflectedForm.svg': the publication host is case-sensitive and canonical paths are lowercase; lowercase citations of this file will 404. (auxiliary file: warning; published precedent exists, e.g. -DIFF.pdf)"
+        },
+        {
+          "severity": "WARN",
+          "message": "Mixed-case filename 'core/databaseDiagrams/partOfSpeech.svg': the publication host is case-sensitive and canonical paths are lowercase; lowercase citations of this file will 404. (auxiliary file: warning; published precedent exists, e.g. -DIFF.pdf)"
+        },
+        {
+          "severity": "WARN",
+          "message": "Mixed-case filename 'core/databaseDiagrams/lexicographicResource.svg': the publication host is case-sensitive and canonical paths are lowercase; lowercase citations of this file will 404. (auxiliary file: warning; published precedent exists, e.g. -DIFF.pdf)"
+        },
+        {
+          "severity": "WARN",
+          "message": "Mixed-case filename 'modules/xlingual/databaseDiagrams/headwordTranslation.svg': the publication host is case-sensitive and canonical paths are lowercase; lowercase citations of this file will 404. (auxiliary file: warning; published precedent exists, e.g. -DIFF.pdf)"
+        },
+        {
+          "severity": "WARN",
+          "message": "Mixed-case filename 'modules/xlingual/databaseDiagrams/headwordExplanation.svg': the publication host is case-sensitive and canonical paths are lowercase; lowercase citations of this file will 404. (auxiliary file: warning; published precedent exists, e.g. -DIFF.pdf)"
+        },
+        {
+          "severity": "WARN",
+          "message": "Mixed-case filename 'modules/xlingual/databaseDiagrams/inflectedForm.svg': the publication host is case-sensitive and canonical paths are lowercase; lowercase citations of this file will 404. (auxiliary file: warning; published precedent exists, e.g. -DIFF.pdf)"
+        },
+        {
+          "severity": "WARN",
+          "message": "Mixed-case filename 'modules/xlingual/databaseDiagrams/translationLanguage.svg': the publication host is case-sensitive and canonical paths are lowercase; lowercase citations of this file will 404. (auxiliary file: warning; published precedent exists, e.g. -DIFF.pdf)"
+        },
+        {
+          "severity": "WARN",
+          "message": "Mixed-case filename 'modules/xlingual/databaseDiagrams/partOfSpeech.svg': the publication host is case-sensitive and canonical paths are lowercase; lowercase citations of this file will 404. (auxiliary file: warning; published precedent exists, e.g. -DIFF.pdf)"
+        },
+        {
+          "severity": "WARN",
+          "message": "Mixed-case filename 'modules/xlingual/databaseDiagrams/exampleTranslation.svg': the publication host is case-sensitive and canonical paths are lowercase; lowercase citations of this file will 404. (auxiliary file: warning; published precedent exists, e.g. -DIFF.pdf)"
+        },
+        {
+          "severity": "WARN",
+          "message": "Mixed-case filename 'modules/etymology/databaseDiagrams/etymonLanguage.svg': the publication host is case-sensitive and canonical paths are lowercase; lowercase citations of this file will 404. (auxiliary file: warning; published precedent exists, e.g. -DIFF.pdf)"
+        },
+        {
+          "severity": "WARN",
+          "message": "Mixed-case filename 'modules/etymology/databaseDiagrams/sameAs.svg': the publication host is case-sensitive and canonical paths are lowercase; lowercase citations of this file will 404. (auxiliary file: warning; published precedent exists, e.g. -DIFF.pdf)"
+        },
+        {
+          "severity": "WARN",
+          "message": "Mixed-case filename 'modules/etymology/databaseDiagrams/etymonUnit.svg': the publication host is case-sensitive and canonical paths are lowercase; lowercase citations of this file will 404. (auxiliary file: warning; published precedent exists, e.g. -DIFF.pdf)"
+        },
+        {
+          "severity": "WARN",
+          "message": "Mixed-case filename 'modules/etymology/databaseDiagrams/etymonType.svg': the publication host is case-sensitive and canonical paths are lowercase; lowercase citations of this file will 404. (auxiliary file: warning; published precedent exists, e.g. -DIFF.pdf)"
+        },
+        {
+          "severity": "WARN",
+          "message": "Mixed-case filename 'modules/etymology/databaseDiagrams/partOfSpeech.svg': the publication host is case-sensitive and canonical paths are lowercase; lowercase citations of this file will 404. (auxiliary file: warning; published precedent exists, e.g. -DIFF.pdf)"
+        },
+        {
+          "severity": "WARN",
+          "message": "Mixed-case filename 'modules/values/databaseDiagrams/sameAs.svg': the publication host is case-sensitive and canonical paths are lowercase; lowercase citations of this file will 404. (auxiliary file: warning; published precedent exists, e.g. -DIFF.pdf)"
+        },
+        {
+          "severity": "WARN",
+          "message": "Mixed-case filename 'modules/values/databaseDiagrams/inflectedFormTag.svg': the publication host is case-sensitive and canonical paths are lowercase; lowercase citations of this file will 404. (auxiliary file: warning; published precedent exists, e.g. -DIFF.pdf)"
+        },
+        {
+          "severity": "WARN",
+          "message": "Mixed-case filename 'modules/values/databaseDiagrams/labelTypeTag.svg': the publication host is case-sensitive and canonical paths are lowercase; lowercase citations of this file will 404. (auxiliary file: warning; published precedent exists, e.g. -DIFF.pdf)"
+        },
+        {
+          "severity": "WARN",
+          "message": "Mixed-case filename 'modules/values/databaseDiagrams/sourceIdentityTag.svg': the publication host is case-sensitive and canonical paths are lowercase; lowercase citations of this file will 404. (auxiliary file: warning; published precedent exists, e.g. -DIFF.pdf)"
+        },
+        {
+          "severity": "WARN",
+          "message": "Mixed-case filename 'modules/values/databaseDiagrams/partOfSpeechTag.svg': the publication host is case-sensitive and canonical paths are lowercase; lowercase citations of this file will 404. (auxiliary file: warning; published precedent exists, e.g. -DIFF.pdf)"
+        },
+        {
+          "severity": "WARN",
+          "message": "Mixed-case filename 'modules/values/databaseDiagrams/definitionTypeTag.svg': the publication host is case-sensitive and canonical paths are lowercase; lowercase citations of this file will 404. (auxiliary file: warning; published precedent exists, e.g. -DIFF.pdf)"
+        },
+        {
+          "severity": "WARN",
+          "message": "Mixed-case filename 'modules/values/databaseDiagrams/labelTag.svg': the publication host is case-sensitive and canonical paths are lowercase; lowercase citations of this file will 404. (auxiliary file: warning; published precedent exists, e.g. -DIFF.pdf)"
+        },
+        {
+          "severity": "WARN",
+          "message": "Mixed-case filename 'modules/values/databaseDiagrams/transcriptionSchemeTag.svg': the publication host is case-sensitive and canonical paths are lowercase; lowercase citations of this file will 404. (auxiliary file: warning; published precedent exists, e.g. -DIFF.pdf)"
+        },
+        {
+          "severity": "WARN",
+          "message": "Mixed-case filename 'modules/annotation/databaseDiagrams/headwordMarker.svg': the publication host is case-sensitive and canonical paths are lowercase; lowercase citations of this file will 404. (auxiliary file: warning; published precedent exists, e.g. -DIFF.pdf)"
+        },
+        {
+          "severity": "WARN",
+          "message": "Mixed-case filename 'modules/annotation/databaseDiagrams/collocateMarker.svg': the publication host is case-sensitive and canonical paths are lowercase; lowercase citations of this file will 404. (auxiliary file: warning; published precedent exists, e.g. -DIFF.pdf)"
+        },
+        {
+          "severity": "WARN",
+          "message": "Mixed-case filename 'modules/annotation/databaseDiagrams/placeholderMarker.svg': the publication host is case-sensitive and canonical paths are lowercase; lowercase citations of this file will 404. (auxiliary file: warning; published precedent exists, e.g. -DIFF.pdf)"
+        },
+        {
+          "severity": "WARN",
+          "message": "Mixed-case filename 'modules/linking/databaseDiagrams/sameAs.svg': the publication host is case-sensitive and canonical paths are lowercase; lowercase citations of this file will 404. (auxiliary file: warning; published precedent exists, e.g. -DIFF.pdf)"
+        },
+        {
+          "severity": "WARN",
+          "message": "Mixed-case filename 'modules/linking/databaseDiagrams/memberType.svg': the publication host is case-sensitive and canonical paths are lowercase; lowercase citations of this file will 404. (auxiliary file: warning; published precedent exists, e.g. -DIFF.pdf)"
+        },
+        {
+          "severity": "WARN",
+          "message": "Mixed-case filename 'modules/linking/databaseDiagrams/relationType.svg': the publication host is case-sensitive and canonical paths are lowercase; lowercase citations of this file will 404. (auxiliary file: warning; published precedent exists, e.g. -DIFF.pdf)"
+        }
+      ]
+    },
+    {
+      "check": "comment-resolution-log",
+      "conditions": 2,
+      "result": "PASS",
+      "findings": []
+    },
+    {
+      "check": "conformance-structure",
+      "conditions": 9,
+      "result": "WARN",
+      "findings": [
+        {
+          "severity": "WARN",
+          "message": "Conformance section is not populated with numbered clauses: no clause identifiers were extracted."
+        }
+      ]
+    },
+    {
+      "check": "content-labels",
+      "conditions": 1,
+      "result": "WARN",
+      "findings": [
+        {
+          "severity": "WARN",
+          "message": "Examples-pattern heading 'A.1 Examples (Informative) <a id='examples'></a>' (markdown line 5708) carries no content-type label (heading suffix, first-sentence statement, labeled ancestor heading, or document-wide blanket statement): the Handbook classifies Examples as non-normative content and says it should be clearly labelled 'Non-normative' (or 'Informative')."
+        },
+        {
+          "severity": "INFO",
+          "message": "Appendix/Annex heading 'Appendix A Informative material on serializations (Informative) <a id='appendix-a-informative-material-on-serializations-informative'></a>' (markdown line 5706) carries no content-type label. Advisory only: confirm whether this appendix/annex is part of the conformance requirements, and if not, label it 'Non-normative' per handbook-Conformance.txt."
+        },
+        {
+          "severity": "INFO",
+          "message": "Appendix/Annex heading 'Appendix B References (Normative) <a id='references'></a>' (markdown line 9644) carries no content-type label. Advisory only: confirm whether this appendix/annex is part of the conformance requirements, and if not, label it 'Non-normative' per handbook-Conformance.txt."
+        },
+        {
+          "severity": "INFO",
+          "message": "Appendix/Annex heading 'Appendix C Machine Readable Validation Artifacts (Normative) <a id='Validation'></a>' (markdown line 9706) carries no content-type label. Advisory only: confirm whether this appendix/annex is part of the conformance requirements, and if not, label it 'Non-normative' per handbook-Conformance.txt."
+        },
+        {
+          "severity": "INFO",
+          "message": "Appendix/Annex heading 'Appendix D DMLex UML diagram (Normative) <a id='diagram_uml'></a>' (markdown line 9718) carries no content-type label. Advisory only: confirm whether this appendix/annex is part of the conformance requirements, and if not, label it 'Non-normative' per handbook-Conformance.txt."
+        },
+        {
+          "severity": "INFO",
+          "message": "Appendix/Annex heading 'Appendix E DMLex plain text description (Informative) <a id='diagram_nvh'></a>' (markdown line 9722) carries no content-type label. Advisory only: confirm whether this appendix/annex is part of the conformance requirements, and if not, label it 'Non-normative' per handbook-Conformance.txt."
+        },
+        {
+          "severity": "INFO",
+          "message": "Appendix/Annex heading 'Appendix F Specification Change Tracking (Informative) <a id='specChangeTracking'></a>' (markdown line 9917) carries no content-type label. Advisory only: confirm whether this appendix/annex is part of the conformance requirements, and if not, label it 'Non-normative' per handbook-Conformance.txt."
+        },
+        {
+          "severity": "INFO",
+          "message": "Appendix/Annex heading 'Appendix G Acknowledgements (Informative) <a id='acknowledgements'></a>' (markdown line 9987) carries no content-type label. Advisory only: confirm whether this appendix/annex is part of the conformance requirements, and if not, label it 'Non-normative' per handbook-Conformance.txt."
+        },
+        {
+          "severity": "INFO",
+          "message": "Appendix/Annex heading 'Appendix H Notices (Informative) <a id='full-notices'></a>' (markdown line 10015) carries no content-type label. Advisory only: confirm whether this appendix/annex is part of the conformance requirements, and if not, label it 'Non-normative' per handbook-Conformance.txt."
+        }
+      ]
+    },
+    {
+      "check": "cover-hr",
+      "conditions": 1,
+      "result": "WARN",
+      "findings": [
+        {
+          "severity": "WARN",
+          "message": "Horizontal rule between the OASIS logo and the title: the publication CSS treats <hr/> as a page break, which opens the PDF with a blank page. Harmless in other renderers; remove if publishing through the OASIS HTML-to-PDF path."
+        }
+      ]
+    },
+    {
+      "check": "date-sync",
+      "conditions": 2,
+      "result": "PASS",
+      "findings": []
+    },
+    {
+      "check": "dead-lists",
+      "conditions": 3,
+      "result": "PASS",
+      "findings": []
+    },
+    {
+      "check": "double-slash",
+      "conditions": 1,
+      "result": "PASS",
+      "findings": []
+    },
+    {
+      "check": "extension-conformance",
+      "conditions": 1,
+      "result": "PASS",
+      "findings": []
+    },
+    {
+      "check": "extension-count",
+      "conditions": 4,
+      "result": "PASS",
+      "findings": []
+    },
+    {
+      "check": "fence-collapse",
+      "conditions": 1,
+      "result": "PASS",
+      "findings": []
+    },
+    {
+      "check": "filenames",
+      "conditions": 6,
+      "result": "PASS",
+      "findings": []
+    },
+    {
+      "check": "front-matter",
+      "conditions": 12,
+      "result": "WARN",
+      "findings": [
+        {
+          "severity": "WARN",
+          "message": "This-stage block does not list the .md artifact."
+        },
+        {
+          "severity": "WARN",
+          "message": "URL declares version v2.1 (package is v1.0): http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html>* -- confirm this is an intentional external reference."
+        }
+      ]
+    },
+    {
+      "check": "generator",
+      "conditions": 1,
+      "result": "PASS",
+      "findings": []
+    },
+    {
+      "check": "html-anchors",
+      "conditions": 2,
+      "result": "PASS",
+      "findings": []
+    },
+    {
+      "check": "html-residue",
+      "conditions": 3,
+      "result": "PASS",
+      "findings": []
+    },
+    {
+      "check": "html-title",
+      "conditions": 2,
+      "result": "PASS",
+      "findings": []
+    },
+    {
+      "check": "image-policy",
+      "conditions": 10,
+      "result": "PASS",
+      "findings": []
+    },
+    {
+      "check": "junk-files",
+      "conditions": 2,
+      "result": "PASS",
+      "findings": []
+    },
+    {
+      "check": "link-mismatch",
+      "conditions": 2,
+      "result": "BLOCKER",
+      "findings": [
+        {
+          "severity": "BLOCKER",
+          "message": "Visible link text and href disagree in the HTML: the text shows 'https://docs.oasis-open.org/lexidma/dmlex/v1.0/csd04/dmlex-v1.0-csd04.pdf.pdf' but the link targets 'https://docs.oasis-open.org/lexidma/dmlex/v1.0/csd04/dmlex-v1.0-csd04.pdf'. One of them is wrong; readers cite what they see, not what the anchor resolves to."
+        },
+        {
+          "severity": "BLOCKER",
+          "message": "Visible link text and href disagree in the HTML: the text shows 'https://docs.oasis-open.org/lexidma/dmlex/v1.0/csd03/dmlex-v1.0-csd03.pdf.pdf' but the link targets 'https://docs.oasis-open.org/lexidma/dmlex/v1.0/csd03/dmlex-v1.0-csd03.pdf'. One of them is wrong; readers cite what they see, not what the anchor resolves to."
+        },
+        {
+          "severity": "BLOCKER",
+          "message": "Visible URL and link target disagree: text shows 'https://docs.oasis-open.org/lexidma/dmlex/v1.0/csd04/dmlex-v1.0-csd04.pdf.pdf' but links to 'https://docs.oasis-open.org/lexidma/dmlex/v1.0/csd04/dmlex-v1.0-csd04.pdf'. One of them is wrong."
+        },
+        {
+          "severity": "BLOCKER",
+          "message": "Visible URL and link target disagree: text shows 'https://docs.oasis-open.org/lexidma/dmlex/v1.0/csd03/dmlex-v1.0-csd03.pdf.pdf' but links to 'https://docs.oasis-open.org/lexidma/dmlex/v1.0/csd03/dmlex-v1.0-csd03.pdf'. One of them is wrong."
+        }
+      ]
+    },
+    {
+      "check": "logo",
+      "conditions": 1,
+      "result": "PASS",
+      "findings": []
+    },
+    {
+      "check": "manifest",
+      "conditions": 3,
+      "result": "INFO",
+      "findings": [
+        {
+          "severity": "INFO",
+          "message": "No manifest.json in the package. Emit one (--emit-manifest or your own tool) and intake verification becomes automatic."
+        }
+      ]
+    },
+    {
+      "check": "md-links",
+      "conditions": 2,
+      "result": "PASS",
+      "findings": []
+    },
+    {
+      "check": "member-uri",
+      "conditions": 1,
+      "result": "BLOCKER",
+      "findings": [
+        {
+          "severity": "BLOCKER",
+          "message": "Cites an OASIS member-only (Kavi) URI: https://www.oasis-open.org/committees/download.php. Naming Directives v1.7 s6.6 bars password-protected member-only references from any TC document that is or may become public."
+        }
+      ]
+    },
+    {
+      "check": "multi-part-naming",
+      "conditions": 8,
+      "result": "PASS",
+      "findings": []
+    },
+    {
+      "check": "name-chars",
+      "conditions": 4,
+      "result": "PASS",
+      "findings": []
+    },
+    {
+      "check": "normdef-refs",
+      "conditions": 2,
+      "result": "PASS",
+      "findings": []
+    },
+    {
+      "check": "ns-segment",
+      "conditions": 2,
+      "result": "PASS",
+      "findings": []
+    },
+    {
+      "check": "odt-integrity",
+      "conditions": 6,
+      "result": "PASS",
+      "findings": []
+    },
+    {
+      "check": "package-refs",
+      "conditions": 1,
+      "result": "BLOCKER",
+      "findings": [
+        {
+          "severity": "BLOCKER",
+          "message": "The document cites https://docs.oasis-open.org/lexidma/dmlex/v1.0/os/schemas/informativeCopiesOf3rdPartySchemas/NVH/dmlex.nvh under its own stage path, but 'schemas/informativeCopiesOf3rdPartySchemas/NVH/dmlex.nvh' is not in the package: it will 404 on publication."
+        }
+      ]
+    },
+    {
+      "check": "pdf-cover",
+      "conditions": 2,
+      "result": "PASS",
+      "findings": []
+    },
+    {
+      "check": "pdf-fonts",
+      "conditions": 2,
+      "result": "INFO",
+      "findings": [
+        {
+          "severity": "INFO",
+          "message": "Package declares no local font authority (no font-family in its HTML/CSS); font check skipped."
+        }
+      ]
+    },
+    {
+      "check": "pdf-sync",
+      "conditions": 5,
+      "result": "PASS",
+      "findings": []
+    },
+    {
+      "check": "previous-stage",
+      "conditions": 2,
+      "result": "PASS",
+      "findings": []
+    },
+    {
+      "check": "public-review-metadata",
+      "conditions": 3,
+      "result": "PASS",
+      "findings": []
+    },
+    {
+      "check": "ref-rfc",
+      "conditions": 2,
+      "result": "PASS",
+      "findings": []
+    },
+    {
+      "check": "references-split",
+      "conditions": 2,
+      "result": "PASS",
+      "findings": []
+    },
+    {
+      "check": "residue",
+      "conditions": 4,
+      "result": "PASS",
+      "findings": []
+    },
+    {
+      "check": "revision-collision",
+      "conditions": 1,
+      "result": "WARN",
+      "findings": [
+        {
+          "severity": "WARN",
+          "message": "Stage /os/ is already published at https://docs.oasis-open.org/lexidma/dmlex/v1.0/os/: a NEW submission for v1.0 must use the next revision number instead. Ignore this warning if you are re-checking the published package itself."
+        },
+        {
+          "severity": "INFO",
+          "message": "Published stages already live under https://docs.oasis-open.org/lexidma/dmlex/v1.0/: cs01, csd01, csd02, csd03, csd04."
+        }
+      ]
+    },
+    {
+      "check": "rfc-keywords",
+      "conditions": 2,
+      "result": "PASS",
+      "findings": []
+    },
+    {
+      "check": "schema-id",
+      "conditions": 4,
+      "result": "BLOCKER",
+      "findings": [
+        {
+          "severity": "BLOCKER",
+          "message": "schemas/JSON/dmlex.schema.json: $id is 'http://docs.oasis-open.org/lexidma/ns/dmlex-1.0' but the file publishes under 'https://docs.oasis-open.org/lexidma/dmlex/v1.0/'. An implementer following the $id gets a 404 or the wrong document."
+        },
+        {
+          "severity": "BLOCKER",
+          "message": "schemas/JSON/dmlex_no-crosslingual.schema.json: $id is 'http://docs.oasis-open.org/lexidma/ns/dmlex-1.0' but the file publishes under 'https://docs.oasis-open.org/lexidma/dmlex/v1.0/'. An implementer following the $id gets a 404 or the wrong document."
+        }
+      ]
+    },
+    {
+      "check": "stage-name",
+      "conditions": 3,
+      "result": "PASS",
+      "findings": []
+    },
+    {
+      "check": "stage-token",
+      "conditions": 3,
+      "result": "PASS",
+      "findings": []
+    },
+    {
+      "check": "stage-uri-live",
+      "conditions": 1,
+      "result": "PASS",
+      "findings": []
+    },
+    {
+      "check": "symlinks",
+      "conditions": 1,
+      "result": "PASS",
+      "findings": []
+    },
+    {
+      "check": "template",
+      "conditions": 3,
+      "result": "PASS",
+      "findings": []
+    },
+    {
+      "check": "template-css",
+      "conditions": 2,
+      "result": "PASS",
+      "findings": []
+    },
+    {
+      "check": "title-oasis-prefix",
+      "conditions": 1,
+      "result": "PASS",
+      "findings": []
+    },
+    {
+      "check": "title-version",
+      "conditions": 3,
+      "result": "INFO",
+      "findings": [
+        {
+          "severity": "INFO",
+          "message": "Not evaluated: blocked by an upstream html-residue defect (the document title does not resolve to exactly one matching <h1>)."
+        }
+      ]
+    },
+    {
+      "check": "uri-alias",
+      "conditions": 9,
+      "result": "PASS",
+      "findings": []
+    },
+    {
+      "check": "uri-chars",
+      "conditions": 1,
+      "result": "PASS",
+      "findings": []
+    },
+    {
+      "check": "version-naming",
+      "conditions": 3,
+      "result": "PASS",
+      "findings": []
+    },
+    {
+      "check": "vml-fallback",
+      "conditions": 1,
+      "result": "PASS",
+      "findings": []
+    },
+    {
+      "check": "xml-namespace",
+      "conditions": 5,
+      "result": "PASS",
+      "findings": []
+    }
+  ],
+  "adjudicated": null,
+  "sections": [],
+  "footer_title": "DMLex v1.0 OS (Markdown) validation"
+}

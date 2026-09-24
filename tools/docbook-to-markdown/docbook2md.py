@@ -309,6 +309,13 @@ class Converter:
             body = '\n'.join(indent + l if l else l for l in lines)
             return f'{indent}{fence}{lang}\n{body}\n{indent}{fence}'
         if tag == 'graphic':
+            # contentwidth is how the TC sizes a figure (the UML diagram is
+            # 16cm); the DocBook stylesheet renders it as a pixel width at
+            # 90 dpi, and without it the SVG draws at its natural size.
+            m = re.fullmatch(r'([\d.]+)cm', el.get('contentwidth', ''))
+            if m:
+                px = round(float(m.group(1)) / 2.54 * 90)
+                return f'{indent}<img src="{self.image_path(el)}" alt="" width="{px}">'
             return f'{indent}![]({self.image_path(el)})'
         if tag in ('mediaobject', 'figure', 'informalfigure'):
             return self.children(el, indent)

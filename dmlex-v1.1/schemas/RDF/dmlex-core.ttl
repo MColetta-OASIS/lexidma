@@ -1,0 +1,337 @@
+## The ontology for DMLex
+## Author: John P. McCrae
+
+@prefix dmlex: <https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#> .
+@prefix lime: <http://www.w3.org/ns/lemon/lime#> .
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+################################################################################
+## Core Module
+
+dmlex:listingOrder a owl:DatatypeProperty ;
+  rdfs:label "Listing Order"@en ;
+  rdfs:domain dmlex:HasListingOrder ; 
+  rdfs:range xsd:nonNegativeInteger .
+
+dmlex:HasListingOrder a owl:Class .
+dmlex:PartOfSpeech rdfs:subClassOf dmlex:HasListingOrder .
+dmlex:InflectedForm rdfs:subClassOf dmlex:HasListingOrder .
+dmlex:Sense rdfs:subClassOf dmlex:HasListingOrder .
+dmlex:Definition rdfs:subClassOf dmlex:HasListingOrder .
+dmlex:Label rdfs:subClassOf dmlex:HasListingOrder .
+dmlex:Pronunciation rdfs:subClassOf dmlex:HasListingOrder .
+dmlex:Transcription rdfs:subClassOf dmlex:HasListingOrder .
+dmlex:Example rdfs:subClassOf dmlex:HasListingOrder .
+dmlex:TranslationLanguage rdfs:subClassOf dmlex:HasListingOrder .
+dmlex:HeadwordTranslation rdfs:subClassOf dmlex:HasListingOrder .
+dmlex:ExampleTranslation rdfs:subClassOf dmlex:HasListingOrder .
+dmlex:Member rdfs:subClassOf dmlex:HasListingOrder .
+dmlex:Etymon rdfs:subClassOf dmlex:HasListingOrder .
+dmlex:Etymology rdfs:subClassOf dmlex:HasListingOrder .
+dmlex:EtymonUnit rdfs:subClassOf dmlex:HasListingOrder .
+
+dmlex:LexicographicResource a owl:Class ;
+  rdfs:comment "Represents a dictionary"@en ;
+  rdfs:label "Lexicographic resource"@en ;
+  rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty dmlex:langCode ;
+    owl:cardinality 1 ] , [
+    a owl:Restriction ;
+    owl:onProperty dmlex:title ;
+    owl:maxCardinality 1 ] , [
+    a owl:Restriction ;
+    owl:onProperty dmlex:uri ;
+    owl:maxCardinality 1 ] ,
+    lime:Lexicon .
+
+dmlex:title a owl:DatatypeProperty ;
+  rdfs:label "Title"@en ;
+  rdfs:domain dmlex:LexicographicResource ;
+  rdfs:range rdfs:Literal .
+
+dmlex:uri a owl:DatatypeProperty ;
+  rdfs:label "URI"@en ;
+  rdfs:domain dmlex:LexicographicResource ;
+  rdfs:range xsd:anyURI .
+
+dmlex:langCode a owl:DatatypeProperty ;
+  rdfs:label "Language"@en ;
+  rdfs:domain dmlex:HasLangCode ;
+  rdfs:range xsd:language ;
+  rdfs:subPropertyOf lime:language .
+
+dmlex:LexicographicResource rdfs:subClassOf dmlex:HasLangCode .
+dmlex:HeadwordTranslation rdfs:subClassOf dmlex:HasLangCode .
+dmlex:HeadwordExplanation rdfs:subClassOf dmlex:HasLangCode .
+dmlex:ExampleTranslation rdfs:subClassOf dmlex:HasLangCode .
+dmlex:EtymonUnit rdfs:subClassOf dmlex:HasLangCode .
+
+dmlex:entry a owl:ObjectProperty ;
+  rdfs:label "Entry"@en ;
+  rdfs:domain dmlex:LexicographicResource ;
+  rdfs:range dmlex:Entry ;
+  rdfs:subPropertyOf lime:entry .
+
+dmlex:Entry a owl:Class ;
+  rdfs:comment "Represents a dictionary entry"@en ;
+  rdfs:label "Entry"@en ;
+  rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty dmlex:headword ;
+    owl:cardinality 1 ] , [
+    a owl:Restriction ;
+    owl:onProperty dmlex:homographNumber ;
+    owl:maxCardinality 1 ] , 
+    ontolex:LexicalEntry .
+
+dmlex:headword a owl:DatatypeProperty ;
+  rdfs:label "Headword"@en ;
+  rdfs:domain dmlex:Entry ;
+  rdfs:range rdfs:Literal .
+
+dmlex:homographNumber a owl:DatatypeProperty ;
+  rdfs:label "Homograph Number"@en ;
+  rdfs:domain dmlex:Entry ;
+  rdfs:range xsd:nonNegativeInteger .
+
+dmlex:partOfSpeech a owl:ObjectProperty ;
+  rdfs:label "Part of Speech"@en ;
+  rdfs:domain dmlex:HasPartOfSpeech ;
+  rdfs:range dmlex:PartOfSpeech .
+
+dmlex:Entry rdfs:subClassOf dmlex:HasPartOfSpeech .
+dmlex:HeadwordTranslation rdfs:subClassOf dmlex:HasPartOfSpeech .
+dmlex:EtymonUnit rdfs:subClassOf dmlex:HasPartOfSpeech .
+
+
+dmlex:label a owl:ObjectProperty ;
+  rdfs:label "Label"@en ;
+  rdfs:domain dmlex:HasLabel ;
+  rdfs:range dmlex:Label .
+
+dmlex:Entry rdfs:subClassOf dmlex:HasLabel .
+dmlex:InflectedForm rdfs:subClassOf dmlex:HasLabel .
+dmlex:Sense rdfs:subClassOf dmlex:HasLabel .
+dmlex:Pronunciation rdfs:subClassOf dmlex:HasLabel .
+dmlex:Example rdfs:subClassOf dmlex:HasLabel .
+dmlex:HeadwordTranslation rdfs:subClassOf dmlex:HasLabel .
+dmlex:ExampleTranslation rdfs:subClassOf dmlex:HasLabel .
+dmlex:CollocateMarker rdfs:subClassOf dmlex:HasLabel .
+
+
+dmlex:pronunciation a owl:ObjectProperty ;
+  rdfs:label "Pronunciation"@en ;
+  rdfs:domain dmlex:HasPronunciation ;
+  rdfs:range dmlex:Pronunciation .
+
+dmlex:Entry rdfs:subClassOf dmlex:HasPronunciation .
+dmlex:InflectedForm rdfs:subClassOf dmlex:HasPronunciation .
+dmlex:HeadwordTranslation rdfs:subClassOf dmlex:HasPronunciation .
+
+dmlex:inflectedForm a owl:ObjectProperty ;
+  rdfs:label "Inflected Form"@en ;
+  rdfs:domain dmlex:HasInflectedForm ;
+  rdfs:range dmlex:InflectedForm ;
+  rdfs:subPropertyOf ontolex:otherForm .
+
+dmlex:Entry rdfs:subClassOf dmlex:HasInflectedForm .
+dmlex:HeadwordTranslation rdfs:subClassOf dmlex:HasInflectedForm .
+
+dmlex:sense a owl:ObjectProperty ;
+  rdfs:label "Sense"@en ;
+  rdfs:domain dmlex:Entry ;
+  rdfs:range dmlex:Sense ;
+  rdfs:subPropertyOf ontolex:evokes .
+
+dmlex:PartOfSpeech a owl:Class ;
+  rdfs:comment "Represents a part of speech label"@en ;
+  rdfs:label "Part of Speech"@en ;
+  rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty dmlex:tag ;
+    owl:cardinality 1 ] , [
+    a owl:Restriction ;
+    owl:onProperty dmlex:listingOrder ;
+    owl:cardinality 1 ] .
+
+dmlex:tag a owl:DatatypeProperty ;
+  rdfs:label "Tag"@en ;
+  rdfs:domain dmlex:HasTag ;
+  rdf:range rdfs:Literal .
+
+dmlex:PartOfSpeech rdfs:subClassOf dmlex:HasTag .
+dmlex:InflectedForm rdfs:subClassOf dmlex:HasTag .
+dmlex:Label rdfs:subClassOf dmlex:HasTag .
+dmlex:DefinitionTypeTag rdfs:subClassOf dmlex:HasTag .
+dmlex:InflectedFormTag rdfs:subClassOf dmlex:HasTag .
+dmlex:LabelTag rdfs:subClassOf dmlex:HasTag .
+dmlex:LabelTypeTag rdfs:subClassOf dmlex:HasTag .
+dmlex:PartOfSpeechTag rdfs:subClassOf dmlex:HasTag .
+dmlex:SourceIdentityTag rdfs:subClassOf dmlex:HasTag .
+dmlex:TranscriptionSchemeTag rdfs:subClassOf dmlex:HasTag .
+
+dmlex:InflectedForm a owl:Class ;
+  rdfs:comment "Represents one (of possibly many) inflected forms of the headword"@en ;
+  rdfs:label "Inflected Form"@en ;
+  rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty dmlex:tag ;
+    owl:maxCardinality 1 ] , [
+    a owl:Restriction ;
+    owl:onProperty dmlex:text ;
+    owl:cardinality 1 ] , [
+    a owl:Restriction ;
+    owl:onProperty dmlex:listingOrder ;
+    owl:cardinality 1 ] , ontolex:Form .
+
+dmlex:text a owl:DatatypeProperty ;
+  rdfs:label "Text"@en ;
+  rdfs:domain dmlex:HasText ;
+  rdfs:range rdfs:Literal .
+
+dmlex:InflectedForm rdfs:subClassOf dmlex:HasText .
+dmlex:Definition rdfs:subClassOf dmlex:HasText .
+dmlex:Transcription rdfs:subClassOf dmlex:HasText .
+dmlex:Example rdfs:subClassOf dmlex:HasText .
+dmlex:HeadwordTranslation rdfs:subClassOf dmlex:HasText .
+dmlex:HeadwordExplanation rdfs:subClassOf dmlex:HasText .
+dmlex:ExampleTranslation rdfs:subClassOf dmlex:HasText .
+dmlex:EtymonUnit rdfs:subClassOf dmlex:HasText .
+
+dmlex:Sense a owl:Class ;
+  rdfs:comment "Represents one of possibly many meanings (or meaning potentials) of the headword."@en ;
+  rdfs:label "Sense"@en ;
+  rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty dmlex:listingOrder ;
+    owl:cardinality 1 ] , [
+    a owl:Restriction ;
+    owl:onProperty dmlex:indicator ;
+    owl:maxCardinality 1 ] ,
+    ontolex:LexicalConcept .
+
+dmlex:indicator a owl:ObjectProperty ;
+  rdfs:label "Indicator"@en ;
+  rdfs:domain dmlex:Sense ;
+  rdfs:range rdfs:Literal .
+
+dmlex:definition a owl:ObjectProperty ;
+  rdfs:label "Definition"@en ;
+  rdfs:domain dmlex:Sense ;
+  rdfs:range dmlex:Definition .
+
+dmlex:example a owl:ObjectProperty ;
+  rdfs:label "Example"@en ;
+  rdfs:domain dmlex:Sense ;
+  rdfs:range dmlex:Example .
+
+dmlex:Definition a owl:Class ;
+  rdfs:comment "Represents one of possibly several definitions of a sense."@en ;
+  rdfs:label "Definition"@en ;
+  rdfs:subClassOf  [
+    a owl:Restriction ;
+    owl:onProperty dmlex:text ;
+    owl:cardinality 1 ] ,  [
+    a owl:Restriction ;
+    owl:onProperty dmlex:definitionType ;
+    owl:maxCardinality 1 ] ,  [
+    a owl:Restriction ;
+    owl:onProperty dmlex:listingOrder ;
+    owl:cardinality 1 ] .
+
+dmlex:definitionType a owl:ObjectProperty ;
+  rdfs:label "Definition Type"@en ;
+  rdfs:domain dmlex:Definition ;
+  rdfs:range dmlex:DefinitionTypeTag .
+
+dmlex:Label a owl:Class ;
+  rdfs:comment "Represents a restriction on its parent such as temporal (old-fashioned, neologism), regional (dialect), register (formal, colloquial), domain (medicine, politics) or grammar (singular-only)."@en ;
+  rdfs:label "Label"@en ;
+  rdfs:subClassOf  [
+    a owl:Restriction ;
+    owl:onProperty dmlex:tag ;
+    owl:cardinality 1 ] ,  [
+    a owl:Restriction ;
+    owl:onProperty dmlex:listingOrder ;
+    owl:cardinality 1 ] .
+
+dmlex:Pronunciation a owl:Class ;
+  rdfs:comment "Represents the pronunciation of its parent. Pronunciations must have either a sound file or a transcription."@en ;
+  rdfs:label "Pronunciation"@en ;
+  rdfs:subClassOf  [
+    a owl:Restriction ;
+    owl:onProperty dmlex:soundFile ;
+    owl:maxCardinality 1 ] ,  [
+    a owl:Restriction ;
+    owl:onProperty dmlex:listingOrder ;
+    owl:cardinality 1 ] .
+
+dmlex:soundFile a owl:DatatypeProperty ;
+  rdfs:label "Sound File"@en ;
+  rdfs:domain dmlex:HasSoundFile ;
+  rdfs:range xsd:anyURI .
+
+dmlex:Pronunciation rdfs:subClassOf dmlex:HasSoundFile .
+dmlex:Example rdfs:subClassOf dmlex:HasSoundFile .
+dmlex:ExampleTranslation rdfs:subClassOf dmlex:HasSoundFile .
+
+dmlex:transcription a owl:ObjectProperty ;
+  rdfs:label "Transcription"@en ;
+  rdfs:domain dmlex:Pronunciation ;
+  rdfs:range dmlex:Transcription .
+
+dmlex:Transcription a owl:Class ;
+  rdfs:comment "Represents the transcription of a pronunciation in some notation such as IPA."@en ;
+  rdfs:label "Transcription"@en ;
+  rdfs:subClassOf  [
+    a owl:Restriction ;
+    owl:onProperty dmlex:text ;
+    owl:cardinality 1 ] , [
+    a owl:Restriction ;
+    owl:onProperty dmlex:scheme ;
+    owl:maxCardinality 1 ] , [
+    a owl:Restriction ;
+    owl:onProperty dmlex:listingOrder ;
+    owl:cardinality 1 ] .
+
+dmlex:scheme a owl:DatatypeProperty ;
+  rdfs:label "Scheme"@en ;
+  rdfs:domain dmlex:Transcription ;
+  rdfs:range xsd:language .
+
+dmlex:Example a owl:Class ;
+  rdfs:comment "Represents a sentence or other text fragment which illustrates the headword being used."@en ;
+  rdfs:label "Example"@en ;
+  rdfs:subClassOf  [
+    a owl:Restriction ;
+    owl:onProperty dmlex:text ;
+    owl:cardinality 1 ] , [
+    a owl:Restriction ;
+    owl:onProperty dmlex:sourceIdentity ;
+    owl:maxCardinality 1 ] , [
+    a owl:Restriction ;
+    owl:onProperty dmlex:sourceElaboration ;
+    owl:maxCardinality 1 ] , [
+    a owl:Restriction ;
+    owl:onProperty dmlex:soundFile ;
+    owl:maxCardinality 1 ] , [
+    a owl:Restriction ;
+    owl:onProperty dmlex:listingOrder ;
+    owl:cardinality 1 ] .
+
+dmlex:sourceIdentity a owl:DatatypeProperty ;
+  rdfs:label "Source Identity"@en ;
+  rdfs:domain dmlex:Example ;
+  rdfs:range rdfs:Literal .
+
+dmlex:sourceElaboration a owl:DatatypeProperty ;
+  rdfs:label "Source Elaboration"@en ;
+  rdfs:domain dmlex:Example ;
+  rdfs:range rdfs:Literal .
+
+

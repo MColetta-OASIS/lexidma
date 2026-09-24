@@ -149,7 +149,8 @@ def main():
         code_mismatch.append(f'count {len(P)} vs {len(M)}')
 
     # Images
-    imgs = re.findall(r'!\[[^\]]*\]\(([^)\s]+)\)', md_src)
+    imgs = (re.findall(r'!\[[^\]]*\]\(([^)\s]+)\)', md_src)
+            + re.findall(r'<img\s[^>]*src="([^"]+)"', md_src))
     missing_imgs = []
     if a.root:
         missing_imgs = [p for p in imgs if not p.startswith('http') and not os.path.exists(os.path.join(a.root, p))]

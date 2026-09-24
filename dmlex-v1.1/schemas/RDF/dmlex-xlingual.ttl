@@ -1,0 +1,90 @@
+## The ontology for DMLex
+## Author: John P. McCrae
+
+@prefix dmlex: <https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#> .
+@prefix lime: <http://www.w3.org/ns/lemon/lime#> .
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+################################################################################
+## Crosslingual Modules
+
+dmlex:translationLanguage a owl:ObjectProperty ;
+  rdfs:label "Translation Language"@en ;
+  rdfs:domain dmlex:LexicographicResource ;
+  rdfs:range dmlex:TranslationLanguage .
+
+dmlex:TranslationLanguage a owl:Class ;
+  rdfs:comment "Represents one of the languages in which translations are given in this lexicographic resource"@en ;
+  rdfs:label "TranslationLanguage"@en ;
+  rdfs:subClassOf  [
+    a owl:Restriction ;
+    owl:onProperty dmlex:langCode ;
+    owl:cardinality 1 ] , [
+    a owl:Restriction ;
+    owl:onProperty dmlex:listingOrder ;
+    owl:cardinality 1 ] .
+
+dmlex:langCode a owl:ObjectProperty ;
+  rdfs:label "Language Code"@en ;
+  rdfs:domain dmlex:HasLangCode ;
+  rdfs:range xsd:language .
+
+dmlex:TranslationLanguage rdfs:subClassOf dmlex:HasLangCode .
+dmlex:EtymonLanguage rdfs:subClassOf dmlex:HasLangCode .
+
+dmlex:headwordExplanation a owl:ObjectProperty ;
+  rdfs:label "Headword Explanation"@en ;
+  rdfs:domain dmlex:Sense ;
+  rdfs:range dmlex:HeadwordExplanation .
+
+dmlex:headwordTranslation a owl:ObjectProperty ;
+  rdfs:label "Headword Translation"@en ;
+  rdfs:domain dmlex:Sense ;
+  rdfs:range dmlex:HeadwordTranslation .
+
+dmlex:HeadwordTranslation a owl:Class ;
+  rdfs:comment "Represents one of possibly multiple translations of a headword"@en ;
+  rdfs:label "Headword Translation"@en ;
+  rdfs:subClassOf  [
+    a owl:Restriction ;
+    owl:onProperty dmlex:text ;
+    owl:cardinality 1 ] , [
+    a owl:Restriction ;
+    owl:onProperty dmlex:language ;
+    owl:maxCardinality 1 ] , [
+    a owl:Restriction ;
+    owl:onProperty dmlex:listingOrder ;
+    owl:cardinality 1 ] .
+
+dmlex:HeadwordExplanation a owl:Class ;
+  rdfs:comment "Represents a statement in the translation language which explains (but does not translate) the meaning of the headword."@en ;
+  rdfs:label "Headword Explanation"@en ;
+  rdfs:subClassOf  [
+    a owl:Restriction ;
+    owl:onProperty dmlex:text ;
+    owl:cardinality 1 ] , [
+    a owl:Restriction ;
+    owl:onProperty dmlex:language ;
+    owl:maxCardinality 1 ] .
+
+dmlex:exampleTranslation a owl:ObjectProperty ;
+  rdfs:label "Example Translation"@en ;
+  rdfs:domain dmlex:Example ;
+  rdfs:range dmlex:ExampleTranslation .
+
+dmlex:ExampleTranslation a owl:Class ;
+  rdfs:comment "Represents the translation of an example."@en ;
+  rdfs:label "Example Translation"@en ;
+  rdfs:subClassOf  [
+    a owl:Restriction ;
+    owl:onProperty dmlex:text ;
+    owl:cardinality 1 ] , [
+    a owl:Restriction ;
+    owl:onProperty dmlex:language ;
+    owl:maxCardinality 1 ] .
+
+

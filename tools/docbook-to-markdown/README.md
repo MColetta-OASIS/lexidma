@@ -93,6 +93,10 @@ specifications (CSAF, NIEM) for front matter.
   byte; the fence language is taken from the `xml:base` of the included file
   (`json`, `xml`, `turtle`, `nvh`, `sql`).
 - The table of contents lists headings to three levels.
+- A `<graphic>` with a `contentwidth` in centimetres becomes an HTML
+  `<img width>` in pixels at 90 dpi, which is how the stylesheet sizes it
+  (the 16cm figures render 567px wide). Without the width an SVG draws at its
+  natural size and the UML diagram runs off the page.
 
 ## Verification
 
@@ -108,8 +112,9 @@ pandoc, GFM to HTML) and compares them. It checks:
 - **Headings.** Every numbered heading in the published HTML appears in the
   Markdown, in the same order.
 - **Internal anchors.** Every `#id` link in the Markdown has a matching anchor.
-- **Images.** Every image the Markdown references exists on disk under the
-  output directory, and the image count matches the published HTML.
+- **Images.** Every image the Markdown references, as a Markdown image or an
+  HTML `<img>`, exists on disk under the output directory, and the image count
+  matches the published HTML.
 
 `docs.oasis-open.org` is served through Cloudflare, which replaces email
 addresses in the page with an encoded placeholder. The verifier decodes these

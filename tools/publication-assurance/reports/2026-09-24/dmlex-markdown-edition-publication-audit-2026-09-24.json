@@ -1,0 +1,175 @@
+{
+  "schema_version": 1,
+  "tc": "lexidma",
+  "slug": "dmlex-markdown-edition",
+  "artifact_title": "DMLex v1.0 OS Markdown edition and v1.1 WD01",
+  "stage": "os (Markdown edition) and wd01",
+  "published_url": "Not published. Source: https://github.com/MColetta-OASIS/lexidma/tree/markdown-conversion (fork of oasis-tcs/lexidma); comparison baseline https://docs.oasis-open.org/lexidma/dmlex/v1.0/os/dmlex-v1.0-os.html",
+  "source_release": "oasis-tcs/lexidma DocBook 4.5 source of DMLex v1.0 OS (dmlex-v1.0/specification), converted by tools/docbook-to-markdown",
+  "publisher_repo_head": "MColetta-OASIS/lexidma @ markdown-conversion (commit recorded in the pull request that carries this report)",
+  "ticket": "TCADMIN-4742",
+  "review_window": "Not applicable: nothing is opened for public review",
+  "audit_date": "2026-09-24",
+  "mode": "audit-only",
+  "auditor": "Michael Coletta, TC Administrator (interim), with an independent adversarial verifier agent",
+  "method": "The subject is the Markdown edition and its rendering, not a deployment, so every comparison was made against the published OASIS Standard, never against our own staging. Text: verify_md.py aligned the Markdown against the live published HTML word by word (61,253 published tokens, 0 unexplained difference regions, 11 accepted deviations each with a written reason), and compared every code block byte for byte, every numbered heading, every internal anchor and every image. Rendering: both editions were driven through the OASIS publication pipeline (pandoc and the OASIS post-processor, then the OASIS PDF preprocessor and headless Chrome), staged at their docs.oasis-open.org paths, and gated with oasis-pub-check v1.4.2. Visual: seven HTML anchor pairs and five PDF page pairs were captured side by side from the live published edition and ours, and read. Every defect the gate raised was traced to its origin in the live published HTML or schemas before it was classified. An independent verifier with a refutation mandate tested seven load-bearing claims.",
+  "gates": [
+    {
+      "id": "1",
+      "result": "NA",
+      "reason": "Nothing is deployed to docs.oasis-open.org. The Markdown edition and WD01 live on a fork branch for the TC to review and merge."
+    },
+    {
+      "id": "1a",
+      "result": "NA",
+      "reason": "No live copy exists to compare against GitHub."
+    },
+    {
+      "id": "2",
+      "result": "PASS",
+      "evidence": "Precedent is the published DMLex v1.0 OS in its own DocBook render. verify_md.py against the live HTML: RESULT PASS; 0 unexplained difference regions; 311 of 311 numbered headings; 316 of 316 code blocks identical; 3,166 internal links, 0 broken; 50 of 50 images present. Rendered through the OASIS Markdown pipeline, the edition takes the OASIS Markdown template look (markdown-styles v1.7.3 stylesheet) with the published content. Two render defects were found in this audit and fixed before release (F1, F2): figure width and PDF scale. After the fixes, body text prints at a median word height of 13.4pt against 13.6pt in the published PDF, figures at 567px against 566.9px, and the PDF carries the published footer layout. Accepted class differences: the Markdown template labels the cover URIs This/Previous/Latest stage rather than version, notes render as shaded blocks, and the table of contents is a nested list with object-type names in body type rather than monospace. The Appendix D UML diagram is regenerated from the TC's own source by the converter, so Graphviz places the boxes differently from the published SVG while the classes, attributes and relations are the same."
+    },
+    {
+      "id": "3",
+      "result": "PASS",
+      "evidence": "Cover front matter (chair, six editors with affiliations, TC name and link, additional artifacts, namespace, abstract, status, key words, citation) aligns word for word with the published OS cover under verify_md.py. WD01 carries the same roster unchanged; the live TC roster was not consulted, and whether the v1.1 editor list changes is a TC decision (F9)."
+    },
+    {
+      "id": "3a",
+      "result": "PASS",
+      "evidence": "oasis-pub-check v1.4.2 stage-name, filenames and version-naming raise nothing on either package: os and wd01 are current Naming Directives stage tokens, and the files are dmlex-v1.0-os.* and dmlex-v1.1-wd01.* in v1.0/os/ and v1.1/wd01/. The revision-collision warning on the OS package is expected: it is the published stage itself, re-rendered. No v1.1 stage exists yet, so wd01 cannot collide."
+    },
+    {
+      "id": "4",
+      "result": "NA",
+      "reason": "No directory indexes are created or changed; nothing is deployed."
+    },
+    {
+      "id": "5",
+      "result": "NA",
+      "reason": "No distribution zip or manifest is produced for an unpublished working draft or a non-authoritative edition of a published standard."
+    },
+    {
+      "id": "6a",
+      "result": "NA",
+      "reason": "No announcement: not a publication."
+    },
+    {
+      "id": "6b",
+      "result": "NA",
+      "reason": "No announcement: not a publication."
+    },
+    {
+      "id": "6c",
+      "result": "NA",
+      "reason": "No announcement: not a publication."
+    },
+    {
+      "id": "6d",
+      "result": "NA",
+      "reason": "No public review is opened."
+    },
+    {
+      "id": "6e",
+      "result": "NA",
+      "reason": "No news post warranted."
+    },
+    {
+      "id": "6f",
+      "result": "PASS",
+      "evidence": "TCADMIN-4742 (Document model) is the TC's ticket for this work; this report and both validation reports are the record filed against it."
+    },
+    {
+      "id": "7",
+      "result": "PASS",
+      "evidence": "A fresh verifier agent was given seven claims and a mandate to refute them. It confirmed six: WD01 differs from the OS Markdown only in stage-bound values and two typo fixes (git diff --no-index, five hunks); the .pdf.pdf link text, the member-only URL and the doubled 'OASIS OASIS Standard' are in the live published HTML; both JSON schemas declare the same $id, which serves an HTML redirect page, not a schema; the published dmlex.nvh is absent from the TC repository and differs from its dmlex_model_description.nvh (sha256 a974b247 against 987ecbe5); all 49 published figures carry width 566.93 and all 49 Markdown figures carry 567; both WD01 Previous-stage URIs return 200. It refuted part of the seventh: the first draft of the stage-uri-live fix could let a later stage with a mis-cited Previous stage hide a broken Latest URI. The case was reproduced as a failing test, the fix was re-keyed on whether the version root exists on the site, and the test now passes (publication-assurance v1.4.2, 136 passed, 1 skipped)."
+    },
+    {
+      "id": "8",
+      "result": "PASS",
+      "evidence": "Twelve side-by-side captures, each read and compared, live published edition on the left and the Markdown edition on the right. HTML at seven anchors: cover and front matter, table of contents, s3.4 entry, Example 15, s5.1 XML entry, Appendix B References, Appendix D UML diagram. PDF at five pages: cover, table of contents, s3.4 entry, Example 6, Appendix D. They are reproduced in the Rendering Comparison report and committed under tools/publication-assurance/comparison/."
+    }
+  ],
+  "findings": [
+    {
+      "id": "F1",
+      "classification": "product",
+      "severity": "minor",
+      "title": "Figures lost their 16cm width in the Markdown edition (fixed)",
+      "body": "All 49 figures in the DocBook source carry contentwidth=\"16cm\", which the TC stylesheet renders as width=\"566.929133858268\". The converter emitted plain Markdown images, so each SVG drew at its natural size and the Appendix D UML diagram ran off the page. The converter now emits <img width=\"567\"> (16cm at the stylesheet's 90 dpi) and the verifier counts HTML images. Regenerated edition verifies RESULT PASS; 49 of 49 figures carry the width.",
+      "impact": "Found in the first side-by-side, before anything was released. The committed edition carries the fix."
+    },
+    {
+      "id": "F2",
+      "classification": "product",
+      "severity": "major",
+      "title": "PDF printed at 62% scale with no page footer (fixed)",
+      "body": "Two causes. The OASIS PDF preprocessor set white-space: nowrap on inline code, so one long inline path in s3.2.1 (1,118px on a 643px line) widened the page and Chrome shrank all pages to fit: 12pt body text printed at about 7.5pt. Separately, our first print step used Chrome's command-line print, which carries no footer. The preprocessor now lets inline code wrap only when a span is wider than the line (publication-assurance v1.4.2, pinned by a test), and the PDF is printed through puppeteer-core with the published PDF's footer: document name and Standards Track Work Product, copyright line, date and page x of y. The published title-free header layout is kept, which also clears the gate's pdf-cover check.",
+      "impact": "Would have affected every Markdown-track PDF with a long inline code span, not only DMLex. Caught in render, before release.",
+      "remediated": {
+        "evidence": "Median body word height 13.41pt (published 13.61pt); text spans the full 20mm-margin column (57pt to 539pt); footer present on every page; pdf-cover raises nothing.",
+        "exposure_window": "None. Found in the first render; nothing was committed or published with the defect."
+      }
+    },
+    {
+      "id": "F3",
+      "classification": "external",
+      "severity": "major",
+      "title": "Both JSON schemas declare the same $id, and it does not resolve to a schema",
+      "body": "schemas/JSON/dmlex.schema.json and dmlex_no-crosslingual.schema.json both declare $id http://docs.oasis-open.org/lexidma/ns/dmlex-1.0. That URI redirects to an HTML namespace page. Two distinct schemas sharing one $id is ambiguous to any JSON Schema processor, and an implementer following the $id does not reach either schema. oasis-pub-check blocks it in both packages.",
+      "impact": "Inherited from the published v1.0 OS, which cannot change. For v1.1 the TC decides the $id scheme; the conventional choice is the version-root URL of each schema file."
+    },
+    {
+      "id": "F4",
+      "classification": "external",
+      "severity": "major",
+      "title": "The cited NVH schema dmlex.nvh is not in the TC repository",
+      "body": "The specification cites .../schemas/informativeCopiesOf3rdPartySchemas/NVH/dmlex.nvh. The published site serves that file (placed during the June 2026 defect fix), but the TC repository holds only dmlex_model_description.nvh, which is not the same file (sha256 987ecbe5 against the published a974b247). A package rendered from the repository therefore lacks the cited file.",
+      "impact": "Inherited. For v1.1 the TC should commit the file it intends under the cited name, or change the citation."
+    },
+    {
+      "id": "F5",
+      "classification": "external",
+      "severity": "major",
+      "title": "Reference [XML Catalogs] cites a member-only (Kavi) URL",
+      "body": "Appendix B cites https://www.oasis-open.org/committees/download.php/14809/xml-catalogs.html. Naming Directives v1.7 s6.6 bars password-protected member-only references from any TC document that is or may become public.",
+      "impact": "Inherited. For v1.1 the reference needs a public URL for XML Catalogs."
+    },
+    {
+      "id": "F6",
+      "classification": "external",
+      "severity": "minor",
+      "title": "Change-tracking links show '.pdf.pdf' in their visible text",
+      "body": "In Appendix F the visible link text for CSD03 and CSD04 ends '.pdf.pdf' while the link targets end '.pdf'. Present in the published HTML.",
+      "impact": "Reproduced faithfully in the v1.0 edition. Corrected in WD01 as a typo."
+    },
+    {
+      "id": "F7",
+      "classification": "external",
+      "severity": "minor",
+      "title": "The citation reads 'OASIS OASIS Standard'",
+      "body": "The citation format on the published cover repeats 'OASIS'. The TC stylesheet prefixes the stage name, which already begins with OASIS.",
+      "impact": "Reproduced faithfully in the v1.0 edition. WD01 reads 'OASIS Working Draft 01'."
+    },
+    {
+      "id": "F8",
+      "classification": "process",
+      "severity": "info",
+      "title": "Two gate defects found and fixed while auditing this work",
+      "body": "oasis-pub-check reported a cited directory (schemas/, schemas/JSON/) as missing even when it shipped, and blocked the first stage of every new version because its Latest-stage URI cannot exist before its own publication. Both fixed with regression tests: publication-assurance v1.4.1 (PR #8) and v1.4.2 (PR #9).",
+      "impact": "Every TC using the gate benefits; neither defect had produced a wrong publication."
+    },
+    {
+      "id": "F9",
+      "classification": "external",
+      "severity": "info",
+      "title": "WD01 content left for the TC",
+      "body": "WD01 changes stage-bound values only. Left for the TC: the editor list; the RDF vocabulary namespace, which still names v1.0 (a technical decision); the sentence in section 2 (Conformance) that names DMLex Version 1.0; the JSON schema $id values (F3); and Appendix F change tracking, which describes the v1.0 drafts.",
+      "impact": "None until the TC edits the draft."
+    }
+  ],
+  "notes": "Timestamps are Europe/London. The two validation reports (pub-check) are filed alongside this one: dmlex-v1.1-wd01-pub-check-validation-2026-09-24 and dmlex-v1.0-os-markdown-pub-check-validation-2026-09-24.",
+  "verdict": "PASS",
+  "verdict_statement": "The Markdown edition reproduces the published DMLex v1.0 OASIS Standard without technical change and renders through the OASIS pipeline to the published standard of presentation. The two rendering defects this audit found (F1, F2) are fixed and verified. The remaining gate blockers are all in the published source (F3 to F5) and are the TC's to resolve in v1.1; WD01 is ready for the TC to edit.",
+  "footer_title": "DMLex Markdown edition audit"
+}

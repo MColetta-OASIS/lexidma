@@ -2,26 +2,27 @@
 
 ---
 
-# Data Model for Lexicography (DMLex) Version 1.0
+# Data Model for Lexicography (DMLex) Version 1.1
 
-## OASIS Standard
+## Working Draft 01
 
-## 29 April 2025
+## 24 September 2026
 
 #### This stage:
+
+https://docs.oasis-open.org/lexidma/dmlex/v1.1/wd01/dmlex-v1.1-wd01.md \
+https://docs.oasis-open.org/lexidma/dmlex/v1.1/wd01/dmlex-v1.1-wd01.html \
+https://docs.oasis-open.org/lexidma/dmlex/v1.1/wd01/dmlex-v1.1-wd01.pdf (Authoritative)
+
+#### Previous stage:
 
 https://docs.oasis-open.org/lexidma/dmlex/v1.0/os/dmlex-v1.0-os.html \
 https://docs.oasis-open.org/lexidma/dmlex/v1.0/os/dmlex-v1.0-os.pdf (Authoritative)
 
-#### Previous stage:
-
-https://docs.oasis-open.org/lexidma/dmlex/v1.0/cs01/dmlex-v1.0-cs01.html \
-https://docs.oasis-open.org/lexidma/dmlex/v1.0/cs01/dmlex-v1.0-cs01.pdf (Authoritative)
-
 #### Latest stage:
 
-https://docs.oasis-open.org/lexidma/dmlex/v1.0/dmlex-v1.0.html \
-https://docs.oasis-open.org/lexidma/dmlex/v1.0/dmlex-v1.0.pdf (Authoritative)
+https://docs.oasis-open.org/lexidma/dmlex/v1.1/dmlex-v1.1.html \
+https://docs.oasis-open.org/lexidma/dmlex/v1.1/dmlex-v1.1.pdf (Authoritative)
 
 #### Technical Committee:
 
@@ -42,17 +43,17 @@ Michal Měchura (michmech@mail.muni.cz), [Masaryk University](https://www.muni.c
 
 #### Additional artifacts:
 
-This prose specification is one component of a Work Product that also includes declarative validation artifacts accessible from <https://docs.oasis-open.org/lexidma/dmlex/v1.0/os/schemas/>:
+This prose specification is one component of a Work Product that also includes declarative validation artifacts accessible from <https://docs.oasis-open.org/lexidma/dmlex/v1.1/wd01/schemas/>:
 
-- XML: <https://docs.oasis-open.org/lexidma/dmlex/v1.0/os/schemas/XML/>
+- XML: <https://docs.oasis-open.org/lexidma/dmlex/v1.1/wd01/schemas/XML/>
 
-- JSON: <https://docs.oasis-open.org/lexidma/dmlex/v1.0/os/schemas/JSON/>
+- JSON: <https://docs.oasis-open.org/lexidma/dmlex/v1.1/wd01/schemas/JSON/>
 
-- RDF: <https://docs.oasis-open.org/lexidma/dmlex/v1.0/os/schemas/RDF/>
+- RDF: <https://docs.oasis-open.org/lexidma/dmlex/v1.1/wd01/schemas/RDF/>
 
 Informative copies of third party schemas are provided:
 
-<https://docs.oasis-open.org/lexidma/dmlex/v1.0/os/schemas/informativeCopiesOf3rdPartySchemas/>
+<https://docs.oasis-open.org/lexidma/dmlex/v1.1/wd01/schemas/informativeCopiesOf3rdPartySchemas/>
 
 #### Declared namespaces: <a id='namespaces'></a>
 
@@ -96,9 +97,9 @@ The key words MUST, MUST NOT, REQUIRED, SHALL, SHALL NOT, SHOULD, SHOULD NOT, RE
 
 When referencing this specification the following citation format should be used:
 
-\[DMLex-1.0\]
+\[DMLex-1.1\]
 
-*Data Model for Lexicography Version 1.0*. Edited by David Filip, Miloš Jakubíček, Simon Krek, John McCrae, and Michal Měchura. 29 April 2025. OASIS OASIS Standard. <https://docs.oasis-open.org/lexidma/dmlex/v1.0/os/dmlex-v1.0-os.html>. Latest version: <https://docs.oasis-open.org/lexidma/dmlex/v1.0/dmlex-v1.0.html>.
+*Data Model for Lexicography Version 1.1*. Edited by David Filip, Miloš Jakubíček, Simon Krek, John McCrae, and Michal Měchura. 24 September 2026. OASIS Working Draft 01. <https://docs.oasis-open.org/lexidma/dmlex/v1.1/wd01/dmlex-v1.1-wd01.html>. Latest version: <https://docs.oasis-open.org/lexidma/dmlex/v1.1/dmlex-v1.1.html>.
 
 ---
 
@@ -9705,15 +9706,15 @@ While any hyperlinks included in this appendix were valid at the time of publica
 
 # Appendix C Machine Readable Validation Artifacts (Normative) <a id='Validation'></a>
 
-- [XML schema](https://docs.oasis-open.org/lexidma/dmlex/v1.0/os/schemas/XML/dmlex.xsd)
+- [XML schema](https://docs.oasis-open.org/lexidma/dmlex/v1.1/wd01/schemas/XML/dmlex.xsd)
 
-- [XML schema excluding the cross-lingual module](https://docs.oasis-open.org/lexidma/dmlex/v1.0/os/schemas/XML/dmlex_no-crosslingual.xsd)
+- [XML schema excluding the cross-lingual module](https://docs.oasis-open.org/lexidma/dmlex/v1.1/wd01/schemas/XML/dmlex_no-crosslingual.xsd)
 
-- [JSON schema](https://docs.oasis-open.org/lexidma/dmlex/v1.0/os/schemas/JSON/dmlex.schema.json)
+- [JSON schema](https://docs.oasis-open.org/lexidma/dmlex/v1.1/wd01/schemas/JSON/dmlex.schema.json)
 
-- [JSON schema excluding the cross-lingual module](https://docs.oasis-open.org/lexidma/dmlex/v1.0/os/schemas/JSON/dmlex_no-crosslingual.schema.json)
+- [JSON schema excluding the cross-lingual module](https://docs.oasis-open.org/lexidma/dmlex/v1.1/wd01/schemas/JSON/dmlex_no-crosslingual.schema.json)
 
-- [NVH schema (informative)](https://docs.oasis-open.org/lexidma/dmlex/v1.0/os/schemas/informativeCopiesOf3rdPartySchemas/NVH/dmlex.nvh)
+- [NVH schema (informative)](https://docs.oasis-open.org/lexidma/dmlex/v1.1/wd01/schemas/informativeCopiesOf3rdPartySchemas/NVH/dmlex.nvh)
 
 # Appendix D DMLex UML diagram (Normative) <a id='diagram_uml'></a>
 
@@ -9928,13 +9929,13 @@ This is to facilitate human tracking of changes in the specification made since 
 
 #### F.1.2.1 Tracking of changes in response to the 4th Public Review <a id='csprd04'></a>
 
-This section tracks major changes made to this specification compared to the Committee Specification Draft 04 [https://docs.oasis-open.org/lexidma/dmlex/v1.0/csd04/dmlex-v1.0-csd04.pdf.pdf](https://docs.oasis-open.org/lexidma/dmlex/v1.0/csd04/dmlex-v1.0-csd04.pdf). The fourth Public Review took place from 10 September 2024 until 11 October 2024.
+This section tracks major changes made to this specification compared to the Committee Specification Draft 04 [https://docs.oasis-open.org/lexidma/dmlex/v1.0/csd04/dmlex-v1.0-csd04.pdf](https://docs.oasis-open.org/lexidma/dmlex/v1.0/csd04/dmlex-v1.0-csd04.pdf). The fourth Public Review took place from 10 September 2024 until 11 October 2024.
 
 1. No changes were made except administratively progressiong the draft to Committee Specification.
 
 #### F.1.2.2 Tracking of changes in response to the 3rd Public Review <a id='csprd03'></a>
 
-This section tracks major changes made to this specification compared to the Committee Specification Draft 03 [https://docs.oasis-open.org/lexidma/dmlex/v1.0/csd03/dmlex-v1.0-csd03.pdf.pdf](https://docs.oasis-open.org/lexidma/dmlex/v1.0/csd03/dmlex-v1.0-csd03.pdf). The third Public Review took place from 28 June 2024 until 27 July 2024.
+This section tracks major changes made to this specification compared to the Committee Specification Draft 03 [https://docs.oasis-open.org/lexidma/dmlex/v1.0/csd03/dmlex-v1.0-csd03.pdf](https://docs.oasis-open.org/lexidma/dmlex/v1.0/csd03/dmlex-v1.0-csd03.pdf). The third Public Review took place from 28 June 2024 until 27 July 2024.
 
 1. The `sameAs` object has been added as property of `etymonLanguage` and `etymonType` (GitHub issue [140](https://github.com/oasis-tcs/lexidma/issues/140)).
 
