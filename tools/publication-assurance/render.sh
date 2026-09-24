@@ -65,6 +65,8 @@ if [ -z "${CHROME:-}" ]; then
     command -v "$c" >/dev/null 2>&1 && CHROME=$c && break
   done
 fi
+# puppeteer needs an absolute path, not a command name.
+CHROME=$(command -v "$CHROME" || echo "$CHROME")
 export CHROME
 HERE=$(cd "$(dirname "$0")" && pwd)
 [ -d "$HERE/node_modules/puppeteer-core" ] || npm install --prefix "$HERE" --no-save --silent puppeteer-core@24

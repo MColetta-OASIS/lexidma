@@ -57,7 +57,9 @@ python3 - "$OUT/$NAME.md" "$SPEC" "$OUT" <<'PY'
 import os, re, shutil, sys
 md, spec, out = sys.argv[1:]
 n = 0
-for p in sorted(set(re.findall(r'!\[[^\]]*\]\(([^)\s]+)\)', open(md, encoding='utf-8').read()))):
+text = open(md, encoding='utf-8').read()
+refs = re.findall(r'!\[[^\]]*\]\(([^)\s]+)\)', text) + re.findall(r'<img\s[^>]*src="([^"]+)"', text)
+for p in sorted(set(refs)):
     if p.startswith('http'):
         continue
     src = os.path.join(spec, p)
