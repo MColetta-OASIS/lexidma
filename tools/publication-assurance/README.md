@@ -1,5 +1,15 @@
 # Publication Assurance
 
+[![Publication assurance](https://github.com/MColetta-OASIS/lexidma/actions/workflows/publication-assurance.yml/badge.svg?branch=markdown-conversion)](https://github.com/MColetta-OASIS/lexidma/actions/workflows/publication-assurance.yml?query=branch%3Amarkdown-conversion)
+[![pub-check](https://img.shields.io/badge/oasis--pub--check-v1.4.2-2c4a8a)](https://github.com/OASIS-Docs/publication-assurance/releases/tag/v1.4.2)
+[![Checks](https://img.shields.io/badge/checks-170-6741d9)](https://github.com/OASIS-Docs/publication-assurance/blob/main/pub-check/CHECKS.md)
+[![Latest reports](https://img.shields.io/badge/latest_reports-24_Sep_2026-2f9e44)](reports/2026-09-24/)
+
+**Latest run: [reports/2026-09-24](reports/2026-09-24/)**, with the audit,
+both validation reports, the rendering comparison and the rendered PDFs.
+
+[![Appendix D, published on the left, Markdown edition on the right](reports/2026-09-24/comparison/html-7-diagram_uml.png)](reports/2026-09-24/)
+
 ## Purpose
 
 This directory renders the Markdown editions of DMLex the way OASIS publishes
@@ -90,7 +100,9 @@ The gate step is the published action, pinned to a release:
     target: _publication/lexidma/dmlex/v1.1/wd01
 ```
 
-The job summary lists every finding. The rendered package and the gate report
+The Publication assurance badge above is red while WD01 has blockers; that is
+the gate doing its job, and it goes green when the TC resolves them. The job
+summary lists every finding. The rendered package and the gate report
 are uploaded as the `dmlex-v1.1-wd01-rendered` and `dmlex-v1.0-os-rendered`
 artifacts.
 
