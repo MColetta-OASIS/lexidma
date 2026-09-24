@@ -1,0 +1,65 @@
+name: DocBook to Markdown
+
+# Regenerates the Markdown edition of DMLex from the DocBook source, verifies it
+# against the published OASIS Standard HTML, and fails if the committed Markdown
+# is stale. See tools/docbook-to-markdown/README.md.
+
+on:
+  push:
+    paths:
+      - 'dmlex-v1.0/specification/**'
+      - 'tools/docbook-to-markdown/**'
+      - '.github/workflows/docbook-to-markdown.yml'
+  pull_request:
+    paths:
+      - 'dmlex-v1.0/specification/**'
+      - 'tools/docbook-to-markdown/**'
+      - '.github/workflows/docbook-to-markdown.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+defaults:
+  run:
+    shell: bash
+
+env:
+  PANDOC_VERSION: 3.8.2.1
+  PUBLISHED_HTML: https://docs.oasis-open.org/lexidma/dmlex/v1.0/os/dmlex-v1.0-os.html
+
+jobs:
+  convert-and-verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libxml2-utils graphviz m4
+          curl -fsSL -o "$RUNNER_TEMP/pandoc.deb" \
+            "https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/pandoc-${PANDOC_VERSION}-1-amd64.deb"
+          sudo dpkg -i "$RUNNER_TEMP/pandoc.deb"
+          pandoc --version
+          xmllint --version
+          dot -V
+
+      - name: Convert and verify against the published HTML
+        run: |
+          tools/docbook-to-markdown/build.sh dmlex-v1.0/specification \
+            "$RUNNER_TEMP/dmlex-markdown" "$PUBLISHED_HTML"
+
+      - name: Check the committed Markdown is current
+        run: |
+          git diff --no-index --exit-code \
+            dmlex-v1.0/markdown/dmlex-v1.0-os.md \
+            "$RUNNER_TEMP/dmlex-markdown/dmlex-v1.0-os.md"
+
+      - name: Upload the generated Markdown
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: dmlex-markdown
+          path: ${{ runner.temp }}/dmlex-markdown
+          if-no-files-found: error
