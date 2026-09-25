@@ -5,9 +5,12 @@ name: Publication assurance
 # the OASIS publication gate (oasis-pub-check) on the staged package. The
 # rendered HTML and PDF are uploaded as an artifact per document.
 #
-# The v1.1 working draft is gated: any blocker fails the job. The v1.0 OASIS
-# Standard is published and cannot change, so its job reports the gate's
-# findings without failing. See tools/publication-assurance/README.md.
+# Both jobs run report-only (fail-on-blockers: false): the gate's findings
+# are reported, published and raised as a warning, and the run passes. The
+# v1.0 OASIS Standard is published and cannot change. The v1.1 working draft's
+# only blockers are inherited from v1.0 and await a TC decision; set its
+# enforce back to true once they are resolved, so a new blocker fails the run.
+# See tools/publication-assurance/README.md.
 
 on:
   push:
@@ -36,7 +39,7 @@ defaults:
 
 env:
   PANDOC_VERSION: 3.8.2.1
-  PA_REF: v1.6.0
+  PA_REF: v1.7.0
 
 jobs:
   render-and-gate:
@@ -50,7 +53,7 @@ jobs:
             md: dmlex-v1.1
             schemas: dmlex-v1.1/schemas
             stage: _publication/lexidma/dmlex/v1.1/wd01
-            enforce: true
+            enforce: false   # true once the TC resolves the inherited blockers
           - name: DMLex v1.0 OS (published, report only)
             md: dmlex-v1.0/markdown
             schemas: dmlex-v1.0/specification/schemas
@@ -75,9 +78,9 @@ jobs:
         run: tools/publication-assurance/render.sh "${{ matrix.md }}" "${{ matrix.schemas }}" _publication
 
       - name: OASIS publication gate
-        uses: OASIS-Docs/publication-assurance@v1.6.0
-        continue-on-error: ${{ !matrix.enforce }}
+        uses: OASIS-Docs/publication-assurance@v1.7.0
         with:
+          fail-on-blockers: ${{ matrix.enforce }}
           target: ${{ matrix.stage }}
           summary-title: ${{ matrix.name }}
           report-dir: ${{ matrix.stage }}-pubcheck

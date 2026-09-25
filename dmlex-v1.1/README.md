@@ -23,7 +23,9 @@ CSD01, rename the file to match the stage (`dmlex-v1.1-wd02.md`) and change
 the stage line, the date, the This stage URLs, the citation and the schema
 URLs. Searching for `v1.1/wd01` finds every one. The publication gate checks
 the stage, the URLs and the filename against each other, so anything missed
-fails the `Publication assurance` workflow before it reaches OASIS.
+is flagged by the `Publication assurance` workflow before it reaches OASIS: as
+a warning while the draft runs report-only, and as a failed run once it is
+enforced.
 
 ## For the TC
 
