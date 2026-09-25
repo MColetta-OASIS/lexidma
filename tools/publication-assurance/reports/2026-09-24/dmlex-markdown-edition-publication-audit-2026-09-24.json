@@ -12,7 +12,7 @@
   "audit_date": "2026-09-24",
   "mode": "audit-only",
   "auditor": "Michael Coletta, Technical Advisor, OASIS Open, with an independent adversarial verifier agent",
-  "method": "The subject is the Markdown edition and its rendering, not a deployment, so every comparison was made against the published OASIS Standard, not against a staged copy. Text: verify_md.py aligned the Markdown against the live published HTML word by word (61,253 published tokens, 0 unexplained difference regions, 11 accepted deviations each with a written reason), and compared every code block byte for byte, every numbered heading, every internal anchor and every image. Rendering: both editions were driven through the OASIS publication pipeline (pandoc and the OASIS post-processor, then the OASIS PDF preprocessor and headless Chrome), staged at their docs.oasis-open.org paths, and gated with oasis-pub-check v1.5.0. Type sizes were read from the text layer of each PDF with PyMuPDF, weighted by characters. Visual: seven HTML anchor pairs and five PDF page pairs were captured side by side from the live published edition and the Markdown edition, and read. Every defect the gate raised was traced to its origin in the live published HTML or schemas before it was classified. An independent verifier with a refutation mandate tested seven load-bearing claims.",
+  "method": "The subject is the Markdown edition and its rendering, not a deployment, so every comparison was made against the published OASIS Standard, not against a staged copy. Text: verify_md.py aligned the Markdown against the live published HTML word by word (61,253 published tokens, 0 unexplained difference regions, 11 accepted deviations each with a written reason), and compared every code block byte for byte, every numbered heading, every internal anchor and every image. Rendering: both editions were driven through the OASIS publication pipeline (pandoc and the OASIS post-processor, then the OASIS PDF preprocessor and headless Chrome), staged at their docs.oasis-open.org paths, and gated with oasis-pub-check v1.5.0. Type sizes were read from the text layer of each PDF with PyMuPDF, weighted by characters. Visual: 7 HTML anchor pairs and 5 PDF page pairs were captured side by side from the live published edition and the Markdown edition, and read. Every defect the gate raised was traced to its origin in the live published HTML or schemas before it was classified. An independent verifier with a refutation mandate tested the load-bearing claims listed under the independent verifier gate.",
   "gates": [
     {
       "id": "1",
@@ -27,7 +27,7 @@
     {
       "id": "2",
       "result": "PASS",
-      "evidence": "Precedent is the published DMLex v1.0 OS in its own DocBook render. verify_md.py against the live HTML: RESULT PASS; 0 unexplained difference regions; all 311 numbered headings present, 0 missing; 316 code blocks in each edition, 0 differing; 3,166 internal links, 0 broken; 50 images in each edition (49 figures and the OASIS logo), 0 missing. Rendered through the OASIS Markdown pipeline, the edition takes the OASIS Markdown template look (markdown-styles v1.7.3 stylesheet) with the published content. Three render defects were found in this audit and fixed (F1, F2, F10): figure width, PDF scale and PDF type size. After the fixes, body text prints at 10pt and code at 9pt against 10pt and 10pt in the published PDF, figures at 567px against 566.93px, and the PDF footer prints at 8pt, as in the published PDF. Accepted class differences: the Markdown template labels the cover URIs This/Previous/Latest stage rather than version, notes render as shaded blocks, and the table of contents is a nested list with object-type names in body type rather than monospace. The Appendix D UML diagram is regenerated from the TC's own source by the converter, so Graphviz places the boxes differently from the published SVG while the classes, attributes and relations are the same.",
+      "evidence": "Precedent is the published DMLex v1.0 OS in its own DocBook render. verify_md.py against the live HTML: RESULT PASS; 0 unexplained difference regions; all 311 numbered headings present, 0 missing; 316 code blocks in each edition, 0 differing; 3,166 internal links, 0 broken; 50 images in each edition (49 figures and the OASIS logo), 0 missing. Rendered through the OASIS Markdown pipeline, the edition takes the OASIS Markdown template look (markdown-styles v1.7.3 stylesheet) with the published content. The render defects found in this audit, now fixed, are F1, F2 and F10: figure width, PDF scale and PDF type size. After the fixes, body text prints at 10pt and code at 9pt against 10pt and 10pt in the published PDF, figures at 567px against 566.93px, and the PDF footer prints at 8pt, as in the published PDF. Accepted class differences: the Markdown template labels the cover URIs This/Previous/Latest stage rather than version, notes render as shaded blocks, and the table of contents is a nested list with object-type names in body type rather than monospace. The Appendix D UML diagram is regenerated from the TC's own source by the converter, so Graphviz places the boxes differently from the published SVG while the classes, attributes and relations are the same.",
       "figures": [
         {
           "text": "0",
@@ -105,45 +105,53 @@
         {
           "text": "10pt",
           "source": "S4",
-          "pointer": "/v1.0-os/body/size"
+          "pointer": "/v1.0-os/body/size",
+          "unit": "pt"
         },
         {
           "text": "9pt",
           "source": "S4",
-          "pointer": "/v1.0-os/code/size"
+          "pointer": "/v1.0-os/code/size",
+          "unit": "pt"
         },
         {
           "text": "10pt",
           "source": "S4",
           "pointer": "/published/body/size",
-          "occurrence": 2
+          "occurrence": 2,
+          "unit": "pt"
         },
         {
           "text": "10pt",
           "source": "S4",
           "pointer": "/published/code/size",
-          "occurrence": 3
+          "occurrence": 3,
+          "unit": "pt"
         },
         {
           "text": "567px",
           "source": "S5",
-          "pointer": "/markdown/img_width/0/width"
+          "pointer": "/markdown/img_width/0/width",
+          "unit": "px"
         },
         {
           "text": "566.93px",
           "source": "S5",
           "pointer": "/published_html/img_width/0/width",
-          "decimals": 2
+          "decimals": 2,
+          "unit": "px"
         },
         {
           "text": "8pt",
           "source": "S4",
-          "pointer": "/v1.0-os/footer/size"
+          "pointer": "/v1.0-os/footer/size",
+          "unit": "pt"
         },
         {
           "text": "8pt",
           "source": "S4",
-          "pointer": "/published/footer/size"
+          "pointer": "/published/footer/size",
+          "unit": "pt"
         }
       ],
       "findings": [
@@ -155,7 +163,7 @@
     {
       "id": "3",
       "result": "PASS",
-      "evidence": "Cover front matter (chair, six editors with affiliations, TC name and link, additional artifacts, namespace, abstract, status, key words, citation) aligns with the published OS cover under verify_md.py, word for word apart from the accepted deviations it lists. WD01 carries the same roster unchanged; the live TC roster was not consulted, and whether the v1.1 editor list changes is a TC decision (F9).",
+      "evidence": "Cover front matter (chair, editors with affiliations, TC name and link, additional artifacts, namespace, abstract, status, key words, citation) aligns with the published OS cover under verify_md.py, word for word apart from the accepted deviations it lists. WD01 carries the same roster unchanged; the live TC roster was not consulted, and whether the v1.1 editor list changes is a TC decision (F9).",
       "findings": [
         "F9"
       ]
@@ -163,7 +171,7 @@
     {
       "id": "3a",
       "result": "PASS",
-      "evidence": "oasis-pub-check v1.5.0 stage-name, filenames and version-naming raise nothing on either package: os and wd01 are current Naming Directives stage tokens, and the files are dmlex-v1.0-os.* and dmlex-v1.1-wd01.* in v1.0/os/ and v1.1/wd01/. The revision-collision warning on the OS package is expected: it is the published stage itself, re-rendered. No v1.1 stage exists yet, so wd01 cannot collide."
+      "evidence": "oasis-pub-check v1.5.0 stage-name, filenames and version-naming raise nothing on either package: os and wd01 are current Naming Directives stage tokens, and the files are `dmlex-v1.0-os.*` and `dmlex-v1.1-wd01.*` in `v1.0/os/` and `v1.1/wd01/`. The revision-collision warning on the OS package is expected: it is the published stage itself, re-rendered. No v1.1 stage exists yet, so wd01 cannot collide."
     },
     {
       "id": "4",
@@ -208,7 +216,7 @@
     {
       "id": "7",
       "result": "PASS",
-      "evidence": "A fresh verifier agent was given seven claims and a mandate to refute them. It confirmed six: WD01 differs from the OS Markdown only in stage-bound values and two typo fixes (git diff --no-index, five hunks); the .pdf.pdf link text, the member-only URL and the doubled 'OASIS OASIS Standard' are in the live published HTML; both JSON schemas declare the same $id, which serves an HTML redirect page, not a schema; the published dmlex.nvh is absent from the TC repository and differs from its dmlex_model_description.nvh (sha256 a974b247 against 987ecbe5); all 49 published figures carry width 566.93 (the fiftieth published image, the OASIS logo, is 290pt) and all 49 Markdown figures carry 567; both WD01 Previous-stage URIs return 200. It refuted part of the seventh: the first draft of the stage-uri-live fix could let a later stage with a mis-cited Previous stage hide a broken Latest URI. The case was reproduced as a failing test, the fix was re-keyed on whether the version root exists on the site, and the test passes in the publication-assurance v1.4.2 release (its suite, re-run on 25 September: 141 passed).",
+      "evidence": "A fresh verifier agent was given the load-bearing claims of this audit and a mandate to refute them. It confirmed these: WD01 differs from the OS Markdown only in stage-bound values, among them the citation line, whose rewrite for the new stage also removes the doubled 'OASIS' of F7, and in the typo fixes of F6, the doubled '.pdf.pdf' link text (git diff --no-index); the .pdf.pdf link text, the member-only URL and the doubled 'OASIS OASIS Standard' are in the live published HTML; both JSON schemas declare the same $id, which serves an HTML redirect page, not a schema; the published dmlex.nvh is absent from the TC repository and differs from its dmlex_model_description.nvh (sha256 a974b247 against 987ecbe5); all 49 published figures carry width 566.93 (the fiftieth published image, the OASIS logo, is 290pt) and all 49 Markdown figures carry 567; both WD01 Previous-stage URIs return 200. It refuted part of a claim: the first draft of the stage-uri-live fix could let a later stage with a mis-cited Previous stage hide a broken Latest URI. The case was reproduced as a failing test, the fix was re-keyed on whether the version root exists on the site, and the test passes in the publication-assurance v1.4.2 release (its suite, re-run on 25 September: 141 passed).",
       "figures": [
         {
           "text": "a974b247",
@@ -267,7 +275,24 @@
     {
       "id": "8",
       "result": "PASS",
-      "evidence": "Twelve side-by-side captures, each read and compared, live published edition on the left and the Markdown edition on the right. HTML at seven anchors: cover and front matter, table of contents, s3.4 entry, Example 15, s5.1 XML entry, Appendix B References, Appendix D UML diagram. PDF at five pages: cover, table of contents, s3.4 entry, Example 6, Appendix D. They are reproduced in the Rendering Comparison report and committed under tools/publication-assurance/reports/2026-09-24/comparison/."
+      "evidence": "12 side-by-side captures, each read and compared, live published edition on the left and the Markdown edition on the right. HTML at 7 anchors: cover and front matter, table of contents, s3.4 entry, Example 15, s5.1 XML entry, Appendix B References, Appendix D UML diagram. PDF at 5 pages: cover, table of contents, s3.4 entry, Example 6, Appendix D. They are reproduced in the Rendering Comparison report and committed under tools/publication-assurance/reports/2026-09-24/comparison/.",
+      "figures": [
+        {
+          "text": "12",
+          "source": "S13",
+          "pointer": "/total"
+        },
+        {
+          "text": "7",
+          "source": "S13",
+          "pointer": "/html"
+        },
+        {
+          "text": "5",
+          "source": "S13",
+          "pointer": "/pdf"
+        }
+      ]
     }
   ],
   "findings": [
@@ -323,7 +348,7 @@
       "classification": "product",
       "severity": "major",
       "title": "PDF printed shrunk to fit, with no page footer (fixed)",
-      "body": "Two causes. The OASIS PDF preprocessor set white-space: nowrap on inline code, so one long inline path in s3.2.1, wider than the text column, widened the page and Chrome shrank every page to fit, printing the 12pt body text far below its set size. Separately, the first print step used Chrome's command-line print, which carries no footer. The preprocessor now lets inline code wrap only when a span is wider than the line (publication-assurance v1.4.2, pinned by a test), and the PDF is printed through puppeteer-core with the published PDF's footer: document name and Standards Track Work Product, copyright line, date and page x of y. The published title-free header layout is kept, which also clears the gate's pdf-cover check.",
+      "body": "The OASIS PDF preprocessor set white-space: nowrap on inline code, so a long inline path in s3.2.1, wider than the text column, widened the page and Chrome shrank every page to fit, printing the 12pt body text far below its set size. Separately, the first print step used Chrome's command-line print, which carries no footer. The preprocessor now lets inline code wrap only when a span is wider than the line (publication-assurance v1.4.2, pinned by a test), and the PDF is printed through puppeteer-core with the published PDF's footer: document name and Standards Track Work Product, copyright line, date and page x of y. The published title-free header layout is kept, which also clears the gate's pdf-cover check.",
       "impact": "Would have affected every Markdown-track PDF with a long inline code span, not only DMLex. Caught in render, before release.",
       "remediated": {
         "evidence": "The text layer of both rendered PDFs spans the full 20mm-margin column, 57.0pt to 539.2pt, and carries a footer on all 194 pages; pdf-cover raises nothing. The body size first reported here came from median word-box heights, which measure line boxes rather than type, and hid a 12pt against 10pt mismatch: see F10.",
@@ -345,25 +370,29 @@
           "text": "57.0pt",
           "source": "S4",
           "pointer": "/v1.0-os/text_column_pt/x_min",
-          "field": "remediated.evidence"
+          "field": "remediated.evidence",
+          "unit": "pt"
         },
         {
           "text": "57.0pt",
           "source": "S4",
           "pointer": "/v1.1-wd01/text_column_pt/x_min",
-          "field": "remediated.evidence"
+          "field": "remediated.evidence",
+          "unit": "pt"
         },
         {
           "text": "539.2pt",
           "source": "S4",
           "pointer": "/v1.0-os/text_column_pt/x_max",
-          "field": "remediated.evidence"
+          "field": "remediated.evidence",
+          "unit": "pt"
         },
         {
           "text": "539.2pt",
           "source": "S4",
           "pointer": "/v1.1-wd01/text_column_pt/x_max",
-          "field": "remediated.evidence"
+          "field": "remediated.evidence",
+          "unit": "pt"
         },
         {
           "text": "194",
@@ -393,13 +422,15 @@
           "text": "12pt",
           "source": "S4",
           "pointer": "/v1.0-os-24sep/body/size",
-          "field": "remediated.evidence"
+          "field": "remediated.evidence",
+          "unit": "pt"
         },
         {
           "text": "10pt",
           "source": "S4",
           "pointer": "/published/body/size",
-          "field": "remediated.evidence"
+          "field": "remediated.evidence",
+          "unit": "pt"
         }
       ]
     },
@@ -408,7 +439,7 @@
       "classification": "external",
       "severity": "major",
       "title": "Both JSON schemas declare the same $id, and it does not resolve to a schema",
-      "body": "schemas/JSON/dmlex.schema.json and dmlex_no-crosslingual.schema.json both declare $id http://docs.oasis-open.org/lexidma/ns/dmlex-1.0. That URI redirects to an HTML namespace page. Two distinct schemas sharing one $id is ambiguous to any JSON Schema processor, and an implementer following the $id does not reach either schema. oasis-pub-check blocks it in both packages.",
+      "body": "schemas/JSON/dmlex.schema.json and dmlex_no-crosslingual.schema.json both declare $id http://docs.oasis-open.org/lexidma/ns/dmlex-1.0. That URI redirects to an HTML namespace page. Distinct schemas sharing one $id is ambiguous to any JSON Schema processor, and an implementer following the $id does not reach either schema. oasis-pub-check blocks it in both packages.",
       "impact": "Inherited from the published v1.0 OS, which cannot change. For v1.1 the TC decides the $id scheme; the conventional choice is the version-root URL of each schema file."
     },
     {
@@ -459,7 +490,7 @@
       "id": "F8",
       "classification": "process",
       "severity": "info",
-      "title": "Two gate defects found and fixed while auditing this work",
+      "title": "Gate defects found and fixed while auditing this work",
       "body": "oasis-pub-check reported a cited directory (schemas/, schemas/JSON/) as missing even when it shipped, and blocked the first stage of every new version because its Latest-stage URI cannot exist before its own publication. Both fixed with regression tests: publication-assurance v1.4.1 (PR #8) and v1.4.2 (PR #9).",
       "impact": "Every TC using the gate benefits; neither defect had produced a wrong publication."
     },
@@ -476,11 +507,11 @@
       "classification": "product",
       "severity": "major",
       "title": "PDF body text printed larger than in the published PDF (fixed 25 September)",
-      "body": "The OASIS Markdown stylesheet (markdown-styles v1.7.3) sets 12pt body text, 12pt tables and an 18pt h1, and nothing in the pipeline set a print size. Headless Chrome prints CSS points one to one, so once the F2 scaling was removed the PDF printed its body at 12pt against 10pt in the published DMLex PDF, and its footer at 6pt against 8pt. The F2 check compared median word-box heights, which include line spacing, so it scored the two as equal. The OASIS PDF preprocessor now sets a print type scale in points (body 10pt, code 9pt, tables 9pt, headings 16pt, 14pt, 12pt, 11pt and 10pt for h1 to h5), keeps headings and example captions with what follows them, and holds tables to the column, for Chrome and for wkhtmltopdf (OASIS-Docs/publication-assurance v1.5.0, which this repository pins); the footer is 8pt. It was first fixed here with a local print stylesheet on 25 September, and moved into the shared pipeline the same day so every TC's PDF gets it.",
+      "body": "The OASIS Markdown stylesheet (markdown-styles v1.7.3) sets 12pt body text, 12pt tables and an 18pt h1, and nothing in the pipeline set a print size. Headless Chrome prints CSS points one to one, so once the F2 scaling was removed the PDF printed its body at 12pt against 10pt in the published DMLex PDF, and its footer at 6pt against 8pt. The F2 check compared median word-box heights, which include line spacing, so it scored them as equal. The OASIS PDF preprocessor now sets a print type scale in points (body 10pt, code 9pt, tables 9pt, headings 16pt, 14pt, 12pt, 11pt and 10pt for h1 to h5), keeps headings and example captions with what follows them, and holds tables to the column, for Chrome and for wkhtmltopdf (OASIS-Docs/publication-assurance v1.5.0, which this repository pins); the footer is 8pt. It was first fixed here with a local print stylesheet on 25 September, and moved into the shared pipeline the same day so every TC's PDF gets it.",
       "impact": "Every page of both rendered PDFs: 228 pages for the v1.0 edition and 227 for WD01, against 218 published. The printed type size of any Markdown-track specification depended on the renderer, because the stylesheet sets screen sizes only.",
       "remediated": {
-        "evidence": "Font sizes from the PDF text layer (PyMuPDF spans, share of the characters outside the footer): v1.0 OS body LiberationSans 10.0pt 44.6%, code CourierNewPSMT 9.0pt 41.1%, footer 8.0pt; published body ArialMT 10.0pt 46.4%, code Courier 10.0pt 38.4%, footer 8.0pt. 194 pages for v1.0 OS and v1.1 WD01 alike. Two layout defects in the new render, a heading left alone above the Appendix D diagram and a code block split from its caption, were fixed by keeping headings and example captions with what follows them.",
-        "exposure_window": "24 to 25 September 2026: the two rendered PDFs in reports/2026-09-24/rendered on the markdown-conversion branch of the fork. Nothing was published to docs.oasis-open.org."
+        "evidence": "Font sizes from the PDF text layer (PyMuPDF spans, share of the characters outside the footer): v1.0 OS body LiberationSans 10.0pt 44.6%, code CourierNewPSMT 9.0pt 41.1%, footer 8.0pt; published body ArialMT 10.0pt 46.4%, code Courier 10.0pt 38.4%, footer 8.0pt. 194 pages for v1.0 OS and v1.1 WD01 alike. The layout defects in the new render, a heading left alone above the Appendix D diagram and a code block split from its caption, were fixed by keeping headings and example captions with what follows them.",
+        "exposure_window": "24 to 25 September 2026: both rendered PDFs in reports/2026-09-24/rendered on the markdown-conversion branch of the fork. Nothing was published to docs.oasis-open.org."
       },
       "figures": [
         {
@@ -503,22 +534,26 @@
           "text": "12pt",
           "source": "S4",
           "pointer": "/v1.0-os-24sep/body/size",
-          "occurrence": 3
+          "occurrence": 3,
+          "unit": "pt"
         },
         {
           "text": "10pt",
           "source": "S4",
-          "pointer": "/published/body/size"
+          "pointer": "/published/body/size",
+          "unit": "pt"
         },
         {
           "text": "6pt",
           "source": "S4",
-          "pointer": "/v1.0-os-24sep/footer/size"
+          "pointer": "/v1.0-os-24sep/footer/size",
+          "unit": "pt"
         },
         {
           "text": "8pt",
           "source": "S4",
-          "pointer": "/published/footer/size"
+          "pointer": "/published/footer/size",
+          "unit": "pt"
         },
         {
           "text": "10pt",
@@ -574,7 +609,8 @@
           "text": "8pt",
           "source": "S4",
           "pointer": "/v1.0-os/footer/size",
-          "occurrence": 2
+          "occurrence": 2,
+          "unit": "pt"
         },
         {
           "text": "228",
@@ -604,13 +640,15 @@
           "text": "10.0pt",
           "source": "S4",
           "pointer": "/v1.0-os/body/size",
-          "field": "remediated.evidence"
+          "field": "remediated.evidence",
+          "unit": "pt"
         },
         {
           "text": "44.6%",
           "source": "S4",
           "pointer": "/v1.0-os/body/share_pct",
-          "field": "remediated.evidence"
+          "field": "remediated.evidence",
+          "unit": "%"
         },
         {
           "text": "CourierNewPSMT",
@@ -622,19 +660,22 @@
           "text": "9.0pt",
           "source": "S4",
           "pointer": "/v1.0-os/code/size",
-          "field": "remediated.evidence"
+          "field": "remediated.evidence",
+          "unit": "pt"
         },
         {
           "text": "41.1%",
           "source": "S4",
           "pointer": "/v1.0-os/code/share_pct",
-          "field": "remediated.evidence"
+          "field": "remediated.evidence",
+          "unit": "%"
         },
         {
           "text": "8.0pt",
           "source": "S4",
           "pointer": "/v1.0-os/footer/size",
-          "field": "remediated.evidence"
+          "field": "remediated.evidence",
+          "unit": "pt"
         },
         {
           "text": "ArialMT",
@@ -647,13 +688,15 @@
           "source": "S4",
           "pointer": "/published/body/size",
           "occurrence": 2,
-          "field": "remediated.evidence"
+          "field": "remediated.evidence",
+          "unit": "pt"
         },
         {
           "text": "46.4%",
           "source": "S4",
           "pointer": "/published/body/share_pct",
-          "field": "remediated.evidence"
+          "field": "remediated.evidence",
+          "unit": "%"
         },
         {
           "text": "Courier",
@@ -666,20 +709,23 @@
           "source": "S4",
           "pointer": "/published/code/size",
           "occurrence": 3,
-          "field": "remediated.evidence"
+          "field": "remediated.evidence",
+          "unit": "pt"
         },
         {
           "text": "38.4%",
           "source": "S4",
           "pointer": "/published/code/share_pct",
-          "field": "remediated.evidence"
+          "field": "remediated.evidence",
+          "unit": "%"
         },
         {
           "text": "8.0pt",
           "source": "S4",
           "pointer": "/published/footer/size",
           "occurrence": 2,
-          "field": "remediated.evidence"
+          "field": "remediated.evidence",
+          "unit": "pt"
         },
         {
           "text": "194",
@@ -696,9 +742,9 @@
       ]
     }
   ],
-  "notes": "Timestamps are Europe/London. The two validation reports (pub-check) are filed alongside this one: dmlex-v1.1-wd01-pub-check-validation-2026-09-24 and dmlex-v1.0-os-markdown-pub-check-validation-2026-09-24. The sources listed under Sources were produced on 25 September 2026, when this record was rebuilt.",
+  "notes": "Timestamps are Europe/London. The validation reports (pub-check) are filed alongside this one: dmlex-v1.1-wd01-pub-check-validation-2026-09-24 and dmlex-v1.0-os-markdown-pub-check-validation-2026-09-24. The sources listed under Sources were produced on 25 September 2026, when this record was rebuilt.",
   "verdict": "PASS",
-  "verdict_statement": "The Markdown edition reproduces the published DMLex v1.0 OASIS Standard without technical change and renders through the OASIS pipeline at the published PDF's body and footer sizes. The three rendering defects this audit found (F1, F2, F10) are fixed and verified. The remaining gate blockers, 9 in the v1.0 edition and 5 in WD01, all come from the published source (F3 to F6): F6 is already corrected in WD01, and F3 to F5 are the TC's to resolve in v1.1. WD01 is ready for the TC to edit.",
+  "verdict_statement": "The Markdown edition reproduces the published DMLex v1.0 OASIS Standard without change to its technical content, and renders through the OASIS pipeline at the published PDF's body and footer sizes. The rendering defects this audit found (F1, F2, F10) are fixed and verified. The oasis-pub-check blockers that remain are separate from the audit gates above and come from defects in the published source, several of which raise more than one blocker: 9 in the v1.0 edition (F3 to F6) and 5 in WD01 (F3 to F5, since WD01 already corrects F6). F3 to F5 are the TC's to resolve in v1.1. WD01 is ready for the TC to edit.",
   "footer_title": "DMLex Markdown edition audit",
   "signoff": {
     "name": "Michael Coletta",
@@ -763,20 +809,26 @@
     },
     {
       "id": "S10",
-      "path": "sources/print_pdf-1ceb823.mjs.txt",
-      "command": "git show 1ceb823:tools/publication-assurance/print_pdf.mjs > tools/publication-assurance/reports/2026-09-24/sources/print_pdf-1ceb823.mjs.txt",
+      "path": "sources/print_pdf-c1c2a96.mjs.txt",
+      "command": "git show c1c2a96:tools/publication-assurance/print_pdf.mjs > tools/publication-assurance/reports/2026-09-24/sources/print_pdf-c1c2a96.mjs.txt",
       "cwd": "the repository root"
     },
     {
       "id": "S11",
-      "path": "sources/docbook2md-1ceb823.py.txt",
-      "command": "git show 1ceb823:tools/docbook-to-markdown/docbook2md.py > tools/publication-assurance/reports/2026-09-24/sources/docbook2md-1ceb823.py.txt",
+      "path": "sources/docbook2md-c1c2a96.py.txt",
+      "command": "git show c1c2a96:tools/docbook-to-markdown/docbook2md.py > tools/publication-assurance/reports/2026-09-24/sources/docbook2md-c1c2a96.py.txt",
       "cwd": "the repository root"
     },
     {
       "id": "S12",
       "path": "sources/previous-stage-status.txt",
       "command": "for u in https://docs.oasis-open.org/lexidma/dmlex/v1.0/os/dmlex-v1.0-os.html https://docs.oasis-open.org/lexidma/dmlex/v1.0/os/dmlex-v1.0-os.pdf; do curl -s -o /dev/null -w '%{http_code} %{url_effective}\\n' \"$u\"; done > tools/publication-assurance/reports/2026-09-24/sources/previous-stage-status.txt",
+      "cwd": "the repository root"
+    },
+    {
+      "id": "S13",
+      "path": "sources/comparison-captures.json",
+      "command": "python3 -c \"import glob, json; d = 'tools/publication-assurance/reports/2026-09-24/comparison'; h = sorted(glob.glob(d + '/html-*.png')); p = sorted(glob.glob(d + '/pdf-*.png')); print(json.dumps({'html': len(h), 'pdf': len(p), 'total': len(h) + len(p), 'files': [x.rsplit('/', 1)[1] for x in h + p]}, indent=1))\" > tools/publication-assurance/reports/2026-09-24/sources/comparison-captures.json",
       "cwd": "the repository root"
     }
   ],
@@ -795,6 +847,16 @@
       "text": "11",
       "source": "S1",
       "pointer": "/accepted_deviations"
+    },
+    {
+      "text": "7",
+      "source": "S13",
+      "pointer": "/html"
+    },
+    {
+      "text": "5",
+      "source": "S13",
+      "pointer": "/pdf"
     },
     {
       "text": "9",

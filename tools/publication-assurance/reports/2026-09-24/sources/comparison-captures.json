@@ -1,0 +1,19 @@
+{
+ "html": 7,
+ "pdf": 5,
+ "total": 12,
+ "files": [
+  "html-1-cover.png",
+  "html-2-toc.png",
+  "html-3-core_entry.png",
+  "html-4-ex15.png",
+  "html-5-xml_entry.png",
+  "html-6-references.png",
+  "html-7-diagram_uml.png",
+  "pdf-1-cover.png",
+  "pdf-2-toc.png",
+  "pdf-3-entry.png",
+  "pdf-4-example.png",
+  "pdf-5-uml.png"
+ ]
+}
