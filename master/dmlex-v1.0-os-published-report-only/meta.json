@@ -1,0 +1,13 @@
+{
+  "folder": "master/dmlex-v1.0-os-published-report-only",
+  "pdf": true,
+  "publication_ready": false,
+  "published": "2026-09-25 13:53:41",
+  "published_at": "2026-09-25T13:53:41.566959+00:00",
+  "ref": "master",
+  "run_url": "https://github.com/MColetta-OASIS/lexidma/actions/runs/36143748931",
+  "source_sha": "907ae7905c3a2d61465a10498de01e4776444868",
+  "target": "_publication/lexidma/dmlex/v1.0/os",
+  "title": "DMLex v1.0 OS (published, report only)",
+  "verdict": "NOT publication-ready: 9 blocker(s). 43 of 56 evaluated check classes fully clean; 3 not evaluated; findings: 9 blocker, 43 warning, 11 informational."
+}
