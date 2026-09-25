@@ -16,7 +16,7 @@
 
 **PASS.** 15 gates: 6 pass, 0 fail, 9 not applicable. 10 finding(s).
 
-**PENDING SIGN-OFF by Michael Coletta, Technical Advisor, OASIS Open.**
+**Verdict signed off by Michael Coletta, Technical Advisor, OASIS Open, 25 September 2026.**
 
 The Markdown edition reproduces the published DMLex v1.0 OASIS Standard without change to its technical content, and renders through the OASIS pipeline at the published PDF's body and footer sizes. The rendering defects this audit found (F1, F2, F10) are fixed and verified. The oasis-pub-check blockers that remain are separate from the audit gates above and come from defects in the published source, several of which raise more than one blocker: 9<sup>S2</sup> in the v1.0 edition (F3 to F6) and 5<sup>S3</sup> in WD01 (F3 to F5, since WD01 already corrects F6). F3 to F5 are the TC's to resolve in v1.1. WD01 is ready for the TC to edit.
 
@@ -269,7 +269,7 @@ Timestamps are Europe/London. The validation reports (pub-check) are filed along
 
 The Markdown edition reproduces the published DMLex v1.0 OASIS Standard without change to its technical content, and renders through the OASIS pipeline at the published PDF's body and footer sizes. The rendering defects this audit found (F1, F2, F10) are fixed and verified. The oasis-pub-check blockers that remain are separate from the audit gates above and come from defects in the published source, several of which raise more than one blocker: 9<sup>S2</sup> in the v1.0 edition (F3 to F6) and 5<sup>S3</sup> in WD01 (F3 to F5, since WD01 already corrects F6). F3 to F5 are the TC's to resolve in v1.1. WD01 is ready for the TC to edit.
 
-**PENDING SIGN-OFF by Michael Coletta, Technical Advisor, OASIS Open.**
+**Verdict signed off by Michael Coletta, Technical Advisor, OASIS Open, 25 September 2026.**
 
 ## 7. Sources
 
