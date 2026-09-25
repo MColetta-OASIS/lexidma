@@ -1,0 +1,13 @@
+{
+  "folder": "markdown-conversion/dmlex-v1.1-wd01",
+  "pdf": true,
+  "publication_ready": false,
+  "published": "2026-09-25 10:51:36",
+  "published_at": "2026-09-25T10:51:36.276337+00:00",
+  "ref": "markdown-conversion",
+  "run_url": "https://github.com/MColetta-OASIS/lexidma/actions/runs/36126153985",
+  "source_sha": "a7d104fcdbeb7d7c44453b3f853ef834d3ac4cbb",
+  "target": "_publication/lexidma/dmlex/v1.1/wd01",
+  "title": "DMLex v1.1 WD01",
+  "verdict": "NOT publication-ready: 5 blocker(s). 42 of 56 evaluated check classes fully clean; 3 not evaluated; findings: 5 blocker, 51 warning, 10 informational."
+}
