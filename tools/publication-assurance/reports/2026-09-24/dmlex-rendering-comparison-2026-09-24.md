@@ -13,8 +13,10 @@ This report compares the Markdown edition of DMLex Version 1.0 OASIS Standard, r
 | Code blocks | 316 | 316, all identical |
 | Internal links | 3,166 | 3,166, none broken |
 | Figures | 49 at 566.9px | 49 at 567px |
-| PDF pages | 218 | 228 |
-| PDF body text (median word height) | 13.6pt | 13.4pt |
+| PDF pages | 218 | 194 |
+| PDF body text | 10pt | 10pt |
+| PDF code | 10pt | 9pt |
+| PDF footer | 8pt | 8pt |
 
 The text is the same. The Markdown edition takes the look of the OASIS Markdown template. The PDF runs to more pages because code blocks carry a border and padding, and notes render as shaded blocks.
 
@@ -22,14 +24,15 @@ The text is the same. The Markdown edition takes the look of the OASIS Markdown 
 
 - **Text.** `tools/docbook-to-markdown/verify_md.py` reduces both editions to visible text and aligns them word by word against the live page at docs.oasis-open.org. It also compares code blocks byte for byte, headings in order, every internal anchor and every image. Eleven accepted deviations are listed in `allow.json`, each with its reason.
 - **Rendering.** `tools/publication-assurance/render.sh` runs the OASIS pipeline: pandoc with the OASIS stylesheet and the OASIS post-processor for HTML, then the OASIS PDF preprocessor and headless Chrome for PDF. It stages the result at its docs.oasis-open.org path and runs oasis-pub-check v1.4.2.
-- **Pictures.** `tools/publication-assurance/compare.mjs` scrolls both HTML editions to the same anchor and captures the viewport. PDF pages were matched by their text and rasterised at 110 dpi.
+- **Pictures.** `tools/publication-assurance/compare.mjs` scrolls both HTML editions to the same anchor and captures the viewport. PDF pages were matched by their text and rasterised at 108 dpi. Type sizes are read from the PDF text layer, as the size of each run of text weighted by its characters.
 
 ## Defects found and fixed
 
-Two rendering defects were found by these comparisons and fixed before release.
+Three rendering defects were found by these comparisons and fixed.
 
 - **Figure width.** Every figure in the DocBook source is 16cm wide, and the converter dropped the width, so the Appendix D UML diagram ran off the page. The converter now carries the width through.
 - **PDF scale and footer.** One long inline code path in section 3.2.1 could not wrap, and Chrome shrank every page of the PDF to fit it: 12pt text printed at about 7.5pt. The OASIS PDF preprocessor now lets inline code wrap (publication-assurance v1.4.2). The PDF also now carries the published footer on every page.
+- **PDF type size** (fixed 25 September). The OASIS Markdown stylesheet sets 12pt body text and no print size, and headless Chrome prints it at 12pt, against 10pt in the published PDF. The first version of this report compared word-box heights, which include line spacing, and scored the two as equal. `tools/publication-assurance/print.css` now sets the print sizes in points: body 10pt, code 9pt, tables 9pt, footer 8pt. The PDF is 194 pages, down from 228.
 
 ## Differences that remain
 

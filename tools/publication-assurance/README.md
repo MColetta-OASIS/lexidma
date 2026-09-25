@@ -38,6 +38,7 @@ the document is still the TC's to change.
 |---|---|
 | `render.sh` | Render, stage and gate one Markdown edition |
 | `print_pdf.mjs` | HTML to PDF on the OASIS page geometry, with the footer of the published DMLex PDF |
+| `print.css` | Print type scale in points (body 10pt, code 9pt), matched to the published DMLex PDF; the OASIS stylesheet sets only screen sizes |
 | `compare.mjs` | Side-by-side screenshots of the published HTML and a rendered edition |
 | `reports/` | Validation, audit and rendering comparison reports, one folder per run |
 

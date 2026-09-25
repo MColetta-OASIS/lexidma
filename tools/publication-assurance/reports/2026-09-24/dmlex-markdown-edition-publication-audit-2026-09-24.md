@@ -14,7 +14,7 @@
 
 ## Verdict
 
-**PASS.** 15 gates: 6 pass, 0 fail, 9 not applicable. 9 finding(s).
+**PASS.** 15 gates: 6 pass, 0 fail, 9 not applicable. 10 finding(s).
 
 The Markdown edition reproduces the published DMLex v1.0 OASIS Standard without technical change and renders through the OASIS pipeline to the published standard of presentation. The two rendering defects this audit found (F1, F2) are fixed and verified. The remaining gate blockers are all in the published source (F3 to F5) and are the TC's to resolve in v1.1; WD01 is ready for the TC to edit.
 
@@ -62,7 +62,7 @@ Not applicable. No live copy exists to compare against GitHub.
 
 **Result:** PASS
 
-Precedent is the published DMLex v1.0 OS in its own DocBook render. verify_md.py against the live HTML: RESULT PASS; 0 unexplained difference regions; 311 of 311 numbered headings; 316 of 316 code blocks identical; 3,166 internal links, 0 broken; 50 of 50 images present. Rendered through the OASIS Markdown pipeline, the edition takes the OASIS Markdown template look (markdown-styles v1.7.3 stylesheet) with the published content. Two render defects were found in this audit and fixed before release (F1, F2): figure width and PDF scale. After the fixes, body text prints at a median word height of 13.4pt against 13.6pt in the published PDF, figures at 567px against 566.9px, and the PDF carries the published footer layout. Accepted class differences: the Markdown template labels the cover URIs This/Previous/Latest stage rather than version, notes render as shaded blocks, and the table of contents is a nested list with object-type names in body type rather than monospace. The Appendix D UML diagram is regenerated from the TC's own source by the converter, so Graphviz places the boxes differently from the published SVG while the classes, attributes and relations are the same.
+Precedent is the published DMLex v1.0 OS in its own DocBook render. verify_md.py against the live HTML: RESULT PASS; 0 unexplained difference regions; 311 of 311 numbered headings; 316 of 316 code blocks identical; 3,166 internal links, 0 broken; 50 of 50 images present. Rendered through the OASIS Markdown pipeline, the edition takes the OASIS Markdown template look (markdown-styles v1.7.3 stylesheet) with the published content. Two render defects were found in this audit and fixed before release (F1, F2): figure width and PDF scale. After the fixes, body text prints at 10pt and code at 9pt against 10pt and 10pt in the published PDF (font sizes read from the PDF text layer, corrected 25 September, see F10), figures at 567px against 566.9px, and the PDF carries the published footer layout at the published 8pt. Accepted class differences: the Markdown template labels the cover URIs This/Previous/Latest stage rather than version, notes render as shaded blocks, and the table of contents is a nested list with object-type names in body type rather than monospace. The Appendix D UML diagram is regenerated from the TC's own source by the converter, so Graphviz places the boxes differently from the published SVG while the classes, attributes and relations are the same.
 
 ### Gate 3. Front matter vs roster / companion doc / ticket
 
@@ -138,7 +138,7 @@ Twelve side-by-side captures, each read and compared, live published edition on 
 
 ## 4. Findings
 
-Findings about the Work Product itself, 6 of 9.
+Findings about the Work Product itself, 6 of 10.
 
 ### F3. Both JSON schemas declare the same $id, and it does not resolve to a schema
 
@@ -190,7 +190,7 @@ WD01 changes stage-bound values only. Left for the TC: the editor list; the RDF 
 
 <!-- internal-only -->
 
-### Findings about the publication process, 3 of 9
+### Findings about the publication process, 4 of 10
 
 These concern how OASIS ran this publication rather than anything the TC submitted, and are omitted from the external form of this report.
 
@@ -212,7 +212,7 @@ Two causes. The OASIS PDF preprocessor set white-space: nowrap on inline code, s
 
 **Exposure window:** None. Found in the first render; nothing was committed or published with the defect.
 
-**Remediation, verified:** Median body word height 13.41pt (published 13.61pt); text spans the full 20mm-margin column (57pt to 539pt); footer present on every page; pdf-cover raises nothing.
+**Remediation, verified:** Text spans the full 20mm-margin column (57pt to 539pt); footer present on every page; pdf-cover raises nothing. The body size first reported here (median word height 13.41pt against 13.61pt) measured word boxes, not type size, and hid a 12pt against 10pt mismatch: see F10.
 
 ### F8. Two gate defects found and fixed while auditing this work
 
@@ -221,6 +221,18 @@ Two causes. The OASIS PDF preprocessor set white-space: nowrap on inline code, s
 oasis-pub-check reported a cited directory (schemas/, schemas/JSON/) as missing even when it shipped, and blocked the first stage of every new version because its Latest-stage URI cannot exist before its own publication. Both fixed with regression tests: publication-assurance v1.4.1 (PR #8) and v1.4.2 (PR #9).
 
 **Impact:** Every TC using the gate benefits; neither defect had produced a wrong publication.
+
+### F10. PDF body text printed at 12pt against the published 10pt (fixed 25 September)
+
+**Classification:** product / major / remediated
+
+The OASIS Markdown stylesheet (markdown-styles v1.7.3) sets 12pt body text, 12pt tables and an 18pt h1, and nothing in the pipeline sets a print size. Headless Chrome prints CSS points one to one, so once the F2 scaling was removed the PDF printed at 12pt against 10pt in the published DMLex PDF, and the footer at 6pt against 8pt. The F2 check compared median word-box heights, which include line spacing, so it scored the two as equal. tools/publication-assurance/print.css now pins a print type scale in points (body 10pt, code 9pt, tables 9pt, headings 16/14/12/11/10pt), applied by print_pdf.mjs after the OASIS stylesheet and preprocessor; the footer is 8pt. The same file keeps headings and example captions on the page with what follows them.
+
+**Impact:** Every page of both rendered PDFs, 228 pages for 218 published. The same stylesheet prints at about 8pt under wkhtmltopdf, so the PDF size of any Markdown-track specification depends on the renderer.
+
+**Exposure window:** 24 to 25 September 2026: the two rendered PDFs in reports/2026-09-24/rendered on the markdown-conversion branch of the fork. Nothing was published to docs.oasis-open.org.
+
+**Remediation, verified:** Font sizes from the PDF text layer (PyMuPDF spans, share of characters): v1.0 OS body LiberationSans 10.0pt 41.0%, code CourierNew 9.0pt 37.8%, footer 8.0pt; published body ArialMT 10.0pt 43.3%, code Courier 10.0pt 35.8%, footer 8.0pt. 194 pages for v1.0 OS and v1.1 WD01 alike. An independent visual review of the new render found no blockers; its two findings, a heading left alone above the Appendix D diagram and a code block split from its caption, were fixed by keeping headings and example captions with what follows them, and a scan of both PDFs finds no page that ends on a heading or an example caption.
 
 <!-- /internal-only -->
 
