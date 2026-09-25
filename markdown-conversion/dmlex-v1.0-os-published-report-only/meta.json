@@ -1,0 +1,13 @@
+{
+  "folder": "markdown-conversion/dmlex-v1.0-os-published-report-only",
+  "pdf": true,
+  "publication_ready": false,
+  "published": "2026-09-25 10:51:26",
+  "published_at": "2026-09-25T10:51:26.305237+00:00",
+  "ref": "markdown-conversion",
+  "run_url": "https://github.com/MColetta-OASIS/lexidma/actions/runs/36126153985",
+  "source_sha": "a7d104fcdbeb7d7c44453b3f853ef834d3ac4cbb",
+  "target": "_publication/lexidma/dmlex/v1.0/os",
+  "title": "DMLex v1.0 OS (published, report only)",
+  "verdict": "NOT publication-ready: 9 blocker(s). 43 of 56 evaluated check classes fully clean; 3 not evaluated; findings: 9 blocker, 43 warning, 11 informational."
+}
