@@ -35,7 +35,7 @@ defaults:
 
 env:
   PANDOC_VERSION: 3.8.2.1
-  PA_REF: v1.4.2
+  PA_REF: v1.5.0
 
 jobs:
   render-and-gate:
@@ -74,7 +74,7 @@ jobs:
         run: tools/publication-assurance/render.sh "${{ matrix.md }}" "${{ matrix.schemas }}" _publication
 
       - name: OASIS publication gate
-        uses: OASIS-Docs/publication-assurance@v1.4.2
+        uses: OASIS-Docs/publication-assurance@v1.5.0
         continue-on-error: ${{ !matrix.enforce }}
         with:
           target: ${{ matrix.stage }}

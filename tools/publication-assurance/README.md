@@ -1,8 +1,8 @@
 # Publication Assurance
 
 [![Publication assurance](https://github.com/MColetta-OASIS/lexidma/actions/workflows/publication-assurance.yml/badge.svg?branch=markdown-conversion)](https://github.com/MColetta-OASIS/lexidma/actions/workflows/publication-assurance.yml?query=branch%3Amarkdown-conversion)
-[![pub-check](https://img.shields.io/badge/oasis--pub--check-v1.4.2-2c4a8a)](https://github.com/OASIS-Docs/publication-assurance/releases/tag/v1.4.2)
-[![Checks](https://img.shields.io/badge/checks-170-6741d9)](https://github.com/OASIS-Docs/publication-assurance/blob/main/pub-check/CHECKS.md)
+[![pub-check](https://img.shields.io/badge/oasis--pub--check-v1.5.0-2c4a8a)](https://github.com/OASIS-Docs/publication-assurance/releases/tag/v1.5.0)
+[![Checks](https://img.shields.io/badge/checks-173-6741d9)](https://github.com/OASIS-Docs/publication-assurance/blob/main/pub-check/CHECKS.md)
 [![Latest reports](https://img.shields.io/badge/latest_reports-24_Sep_2026-2f9e44)](reports/2026-09-24/)
 
 **Latest run: [reports/2026-09-24](reports/2026-09-24/)**, with the audit,
@@ -27,7 +27,7 @@ Every change to a Markdown edition runs the same three steps in CI:
 2. **Stage.** The HTML, PDF, Markdown, figures and schemas are laid out at the
    path they would have on `docs.oasis-open.org`, for example
    `lexidma/dmlex/v1.1/wd01/`.
-3. **Gate.** `oasis-pub-check` runs its 170 checks on the staged package: naming,
+3. **Gate.** `oasis-pub-check` runs its 173 checks on the staged package: naming,
    front matter, links, cited files, schemas, PDF against source and more. A
    blocker fails the build. Warnings do not.
 
@@ -38,7 +38,6 @@ the document is still the TC's to change.
 |---|---|
 | `render.sh` | Render, stage and gate one Markdown edition |
 | `print_pdf.mjs` | HTML to PDF on the OASIS page geometry, with the footer of the published DMLex PDF |
-| `print.css` | Print type scale in points (body 10pt, code 9pt), matched to the published DMLex PDF; the OASIS stylesheet sets only screen sizes |
 | `compare.mjs` | Side-by-side screenshots of the published HTML and a rendered edition |
 | `reports/` | Validation, audit and rendering comparison reports, one folder per run |
 
@@ -63,7 +62,7 @@ tools/publication-assurance/render.sh MD_DIR SCHEMAS_DIR OUT_ROOT [PA_DIR]
 | `MD_DIR` | The directory holding one Markdown edition and its figures |
 | `SCHEMAS_DIR` | The schemas the edition cites, staged as `schemas/` |
 | `OUT_ROOT` | Receives the staged tree |
-| `PA_DIR` | Optional. A checkout of OASIS-Docs/publication-assurance. Omitted, the pinned release (`PA_REF`, default `v1.4.2`) is cloned |
+| `PA_DIR` | Optional. A checkout of OASIS-Docs/publication-assurance. Omitted, the pinned release (`PA_REF`, default `v1.5.0`) is cloned |
 
 The publish path comes from the "This stage" URL in the Markdown, so the
 directory, the filenames and the cover are the ones the gate checks against
@@ -96,7 +95,7 @@ edition, its schemas or this directory. It has one job per edition:
 The gate step is the published action, pinned to a release:
 
 ```yaml
-- uses: OASIS-Docs/publication-assurance@v1.4.2
+- uses: OASIS-Docs/publication-assurance@v1.5.0
   with:
     target: _publication/lexidma/dmlex/v1.1/wd01
 ```

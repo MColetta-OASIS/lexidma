@@ -8,8 +8,7 @@
 //
 //   CHROME=/path/to/chrome node print_pdf.mjs IN.html OUT.pdf NAME COPYRIGHT DATE
 import puppeteer from 'puppeteer-core';
-import { dirname, resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { resolve } from 'node:path';
 
 const [input, output, name, copyright, date] = process.argv.slice(2);
 const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;');
@@ -18,8 +17,6 @@ const browser = await puppeteer.launch({
 });
 const page = await browser.newPage();
 await page.goto('file://' + resolve(input), { waitUntil: 'networkidle0', timeout: 180000 });
-// The print type scale (print.css) goes in last, over the OASIS stylesheet.
-await page.addStyleTag({ path: resolve(dirname(fileURLToPath(import.meta.url)), 'print.css') });
 const small = 'font-family: Arial, sans-serif; font-size: 8pt; color: #333; width: 100%; margin: 0 20mm;';
 await page.pdf({
   path: output,

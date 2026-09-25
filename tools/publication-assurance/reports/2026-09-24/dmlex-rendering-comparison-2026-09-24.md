@@ -32,7 +32,7 @@ Three rendering defects were found by these comparisons and fixed.
 
 - **Figure width.** Every figure in the DocBook source is 16cm wide, and the converter dropped the width, so the Appendix D UML diagram ran off the page. The converter now carries the width through.
 - **PDF scale and footer.** One long inline code path in section 3.2.1 could not wrap, and Chrome shrank every page of the PDF to fit it: 12pt text printed at about 7.5pt. The OASIS PDF preprocessor now lets inline code wrap (publication-assurance v1.4.2). The PDF also now carries the published footer on every page.
-- **PDF type size** (fixed 25 September). The OASIS Markdown stylesheet sets 12pt body text and no print size, and headless Chrome prints it at 12pt, against 10pt in the published PDF. The first version of this report compared word-box heights, which include line spacing, and scored the two as equal. `tools/publication-assurance/print.css` now sets the print sizes in points: body 10pt, code 9pt, tables 9pt, footer 8pt. The PDF is 194 pages, down from 228.
+- **PDF type size** (fixed 25 September). The OASIS Markdown stylesheet sets 12pt body text and no print size, and headless Chrome prints it at 12pt, against 10pt in the published PDF. The first version of this report compared word-box heights, which include line spacing, and scored the two as equal. The OASIS PDF preprocessor now sets the print sizes in points (publication-assurance v1.5.0): body 10pt, code 9pt, tables 9pt, footer 8pt. The PDF is 194 pages, down from 228.
 
 ## Differences that remain
 
