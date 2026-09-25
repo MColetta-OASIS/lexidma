@@ -1,0 +1,37 @@
+{
+ "docbook": {
+  "dir": "dmlex-v1.0/specification",
+  "contentwidth": [
+   {
+    "value": "16cm",
+    "count": 49
+   }
+  ]
+ },
+ "markdown": {
+  "file": "dmlex-v1.0/markdown/dmlex-v1.0-os.md",
+  "img_elements": 49,
+  "img_without_width": 0,
+  "img_width": [
+   {
+    "width": "567",
+    "count": 49
+   }
+  ]
+ },
+ "published_html": {
+  "file": "published.html",
+  "img_elements": 50,
+  "img_without_width": 0,
+  "img_width": [
+   {
+    "width": "566.929133858268",
+    "count": 49
+   },
+   {
+    "width": "290pt",
+    "count": 1
+   }
+  ]
+ }
+}

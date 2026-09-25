@@ -18,7 +18,7 @@ acceptance criteria.
 
 | | Report | Read it |
 |---|---|---|
-| **1** | **Publication audit.** 15 gates, 10 findings, verdict PASS. The one-page answer to "is the Markdown edition right?" | [PDF](dmlex-markdown-edition-publication-audit-2026-09-24.pdf) · [Word](dmlex-markdown-edition-publication-audit-2026-09-24.docx) · [Markdown](dmlex-markdown-edition-publication-audit-2026-09-24.md) |
+| **1** | **Publication audit.** 15 gates, 10 findings, verdict PASS. The one-page answer to "is the Markdown edition right?" | [PDF](dmlex-markdown-edition-publication-audit-2026-09-24.pdf) · [Word](dmlex-markdown-edition-publication-audit-2026-09-24.docx) · [Markdown](dmlex-markdown-edition-publication-audit-2026-09-24.md) · [Sources](sources/) |
 | **2** | **Rendering comparison.** The published edition and the Markdown edition side by side, 7 HTML views and 5 PDF pages | [PDF](dmlex-rendering-comparison-2026-09-24.pdf) · [Word](dmlex-rendering-comparison-2026-09-24.docx) · [Pictures](comparison/) |
 | **3** | **Validation, v1.1 WD01.** Every one of the 170 acceptance checks, with what was found | [PDF](dmlex-v1.1-wd01-pub-check-validation-2026-09-24.pdf) · [Word](dmlex-v1.1-wd01-pub-check-validation-2026-09-24.docx) · [JSON](dmlex-v1.1-wd01-pub-check-validation-2026-09-24.json) |
 | **4** | **Validation, v1.0 OS Markdown edition.** The same checks on the published standard | [PDF](dmlex-v1.0-os-markdown-pub-check-validation-2026-09-24.pdf) · [Word](dmlex-v1.0-os-markdown-pub-check-validation-2026-09-24.docx) · [JSON](dmlex-v1.0-os-markdown-pub-check-validation-2026-09-24.json) |

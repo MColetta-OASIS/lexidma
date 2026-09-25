@@ -1,0 +1,487 @@
+{
+ "published": {
+  "file": "published.pdf",
+  "pages": 218,
+  "characters": 283023,
+  "body": {
+   "font": "ArialMT",
+   "size": 10.0,
+   "share_pct": 46.4
+  },
+  "code": {
+   "font": "Courier",
+   "size": 10.0,
+   "share_pct": 38.4
+  },
+  "footer": {
+   "size": 8.0,
+   "pages": 218
+  },
+  "text_column_pt": {
+   "x_min": 72.0,
+   "x_max": 534.0
+  },
+  "fonts": [
+   {
+    "font": "ArialMT",
+    "size": 10.0,
+    "characters": 131210,
+    "share_pct": 46.4
+   },
+   {
+    "font": "Courier",
+    "size": 10.0,
+    "characters": 108564,
+    "share_pct": 38.4
+   },
+   {
+    "font": "Arial-ItalicMT",
+    "size": 10.0,
+    "characters": 14987,
+    "share_pct": 5.3
+   },
+   {
+    "font": "ArialMT",
+    "size": 8.0,
+    "characters": 5668,
+    "share_pct": 2.0
+   },
+   {
+    "font": "Arial-BoldMT",
+    "size": 12.0,
+    "characters": 4082,
+    "share_pct": 1.4
+   },
+   {
+    "font": "Times-Roman",
+    "size": 4.2,
+    "characters": 2558,
+    "share_pct": 0.9
+   },
+   {
+    "font": "Helvetica",
+    "size": 8.2,
+    "characters": 2506,
+    "share_pct": 0.9
+   },
+   {
+    "font": "Courier-Bold",
+    "size": 12.0,
+    "characters": 2338,
+    "share_pct": 0.8
+   },
+   {
+    "font": "Arial-BoldMT",
+    "size": 14.4,
+    "characters": 2150,
+    "share_pct": 0.8
+   },
+   {
+    "font": "Helvetica-Bold",
+    "size": 8.2,
+    "characters": 1169,
+    "share_pct": 0.4
+   },
+   {
+    "font": "Helvetica",
+    "size": 7.6,
+    "characters": 1133,
+    "share_pct": 0.4
+   },
+   {
+    "font": "Helvetica",
+    "size": 6.4,
+    "characters": 878,
+    "share_pct": 0.3
+   }
+  ]
+ },
+ "v1.0-os": {
+  "file": "tools/publication-assurance/reports/2026-09-24/rendered/dmlex-v1.0-os.pdf",
+  "pages": 194,
+  "characters": 260966,
+  "body": {
+   "font": "LiberationSans",
+   "size": 10.0,
+   "share_pct": 44.6
+  },
+  "code": {
+   "font": "CourierNewPSMT",
+   "size": 9.0,
+   "share_pct": 41.1
+  },
+  "footer": {
+   "size": 8.0,
+   "pages": 194
+  },
+  "text_column_pt": {
+   "x_min": 57.0,
+   "x_max": 539.2
+  },
+  "fonts": [
+   {
+    "font": "LiberationSans",
+    "size": 10.0,
+    "characters": 116323,
+    "share_pct": 44.6
+   },
+   {
+    "font": "CourierNewPSMT",
+    "size": 9.0,
+    "characters": 107138,
+    "share_pct": 41.1
+   },
+   {
+    "font": "LiberationSans-Italic",
+    "size": 10.0,
+    "characters": 8849,
+    "share_pct": 3.4
+   },
+   {
+    "font": "LiberationSans-Bold",
+    "size": 10.0,
+    "characters": 6484,
+    "share_pct": 2.5
+   },
+   {
+    "font": "LiberationSans-Bold",
+    "size": 11.0,
+    "characters": 4194,
+    "share_pct": 1.6
+   },
+   {
+    "font": "Times-Roman",
+    "size": 4.0,
+    "characters": 2556,
+    "share_pct": 1.0
+   },
+   {
+    "font": "Helvetica",
+    "size": 7.7,
+    "characters": 2493,
+    "share_pct": 1.0
+   },
+   {
+    "font": "CourierNewPSMT",
+    "size": 10.4,
+    "characters": 2338,
+    "share_pct": 0.9
+   },
+   {
+    "font": "LiberationSans-Bold",
+    "size": 12.0,
+    "characters": 2147,
+    "share_pct": 0.8
+   },
+   {
+    "font": "Helvetica",
+    "size": 7.1,
+    "characters": 1680,
+    "share_pct": 0.6
+   },
+   {
+    "font": "Helvetica-Bold",
+    "size": 7.7,
+    "characters": 1161,
+    "share_pct": 0.4
+   },
+   {
+    "font": "Helvetica",
+    "size": 6.0,
+    "characters": 874,
+    "share_pct": 0.3
+   }
+  ]
+ },
+ "v1.1-wd01": {
+  "file": "tools/publication-assurance/reports/2026-09-24/rendered/dmlex-v1.1-wd01.pdf",
+  "pages": 194,
+  "characters": 261054,
+  "body": {
+   "font": "LiberationSans",
+   "size": 10.0,
+   "share_pct": 44.6
+  },
+  "code": {
+   "font": "CourierNewPSMT",
+   "size": 9.0,
+   "share_pct": 41.0
+  },
+  "footer": {
+   "size": 8.0,
+   "pages": 194
+  },
+  "text_column_pt": {
+   "x_min": 57.0,
+   "x_max": 539.2
+  },
+  "fonts": [
+   {
+    "font": "LiberationSans",
+    "size": 10.0,
+    "characters": 116405,
+    "share_pct": 44.6
+   },
+   {
+    "font": "CourierNewPSMT",
+    "size": 9.0,
+    "characters": 107138,
+    "share_pct": 41.0
+   },
+   {
+    "font": "LiberationSans-Italic",
+    "size": 10.0,
+    "characters": 8849,
+    "share_pct": 3.4
+   },
+   {
+    "font": "LiberationSans-Bold",
+    "size": 10.0,
+    "characters": 6484,
+    "share_pct": 2.5
+   },
+   {
+    "font": "LiberationSans-Bold",
+    "size": 11.0,
+    "characters": 4194,
+    "share_pct": 1.6
+   },
+   {
+    "font": "Times-Roman",
+    "size": 4.0,
+    "characters": 2556,
+    "share_pct": 1.0
+   },
+   {
+    "font": "Helvetica",
+    "size": 7.7,
+    "characters": 2493,
+    "share_pct": 1.0
+   },
+   {
+    "font": "CourierNewPSMT",
+    "size": 10.4,
+    "characters": 2338,
+    "share_pct": 0.9
+   },
+   {
+    "font": "LiberationSans-Bold",
+    "size": 12.0,
+    "characters": 2147,
+    "share_pct": 0.8
+   },
+   {
+    "font": "Helvetica",
+    "size": 7.1,
+    "characters": 1680,
+    "share_pct": 0.6
+   },
+   {
+    "font": "Helvetica-Bold",
+    "size": 7.7,
+    "characters": 1161,
+    "share_pct": 0.4
+   },
+   {
+    "font": "Helvetica",
+    "size": 6.0,
+    "characters": 874,
+    "share_pct": 0.3
+   }
+  ]
+ },
+ "v1.0-os-24sep": {
+  "file": "os-24sep.pdf",
+  "pages": 228,
+  "characters": 260482,
+  "body": {
+   "font": "LiberationSans",
+   "size": 12.0,
+   "share_pct": 44.5
+  },
+  "code": {
+   "font": "CourierNewPSMT",
+   "size": 10.2,
+   "share_pct": 32.7
+  },
+  "footer": {
+   "size": 6.0,
+   "pages": 228
+  },
+  "text_column_pt": {
+   "x_min": 93.0,
+   "x_max": 526.3
+  },
+  "fonts": [
+   {
+    "font": "LiberationSans",
+    "size": 12.0,
+    "characters": 115953,
+    "share_pct": 44.5
+   },
+   {
+    "font": "CourierNewPSMT",
+    "size": 10.2,
+    "characters": 85216,
+    "share_pct": 32.7
+   },
+   {
+    "font": "CourierNewPSMT",
+    "size": 10.8,
+    "characters": 24159,
+    "share_pct": 9.3
+   },
+   {
+    "font": "LiberationSans-Bold",
+    "size": 12.0,
+    "characters": 10677,
+    "share_pct": 4.1
+   },
+   {
+    "font": "LiberationSans-Italic",
+    "size": 12.0,
+    "characters": 8845,
+    "share_pct": 3.4
+   },
+   {
+    "font": "Times-Roman",
+    "size": 4.0,
+    "characters": 2556,
+    "share_pct": 1.0
+   },
+   {
+    "font": "Helvetica",
+    "size": 7.7,
+    "characters": 2456,
+    "share_pct": 0.9
+   },
+   {
+    "font": "LiberationSans-Bold",
+    "size": 13.0,
+    "characters": 2144,
+    "share_pct": 0.8
+   },
+   {
+    "font": "Helvetica",
+    "size": 7.1,
+    "characters": 1680,
+    "share_pct": 0.6
+   },
+   {
+    "font": "Helvetica-Bold",
+    "size": 7.7,
+    "characters": 1131,
+    "share_pct": 0.4
+   },
+   {
+    "font": "Helvetica",
+    "size": 6.0,
+    "characters": 874,
+    "share_pct": 0.3
+   },
+   {
+    "font": "CourierNewPSMT",
+    "size": 11.7,
+    "characters": 715,
+    "share_pct": 0.3
+   }
+  ]
+ },
+ "v1.1-wd01-24sep": {
+  "file": "wd01-24sep.pdf",
+  "pages": 227,
+  "characters": 260576,
+  "body": {
+   "font": "LiberationSans",
+   "size": 12.0,
+   "share_pct": 44.5
+  },
+  "code": {
+   "font": "CourierNewPSMT",
+   "size": 10.2,
+   "share_pct": 32.7
+  },
+  "footer": {
+   "size": 6.0,
+   "pages": 227
+  },
+  "text_column_pt": {
+   "x_min": 92.9,
+   "x_max": 539.2
+  },
+  "fonts": [
+   {
+    "font": "LiberationSans",
+    "size": 12.0,
+    "characters": 116041,
+    "share_pct": 44.5
+   },
+   {
+    "font": "CourierNewPSMT",
+    "size": 10.2,
+    "characters": 85216,
+    "share_pct": 32.7
+   },
+   {
+    "font": "CourierNewPSMT",
+    "size": 10.8,
+    "characters": 24159,
+    "share_pct": 9.3
+   },
+   {
+    "font": "LiberationSans-Bold",
+    "size": 12.0,
+    "characters": 10677,
+    "share_pct": 4.1
+   },
+   {
+    "font": "LiberationSans-Italic",
+    "size": 12.0,
+    "characters": 8845,
+    "share_pct": 3.4
+   },
+   {
+    "font": "Times-Roman",
+    "size": 3.9,
+    "characters": 2556,
+    "share_pct": 1.0
+   },
+   {
+    "font": "Helvetica",
+    "size": 7.7,
+    "characters": 2493,
+    "share_pct": 1.0
+   },
+   {
+    "font": "LiberationSans-Bold",
+    "size": 13.0,
+    "characters": 2144,
+    "share_pct": 0.8
+   },
+   {
+    "font": "Helvetica-Bold",
+    "size": 7.7,
+    "characters": 1161,
+    "share_pct": 0.4
+   },
+   {
+    "font": "Helvetica",
+    "size": 7.1,
+    "characters": 1126,
+    "share_pct": 0.4
+   },
+   {
+    "font": "Helvetica",
+    "size": 6.0,
+    "characters": 874,
+    "share_pct": 0.3
+   },
+   {
+    "font": "CourierNewPSMT",
+    "size": 11.7,
+    "characters": 715,
+    "share_pct": 0.3
+   }
+  ]
+ }
+}

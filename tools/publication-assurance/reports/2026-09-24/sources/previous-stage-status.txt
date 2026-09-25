@@ -1,0 +1,2 @@
+200 https://docs.oasis-open.org/lexidma/dmlex/v1.0/os/dmlex-v1.0-os.html
+200 https://docs.oasis-open.org/lexidma/dmlex/v1.0/os/dmlex-v1.0-os.pdf
