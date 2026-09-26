@@ -9,7 +9,7 @@
 # SCHEMAS_DIR  dmlex-v1.0/specification/schemas (staged as <stage>/schemas)
 # OUT_ROOT     receives the staged tree, e.g. OUT_ROOT/lexidma/dmlex/v1.0/os/
 # PA_DIR       a checkout of OASIS-Docs/publication-assurance; cloned at
-#              $PA_REF (default v1.7.0) into a temp dir when omitted
+#              $PA_REF (default v1.8.0) into a temp dir when omitted
 #
 # The publish path is read from the "This stage" URL in the Markdown front
 # matter, so the stage directory, filenames and URLs are the ones the gate
@@ -25,7 +25,7 @@ set -euo pipefail
 MD_DIR=$(cd "$1" && pwd)
 SCHEMAS=$(cd "$2" && pwd)
 mkdir -p "$3"; OUT=$(cd "$3" && pwd)
-PA_REF=${PA_REF:-v1.7.0}
+PA_REF=${PA_REF:-v1.8.0}
 if [ -n "${4:-}" ]; then
   PA=$(cd "$4" && pwd)
 else

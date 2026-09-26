@@ -1,7 +1,7 @@
 # Publication Assurance
 
 [![Publication assurance](https://github.com/MColetta-OASIS/lexidma/actions/workflows/publication-assurance.yml/badge.svg?branch=markdown-conversion)](https://github.com/MColetta-OASIS/lexidma/actions/workflows/publication-assurance.yml?query=branch%3Amarkdown-conversion)
-[![pub-check](https://img.shields.io/badge/oasis--pub--check-v1.7.0-2c4a8a)](https://github.com/OASIS-Docs/publication-assurance/releases/tag/v1.6.0)
+[![pub-check](https://img.shields.io/badge/oasis--pub--check-v1.8.0-2c4a8a)](https://github.com/OASIS-Docs/publication-assurance/releases/tag/v1.6.0)
 [![Checks](https://img.shields.io/badge/checks-173-6741d9)](https://github.com/OASIS-Docs/publication-assurance/blob/main/pub-check/CHECKS.md)
 [![Latest reports](https://img.shields.io/badge/latest_reports-24_Sep_2026-2f9e44)](reports/2026-09-24/)
 
@@ -62,7 +62,7 @@ tools/publication-assurance/render.sh MD_DIR SCHEMAS_DIR OUT_ROOT [PA_DIR]
 | `MD_DIR` | The directory holding one Markdown edition and its figures |
 | `SCHEMAS_DIR` | The schemas the edition cites, staged as `schemas/` |
 | `OUT_ROOT` | Receives the staged tree |
-| `PA_DIR` | Optional. A checkout of OASIS-Docs/publication-assurance. Omitted, the pinned release (`PA_REF`, default `v1.7.0`) is cloned |
+| `PA_DIR` | Optional. A checkout of OASIS-Docs/publication-assurance. Omitted, the pinned release (`PA_REF`, default `v1.8.0`) is cloned |
 
 The publish path comes from the "This stage" URL in the Markdown, so the
 directory, the filenames and the cover are the ones the gate checks against
@@ -95,7 +95,7 @@ edition, its schemas or this directory. It has one job per edition:
 The gate step is the published action, pinned to a release:
 
 ```yaml
-- uses: OASIS-Docs/publication-assurance@v1.7.0
+- uses: OASIS-Docs/publication-assurance@v1.8.0
   with:
     target: _publication/lexidma/dmlex/v1.1/wd01
     fail-on-blockers: false   # report only until the TC resolves the inherited blockers
