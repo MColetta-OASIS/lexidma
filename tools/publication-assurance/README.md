@@ -1,8 +1,8 @@
 # Publication Assurance
 
 [![Publication assurance](https://github.com/MColetta-OASIS/lexidma/actions/workflows/publication-assurance.yml/badge.svg?branch=markdown-conversion)](https://github.com/MColetta-OASIS/lexidma/actions/workflows/publication-assurance.yml?query=branch%3Amarkdown-conversion)
-[![pub-check](https://img.shields.io/badge/oasis--pub--check-v1.10.0-2c4a8a)](https://github.com/OASIS-Docs/publication-assurance/releases/tag/v1.10.0)
-[![Checks](https://img.shields.io/badge/checks-178-6741d9)](https://github.com/OASIS-Docs/publication-assurance/blob/v1.10.0/pub-check/CHECKS.md)
+[![pub-check](https://img.shields.io/badge/oasis--pub--check-v1.10.1-2c4a8a)](https://github.com/OASIS-Docs/publication-assurance/releases/tag/v1.10.1)
+[![Checks](https://img.shields.io/badge/checks-178-6741d9)](https://github.com/OASIS-Docs/publication-assurance/blob/v1.10.1/pub-check/CHECKS.md)
 [![Latest reports](https://img.shields.io/badge/latest_reports-24_Sep_2026-2f9e44)](reports/2026-09-24/)
 
 **Latest run: [reports/2026-09-24](reports/2026-09-24/)**, with the audit,
@@ -37,7 +37,7 @@ the document is still the TC's to change.
 
 The renderer is part of the OASIS publication tooling and is used from a
 pinned release: `render/render.sh` in
-[OASIS-Docs/publication-assurance v1.10.0](https://github.com/OASIS-Docs/publication-assurance/tree/v1.10.0/render),
+[OASIS-Docs/publication-assurance v1.10.1](https://github.com/OASIS-Docs/publication-assurance/tree/v1.10.1/render),
 with `render/compare.mjs` for side-by-side screenshots. This directory keeps
 what is DMLex's own:
 
@@ -61,7 +61,7 @@ what is DMLex's own:
 ## Usage
 
 ```bash
-git clone --depth 1 --branch v1.10.0 https://github.com/OASIS-Docs/publication-assurance _pa
+git clone --depth 1 --branch v1.10.1 https://github.com/OASIS-Docs/publication-assurance _pa
 _pa/render/render.sh MD_DIR SCHEMAS_DIR OUT_ROOT
 ```
 
@@ -102,7 +102,7 @@ edition, its schemas or this directory. It has one job per edition:
 The gate step is the published action, pinned to a release:
 
 ```yaml
-- uses: OASIS-Docs/publication-assurance@v1.10.0
+- uses: OASIS-Docs/publication-assurance@v1.10.1
   with:
     target: _publication/lexidma/dmlex/v1.1/wd01
     fail-on-blockers: false   # report only until the TC resolves the inherited blockers

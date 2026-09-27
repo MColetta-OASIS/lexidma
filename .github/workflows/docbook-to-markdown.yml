@@ -32,7 +32,7 @@ defaults:
 
 env:
   PANDOC_VERSION: 3.8.2.1
-  PA_REF: v1.10.0
+  PA_REF: v1.10.1
   PUBLISHED_HTML: https://docs.oasis-open.org/lexidma/dmlex/v1.0/os/dmlex-v1.0-os.html
 
 jobs:

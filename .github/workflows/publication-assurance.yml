@@ -37,7 +37,7 @@ defaults:
 
 env:
   PANDOC_VERSION: 3.8.2.1
-  PA_REF: v1.10.0
+  PA_REF: v1.10.1
 
 jobs:
   render-and-gate:
@@ -105,7 +105,7 @@ jobs:
           fi
 
       - name: OASIS publication gate
-        uses: OASIS-Docs/publication-assurance@v1.10.0
+        uses: OASIS-Docs/publication-assurance@v1.10.1
         with:
           fail-on-blockers: ${{ matrix.enforce }}
           target: ${{ matrix.stage }}
