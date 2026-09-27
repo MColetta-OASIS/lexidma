@@ -1,19 +1,25 @@
 name: DocBook to Markdown
 
-# Regenerates the Markdown edition of DMLex from the DocBook source, verifies it
-# against the published OASIS Standard HTML, and fails if the committed Markdown
-# is stale. See tools/docbook-to-markdown/README.md.
+# Regenerates the Markdown edition of DMLex from the DocBook source with the
+# OASIS converter (OASIS-Docs/publication-assurance, pinned release, DMLex
+# profile), verifies it against the published OASIS Standard, and fails if the
+# committed Markdown is stale. See tools/docbook-to-markdown/README.md.
+#
+# The blocking verification is against the snapshot of the published page
+# that the release carries, so a Cloudflare challenge or an outage cannot
+# fail the build. The live page is checked too, as a separate step that
+# reports without blocking.
 
 on:
   push:
     paths:
       - 'dmlex-v1.0/specification/**'
-      - 'tools/docbook-to-markdown/**'
+      - 'dmlex-v1.0/markdown/**'
       - '.github/workflows/docbook-to-markdown.yml'
   pull_request:
     paths:
       - 'dmlex-v1.0/specification/**'
-      - 'tools/docbook-to-markdown/**'
+      - 'dmlex-v1.0/markdown/**'
       - '.github/workflows/docbook-to-markdown.yml'
   workflow_dispatch:
 
@@ -26,6 +32,7 @@ defaults:
 
 env:
   PANDOC_VERSION: 3.8.2.1
+  PA_REF: v1.9.1
   PUBLISHED_HTML: https://docs.oasis-open.org/lexidma/dmlex/v1.0/os/dmlex-v1.0-os.html
 
 jobs:
@@ -34,6 +41,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Check out the OASIS converter at the pinned release
+        uses: actions/checkout@v4
+        with:
+          repository: OASIS-Docs/publication-assurance
+          ref: ${{ env.PA_REF }}
+          path: _pa
+
       - name: Install dependencies
         run: |
           sudo apt-get update
@@ -41,20 +55,24 @@ jobs:
           curl -fsSL -o "$RUNNER_TEMP/pandoc.deb" \
             "https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/pandoc-${PANDOC_VERSION}-1-amd64.deb"
           sudo dpkg -i "$RUNNER_TEMP/pandoc.deb"
-          pandoc --version
-          xmllint --version
-          dot -V
+          pandoc --version | head -1
 
-      - name: Convert and verify against the published HTML
+      - name: Convert and verify against the published HTML (snapshot)
         run: |
-          tools/docbook-to-markdown/build.sh dmlex-v1.0/specification \
-            "$RUNNER_TEMP/dmlex-markdown" "$PUBLISHED_HTML"
+          _pa/converters/docbook-to-markdown/build.sh --profile dmlex dmlex-v1.0/specification \
+            "$RUNNER_TEMP/dmlex-markdown" _pa/tests/fixtures/verify_md/dmlex-v1.0-os/published-dmlex-v1.0-os.html
 
       - name: Check the committed Markdown is current
         run: |
           git diff --no-index --exit-code \
             dmlex-v1.0/markdown/dmlex-v1.0-os.md \
             "$RUNNER_TEMP/dmlex-markdown/dmlex-v1.0-os.md"
+
+      - name: Verify against the live published page (reports, does not block)
+        continue-on-error: true
+        run: |
+          python3 _pa/verify/verify_md.py "$RUNNER_TEMP/dmlex-markdown/dmlex-v1.0-os.md" "$PUBLISHED_HTML" \
+            --allow _pa/converters/docbook-to-markdown/profiles/dmlex/allow.json | tail -1
 
       - name: Upload the generated Markdown
         if: always()

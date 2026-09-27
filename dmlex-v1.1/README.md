@@ -41,6 +41,11 @@ Still describing v1.0: the editor list, the RDF vocabulary namespace, the
 sentence in section 2 (Conformance) that names DMLex Version 1.0, and the
 Appendix F change tracking.
 
-Render and check it locally with
-`tools/publication-assurance/render.sh dmlex-v1.1 dmlex-v1.1/schemas _publication`.
+Render and check it locally with the OASIS renderer from its pinned release:
+
+```bash
+git clone --depth 1 --branch v1.9.1 https://github.com/OASIS-Docs/publication-assurance _pa
+_pa/render/render.sh dmlex-v1.1 dmlex-v1.1/schemas _publication
+```
+
 See `tools/publication-assurance/README.md`.

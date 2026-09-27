@@ -1,155 +1,79 @@
-# DocBook to Markdown Converter
+# DocBook to Markdown
 
 ## Purpose
 
-This directory holds the tooling that converts the DMLex DocBook 4.5 source
-(`dmlex-v1.0/specification`) into a single OASIS-style Markdown document and
-verifies the result against the published HTML of the same stage. The committed
-output is in `dmlex-v1.0/markdown/`. It is a starting point for authoring later
-versions of DMLex in Markdown, and it reproduces the text of DMLex Version 1.0
-OASIS Standard as published at
-<https://docs.oasis-open.org/lexidma/dmlex/v1.0/os/dmlex-v1.0-os.html>.
+The Markdown edition of DMLex Version 1.0 OASIS Standard in
+`dmlex-v1.0/markdown/` is generated from the DocBook source in
+`dmlex-v1.0/specification` and checked against the published standard at
+<https://docs.oasis-open.org/lexidma/dmlex/v1.0/os/dmlex-v1.0-os.html>. It is a
+starting point for writing later versions of DMLex in Markdown.
 
-| File | Role |
-|---|---|
-| `build.sh` | End-to-end driver: resolve XIncludes, regenerate the UML diagram, convert, copy images, verify |
-| `docbook2md.py` | Converter from resolved DocBook XML to Markdown |
-| `verify_md.py` | Comparison of the Markdown against the published HTML |
-| `allow.json` | Accepted deviations between the two, each with a reason |
+The converter and the verifier are part of the OASIS publication tooling,
+[OASIS-Docs/publication-assurance](https://github.com/OASIS-Docs/publication-assurance),
+and this repository uses them from a pinned release (v1.9.1). DMLex is that
+converter's first profile: what is particular to DMLex (its main file, its
+entities, the UML figure its build generates, and the accepted differences
+from the published HTML with their reasons) lives in
+[`converters/docbook-to-markdown/profiles/dmlex/`](https://github.com/OASIS-Docs/publication-assurance/tree/v1.9.1/converters/docbook-to-markdown/profiles/dmlex).
+The walkthrough, with every command, is
+[docs/CONVERTING.md](https://github.com/OASIS-Docs/publication-assurance/blob/v1.9.1/docs/CONVERTING.md).
 
 ## Provenance
 
 The tooling and the generated Markdown are provided by OASIS staff (TC
-Administration) as a formatting service. The generated Markdown reproduces the
-text of the TC's approved DMLex Version 1.0 OASIS Standard without technical
-change. The tooling is OASIS staff infrastructure and is not a contribution to
-the TC's work product.
+Administration) as a formatting service. The Markdown reproduces the text of
+the TC's approved DMLex Version 1.0 OASIS Standard without technical change.
+The tooling is OASIS staff infrastructure, not a contribution to the TC's
+work product.
 
-## Requirements
+## Regenerating the edition
 
-- Python 3.8 or later (standard library only)
-- `xmllint` (libxml2)
-- Graphviz `dot` and `m4`, to regenerate `dmlex_uml.svg` for Appendix D
-- pandoc 3.x, for verification only; older releases parse GitHub Flavored
-  Markdown differently and produce spurious differences
-- `curl`, when the published HTML is given as a URL
-
-On Debian or Ubuntu: `apt-get install libxml2-utils graphviz m4 curl`, plus the
-pandoc `.deb` from <https://github.com/jgm/pandoc/releases>. On macOS all of these
-are available from Homebrew.
-
-## Usage
-
-```
-tools/docbook-to-markdown/build.sh SPEC_DIR OUT_DIR [PUBLISHED_HTML]
-```
-
-| Argument | Meaning |
-|---|---|
-| `SPEC_DIR` | The DocBook source directory, `dmlex-v1.0/specification` |
-| `OUT_DIR` | Receives `dmlex-<version>-<stage>.md`, the images it references, and the verification report |
-| `PUBLISHED_HTML` | Optional. Path or URL of the published HTML to verify against. Omitted, verification is skipped |
-
-Version and stage are read from `docbook/dbgenent.mod`, so the output name
-follows the source. Regenerating the committed edition:
-
-```
-tools/docbook-to-markdown/build.sh dmlex-v1.0/specification dmlex-v1.0/markdown \
+```bash
+git clone --depth 1 --branch v1.9.1 https://github.com/OASIS-Docs/publication-assurance _pa
+_pa/converters/docbook-to-markdown/build.sh --profile dmlex dmlex-v1.0/specification out \
     https://docs.oasis-open.org/lexidma/dmlex/v1.0/os/dmlex-v1.0-os.html
+diff out/dmlex-v1.0-os.md dmlex-v1.0/markdown/dmlex-v1.0-os.md
 ```
 
-The script exits non-zero if the merge fails, if the converter meets a
-reference to an unknown id, or if verification fails. The last line of output
-is `RESULT: PASS` or `RESULT: FAIL`.
+Requirements: Python 3.10 or later, `xmllint` (libxml2), Graphviz `dot` and
+`m4` (for the UML figure), and pandoc 3.x for the verification. The last line
+printed is `RESULT: PASS` or `RESULT: FAIL`.
 
-The GitHub Actions workflow `.github/workflows/docbook-to-markdown.yml` runs the
-same command on every change to the specification source or to this tooling,
-and fails if the committed `dmlex-v1.0/markdown/dmlex-v1.0-os.md` differs from a
-fresh conversion. The fresh output is uploaded as the `dmlex-markdown` artifact.
+The workflow `.github/workflows/docbook-to-markdown.yml` runs the same
+conversion on every change to the specification source or the edition. It
+fails if the verification fails against the snapshot of the published page
+that the release carries, or if the committed Markdown differs from a fresh
+conversion. It also checks the live page, reporting without blocking, so a
+Cloudflare challenge or an outage cannot fail the build.
 
-## Rendering Rules
+## What the verification proves
 
-The converter follows the TC stylesheet
-(`stylesheets/oasis-specification-html.xsl`) so that the Markdown reads the same
-as the published HTML, and it follows the page layout of the OASIS Markdown
-specifications (CSAF, NIEM) for front matter.
+Against the published OASIS Standard, the edition has:
 
-- `<glossterm>` is uppercased, which is how the stylesheet renders the BCP 14
-  key words.
-- A section or appendix with `role="normative"` or `role="informative"` gets a
-  ` (Normative)` or ` (Informative)` suffix after its title.
-- Every DocBook `id` becomes an HTML anchor (`<a id='...'></a>`), so `olink`,
-  `xref` and `link` targets resolve, and existing deep links into the published
-  HTML (for example `#core_entry` or `#ex15`) work unchanged against the
-  Markdown.
-- A cross-reference to a section is rendered as `Section N, "Title"`, and to an
-  appendix as `Appendix X, "Title"`, matching DocBook generated text.
-- Examples are numbered document-wide in the body (Example 1, 2, ...) and
-  separately within each appendix (Example A.1, A.2, ...), as in the published
-  HTML.
-- Paragraphs placed directly in a section that contains a bibliography are
-  omitted, because the TC stylesheet suppresses them in the published output.
-- Program listings are fenced code blocks with their content copied byte for
-  byte; the fence language is taken from the `xml:base` of the included file
-  (`json`, `xml`, `turtle`, `nvh`, `sql`).
-- The table of contents lists headings to three levels.
-- A `<graphic>` with a `contentwidth` in centimetres becomes an HTML
-  `<img width>` in pixels at 90 dpi, which is how the stylesheet sizes it
-  (the 16cm figures render 567px wide). Without the width an SVG draws at its
-  natural size and the UML diagram runs off the page.
+- every word in the same order (61,260 tokens), with 10 accepted differences,
+  each with its reason in the profile;
+- all 311 numbered headings, in order;
+- all 316 code blocks byte for byte;
+- the same 1,133 list items, 50 images in the same order, and the same 93
+  external link targets.
 
-## Verification
+## Known source defects
 
-`verify_md.py` reduces both documents to visible text (the Markdown through
-pandoc, GFM to HTML) and compares them. It checks:
+These are in the DocBook source of the OASIS Standard. The converter does not
+correct text; where a defect reaches the published HTML it reaches the
+Markdown too, except the first, which is a markup error, not content.
 
-- **Word sequence.** Both texts are tokenised and aligned with `difflib`. Every
-  region where they disagree is reported with context. Tables of contents are
-  excluded from both sides.
-- **Code blocks.** The number of `<pre>` blocks matches, and each block is
-  identical to its published counterpart in document order, apart from trailing
-  whitespace on each line.
-- **Headings.** Every numbered heading in the published HTML appears in the
-  Markdown, in the same order.
-- **Internal anchors.** Every `#id` link in the Markdown has a matching anchor.
-- **Images.** Every image the Markdown references, as a Markdown image or an
-  HTML `<img>`, exists on disk under the output directory, and the image count
-  matches the published HTML.
-
-`docs.oasis-open.org` is served through Cloudflare, which replaces email
-addresses in the page with an encoded placeholder. The verifier decodes these
-before comparing, so a live URL and a saved copy give the same result.
-
-`allow.json` lists the deviations accepted between the two documents. Each
-entry names the published text, the Markdown text and the reason. They cover
-layout differences inherited from the OASIS Markdown template (the Specification
-URIs label, the stage labels of Naming Directives v1.7, the position of the key
-words paragraph), the HTML page footer, and the source defects below. Any
-difference not listed there fails the check. The report is written to
-`dmlex-<version>-<stage>-verification.json` next to the Markdown.
-
-## Known Source Defects
-
-These are defects in the DocBook source of the OASIS Standard. The converter
-does not correct text; where a defect reaches the published HTML it reaches the
-Markdown too, except the first, which is dropped because it is a markup error
-rather than content.
-
-1. `ReviewChangeTracking/csd04.xml` and `ReviewChangeTracking/csd03.xml` each
-   start their title with an empty `<ulink url="csd04.xml"/>` (or
-   `csd03.xml`). The stylesheet prints the URL as link text, so the published
-   headings of F.1.2.1 and F.1.2.2 read `csd04.xmlTracking of changes ...` and
-   `csd03.xmlTracking of changes ...`. The Markdown drops the empty link and
-   `allow.json` records the difference.
-2. In the F.1.2 paragraphs of the same two files, the link text of the
-   Committee Specification Draft 04 and 03 PDF links ends in `.pdf.pdf`, while
-   the link target ends in `.pdf`.
-3. The citation format paragraph in `dmlex.xml` reads `OASIS &standard;`, and
-   the entity already expands to `OASIS Standard`, so the published citation
-   reads "OASIS OASIS Standard".
-4. The `Makefile` rule for `dmlex.dot.content` pipes through GNU
-   `head -n-1` and runs `nvh2dot.py`, whose first line is `#!/usr/bin/python`.
-   Neither is available on a stock macOS system, so `make dmlex_uml.svg`
-   fails there. `build.sh` regenerates the diagram with `python3`, `sed` and
-   `tail` instead, and leaves the result at `dmlex-v1.0/specification/dmlex_uml.svg`,
-   which the repository already ignores.
+1. `ReviewChangeTracking/csd04.xml` and `csd03.xml` each start their title
+   with an empty `<ulink url="csd04.xml"/>` (or `csd03.xml`), so the published
+   headings of F.1.2.1 and F.1.2.2 read `csd04.xmlTracking of changes ...`.
+2. In the same two files the link text of the CSD04 and CSD03 PDF links ends
+   in `.pdf.pdf`, while the link target ends in `.pdf`.
+3. The citation format in `dmlex.xml` reads `OASIS &standard;`, and the entity
+   already expands to `OASIS Standard`, so the citation reads "OASIS OASIS
+   Standard".
+4. The `Makefile` builds `dmlex_uml.svg` with GNU `head -n-1` and
+   `#!/usr/bin/python`, neither available on a stock macOS. The DMLex profile
+   rebuilds the figure with `python3`, `sed` and `tail`.
+5. `nvh2dot.py` walks a Python set, so the diagram's layout changes from run
+   to run; the profile fixes the hash seed, and the nodes and edges match the
+   published `dmlex_uml.svg`.

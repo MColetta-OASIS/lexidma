@@ -105,7 +105,7 @@ When referencing this specification the following citation format should be used
 
 ## Notices
 
-Copyright © OASIS Open 2025.
+Copyright © OASIS Open 2026.
 
 All Rights Reserved.Distributed under the terms of the OASIS [IPR Policy](https://www.oasis-open.org/policies-guidelines/ipr/).
 
@@ -10015,7 +10015,7 @@ The following individuals have participated in the creation of this specificatio
 
 # Appendix H Notices (Informative) <a id='full-notices'></a>
 
-Copyright © OASIS Open 2025. All Rights Reserved.
+Copyright © OASIS Open 2026. All Rights Reserved.
 
 All capitalized terms in the following text have the meanings assigned to them in the OASIS Intellectual Property Rights Policy (the "OASIS IPR Policy"). The full [Policy](https://www.oasis-open.org/policies-guidelines/ipr/) may be found at the OASIS website.
 

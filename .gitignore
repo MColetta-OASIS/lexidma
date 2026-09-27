@@ -26,3 +26,7 @@ dmlex-v1.0/specification/dmlex-v1.0-csd02.pdf
 dmlex-v1.0/specification/dmlex-v1.0-csd02.xml
 dmlex-v1.0/specification/.venv
 _publication/
+
+# The OASIS tooling checkout and the rendered packages (tools/*/README.md)
+_pa/
+_publication/

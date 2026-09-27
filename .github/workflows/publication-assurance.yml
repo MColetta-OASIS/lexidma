@@ -18,14 +18,12 @@ on:
       - 'dmlex-v1.0/markdown/**'
       - 'dmlex-v1.0/specification/schemas/**'
       - 'dmlex-v1.1/**'
-      - 'tools/publication-assurance/**'
       - '.github/workflows/publication-assurance.yml'
   pull_request:
     paths:
       - 'dmlex-v1.0/markdown/**'
       - 'dmlex-v1.0/specification/schemas/**'
       - 'dmlex-v1.1/**'
-      - 'tools/publication-assurance/**'
       - '.github/workflows/publication-assurance.yml'
   workflow_dispatch:
 
@@ -39,7 +37,7 @@ defaults:
 
 env:
   PANDOC_VERSION: 3.8.2.1
-  PA_REF: v1.8.0
+  PA_REF: v1.9.1
 
 jobs:
   render-and-gate:
@@ -62,11 +60,19 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Check out the OASIS renderer at the pinned release
+        uses: actions/checkout@v4
+        with:
+          repository: OASIS-Docs/publication-assurance
+          ref: ${{ env.PA_REF }}
+          path: _pa
+
       - name: Install pandoc and BeautifulSoup
         run: |
           curl -fsSL -o "$RUNNER_TEMP/pandoc.deb" \
             "https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/pandoc-${PANDOC_VERSION}-1-amd64.deb"
           sudo dpkg -i "$RUNNER_TEMP/pandoc.deb"
+          sudo apt-get update -q && sudo apt-get install -y poppler-utils
           python3 -m pip install --quiet beautifulsoup4
           pandoc --version | head -1
           google-chrome --version
@@ -75,10 +81,10 @@ jobs:
         env:
           PUBCHECK: '0'
           CHROME: google-chrome
-        run: tools/publication-assurance/render.sh "${{ matrix.md }}" "${{ matrix.schemas }}" _publication
+        run: _pa/render/render.sh "${{ matrix.md }}" "${{ matrix.schemas }}" _publication
 
       - name: OASIS publication gate
-        uses: OASIS-Docs/publication-assurance@v1.8.0
+        uses: OASIS-Docs/publication-assurance@v1.9.1
         with:
           fail-on-blockers: ${{ matrix.enforce }}
           target: ${{ matrix.stage }}
