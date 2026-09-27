@@ -3,6 +3,7 @@
 [BLOCKER] package-refs  The document cites https://docs.oasis-open.org/lexidma/dmlex/v1.1/wd01/schemas/informativeCopiesOf3rdPartySchemas/NVH/dmlex.nvh under its own stage path, but 'schemas/informativeCopiesOf3rdPartySchemas/NVH/dmlex.nvh' is not in the package: it will 404 on publication.
 [BLOCKER] schema-id     schemas/JSON/dmlex.schema.json: $id is 'http://docs.oasis-open.org/lexidma/ns/dmlex-1.0' but the file publishes under 'https://docs.oasis-open.org/lexidma/dmlex/v1.1/'. An implementer following the $id gets a 404 or the wrong document.
 [BLOCKER] schema-id     schemas/JSON/dmlex_no-crosslingual.schema.json: $id is 'http://docs.oasis-open.org/lexidma/ns/dmlex-1.0' but the file publishes under 'https://docs.oasis-open.org/lexidma/dmlex/v1.1/'. An implementer following the $id gets a 404 or the wrong document.
+[WARN   ] stage-name    Stage 'wd01' is a Working Draft. Working Drafts are unpublished (Naming Directives v1.7, 5.2) and have no docs.oasis-open.org location, so this package's cover URIs will not resolve. Publish it as a csd, cnd, psd or pnd.
 [WARN   ] front-matter  URL declares version v2.1 (package is v1.1): http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html>* -- confirm this is an intentional external reference.
 [WARN   ] front-matter  URL declares version v1.0 (package is v1.1): https://docs.oasis-open.org/lexidma/dmlex/v1.0/csd02/dmlex-v1.0-csd02.pdf> -- confirm this is an intentional external reference.
 [WARN   ] front-matter  URL declares version v1.0 (package is v1.1): https://docs.oasis-open.org/lexidma/dmlex/v1.0/csd03/dmlex-v1.0-csd03.pdf](https://docs.oasis-open.org/lexidma/dmlex/v1.0/csd03/dmlex-v1.0-csd03.pdf -- confirm this is an intentional external reference.
@@ -12,7 +13,6 @@
 [WARN   ] pdf-sync      PDF cites https://docs.oasis-open.org/lexidma/dmlex/v1.0/ (package is v1.1); expected only as a previous-stage reference -- confirm.
 [WARN   ] md-links      Dual link [url](url); prefer a bare URL (autolinked) or real anchor text: https://docs.oasis-open.org/lexidma/dmlex/v1.0/csd04/dmlex-v1.0-csd04.pdf
 [WARN   ] md-links      Dual link [url](url); prefer a bare URL (autolinked) or real anchor text: https://docs.oasis-open.org/lexidma/dmlex/v1.0/csd03/dmlex-v1.0-csd03.pdf
-[WARN   ] date-sync     Copyright year 2025 does not match the document date year 2026.
 [WARN   ] case          Mixed-case path in docs.oasis-open.org URL (host is case-sensitive): https://docs.oasis-open.org/lexidma/dmlex/v1.1/wd01/schemas/JSON/>
 [WARN   ] case          Mixed-case path in docs.oasis-open.org URL (host is case-sensitive): https://docs.oasis-open.org/lexidma/dmlex/v1.1/wd01/schemas/JSON/dmlex.schema.json)
 [WARN   ] case          Mixed-case path in docs.oasis-open.org URL (host is case-sensitive): https://docs.oasis-open.org/lexidma/dmlex/v1.1/wd01/schemas/JSON/dmlex_no-crosslingual.schema.json)
