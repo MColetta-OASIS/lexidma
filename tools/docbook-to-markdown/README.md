@@ -10,13 +10,13 @@ starting point for writing later versions of DMLex in Markdown.
 
 The converter and the verifier are part of the OASIS publication tooling,
 [OASIS-Docs/publication-assurance](https://github.com/OASIS-Docs/publication-assurance),
-and this repository uses them from a pinned release (v1.9.2). DMLex is that
+and this repository uses them from a pinned release (v1.10.0). DMLex is that
 converter's first profile: what is particular to DMLex (its main file, its
 entities, the UML figure its build generates, and the accepted differences
 from the published HTML with their reasons) lives in
-[`converters/docbook-to-markdown/profiles/dmlex/`](https://github.com/OASIS-Docs/publication-assurance/tree/v1.9.2/converters/docbook-to-markdown/profiles/dmlex).
+[`converters/docbook-to-markdown/profiles/dmlex/`](https://github.com/OASIS-Docs/publication-assurance/tree/v1.10.0/converters/docbook-to-markdown/profiles/dmlex).
 The walkthrough, with every command, is
-[docs/CONVERTING.md](https://github.com/OASIS-Docs/publication-assurance/blob/v1.9.2/docs/CONVERTING.md).
+[docs/CONVERTING.md](https://github.com/OASIS-Docs/publication-assurance/blob/v1.10.0/docs/CONVERTING.md).
 
 ## Provenance
 
@@ -29,7 +29,7 @@ work product.
 ## Regenerating the edition
 
 ```bash
-git clone --depth 1 --branch v1.9.2 https://github.com/OASIS-Docs/publication-assurance _pa
+git clone --depth 1 --branch v1.10.0 https://github.com/OASIS-Docs/publication-assurance _pa
 _pa/converters/docbook-to-markdown/build.sh --profile dmlex dmlex-v1.0/specification out \
     https://docs.oasis-open.org/lexidma/dmlex/v1.0/os/dmlex-v1.0-os.html
 diff out/dmlex-v1.0-os.md dmlex-v1.0/markdown/dmlex-v1.0-os.md
@@ -54,8 +54,24 @@ Against the published OASIS Standard, the edition has:
   each with its reason in the profile;
 - all 311 numbered headings, in order;
 - all 316 code blocks byte for byte;
-- the same 1,133 list items, 50 images in the same order, and the same 93
-  external link targets.
+- the same 1,133 list items, every ordered list numbered the same way
+  (`1.`, `a.`, `i.`), 50 images in the same order, and the same 93 external
+  link targets;
+- the same 171 contents entries.
+
+The rendered PDF is checked against the published PDF too
+(`verify/verify_pdf.py`, in the Publication assurance workflow): every word,
+each contents entry's page number, and the running footer, with 42 accepted
+differences, each with its reason in the profile. Some are defects of the
+published PDF itself: its font has no `ň` or `ō`, so it prints `sklize#` and
+`skul#`, and where a page break splits Examples A.63, A.64, A.87 and A.88 it
+prints the caption on a line of the example's code.
+
+Until 27 September 2026 this edition numbered the lists in section 2 `1.`,
+`2.`, `3.` where the standard has `a.`, `b.`, `c.` (and its text says "as per
+point c. above"). It also left 38 appendix entries out of the contents. The
+words were identical, so the word comparison passed both; the PDF comparison
+found them. Both are fixed here and in v1.1 WD01.
 
 ## Known source defects
 

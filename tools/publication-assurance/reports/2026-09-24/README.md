@@ -1,5 +1,13 @@
 # DMLex Publication Assurance, 24 September 2026
 
+> **Corrected 27 September 2026.** This report's "0 differences" and PASS
+> came from comparing words, which cannot see list letters or a PDF's page
+> numbers. A PDF comparison added since found three faults these reports
+> missed: section 2's lettered lists (a., b., c.) were numbered 1., 2., 3.,
+> 38 appendix entries were missing from the contents, and the rendered PDF's
+> contents had no page numbers (visible in [the contents side by side](comparison/pdf-2-toc.png)).
+> All three are fixed. See [the 27 September record](../2026-09-27/).
+
 [![Text match](https://img.shields.io/badge/text_vs_published-0_differences-2f9e44)](dmlex-rendering-comparison-2026-09-24.pdf)
 [![Code blocks](https://img.shields.io/badge/code_blocks-316%2F316_identical-2f9e44)](dmlex-rendering-comparison-2026-09-24.pdf)
 [![Audit](https://img.shields.io/badge/publication_audit-PASS-2f9e44)](dmlex-markdown-edition-publication-audit-2026-09-24.pdf)

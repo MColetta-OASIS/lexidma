@@ -1,0 +1,245 @@
+planted fault: pair-020.png (right-column): MISSED
+
+pair-001.png (published p180, rendered p163):
+  - Page numbers differ: 180 vs 163
+  - Right page includes Example A.101. NVH section in addition to Example A.100. RDF
+
+pair-002.png (published p146, rendered p137):
+  - Layout differs: left shows JSON in code block, right shows JSON with formatting
+  - Page numbers differ: 146 vs 137
+
+pair-003.png (published p162, rendered p149):
+  - Content from different portions of document
+  - Page numbers: 182 vs 149
+  - Left shows RDF code, right shows related RDF/NVH content from different section
+
+pair-004.png (published p218, rendered p195):
+  - Page numbers differ: 218 vs 156
+  - Content is from different sections of the same informative appendix
+  - Left shows beginning of appendix, right shows continuation
+  - only left: Heading: Appendix H Notices (Informative)
+
+pair-005.png (published p182, rendered p165):
+  - Different examples shown: XML/JSON on left vs RDF/NVH on right
+  - Page numbers: 182 vs 165
+  - only left: Example A.104. XML
+  - only left: Example A.105. JSON
+  - only right: Example A.106. RDF
+  - only right: Example A.107. NVH
+
+pair-006.png (published p187, rendered p168):
+  - Page numbers: 187 vs 168
+  - Left shows Example A.119/A.120 XML/JSON, right shows different section (A.1.23) with Examples A.118-A.120
+  - only left: Examples A.119, A.120
+  - only right: Section A.1.23 Using collocationMarker
+  - only right: Examples A.118, A.119, A.120
+
+pair-007.png (published p152, rendered p141):
+  - Page numbers: 152 vs 141
+  - Left shows JSON code block, right shows end of previous example plus start of new example
+  - only left: Complete JSON structure visible
+  - only right: Closing tags from previous example
+
+pair-008.png (published p210, rendered p188):
+  - Minor formatting/display differences in code presentation
+  - Page numbers: 152 vs 141
+
+pair-009.png (published p153, rendered p143):
+  - Page numbers: 152 vs 141
+  - Different entries shown (glasses vs lens)
+  - only left: RDF code showing glasses entry
+  - only right: RDF code showing lens entry
+
+pair-010.png (published p171, rendered p156):
+  - Page numbers: 210 vs 188
+  - Diagrams appear visually similar with minor layout/rendering differences
+
+pair-011.png (published p124, rendered p121):
+  - Page numbers: 153 vs 143
+  - Left shows RDF, right shows NVH serialization
+  - only left: Complete RDF code block
+  - only right: NVH format representation
+
+pair-012.png (published p5, rendered p7):
+  - Page numbers: 124 vs 121
+  - Left shows earlier table columns, right shows different table section with different columns
+  - only left: Database table documentation format
+  - only right: Different database column definitions
+
+pair-013.png (published p8, rendered p9):
+  - Page numbers: 8 vs 9
+  - Content is identical, minor word wrapping differences
+
+pair-014.png (published p6, rendered p8):
+  - Page numbers: 6 vs 8
+  - Different table of contents sections shown, left is Appendix A.1, right is Appendix A.2.2
+  - only left: Different section entries (A.1 series)
+  - only right: Different section entries (A.2.2 series)
+
+pair-015.png (published p48, rendered p46):
+  - Page numbers: 48 vs 46
+  - Left shows code examples, right shows properties documentation text
+  - only left: Example 107. JSON
+  - only left: Example 108. RDF
+  - only right: Properties section
+
+pair-016.png (published p133, rendered p127):
+  - Page numbers: 133 vs 127
+  - Different examples shown: XML/JSON on left vs JSON/RDF on right
+  - only left: Example A.17. XML
+  - only left: Example A.18. JSON on left
+  - only right: Example A.18. JSON
+  - only right: Example A.19. RDF on right
+
+pair-017.png (published p57, rendered p54):
+  - Page numbers: 133 vs 127
+  - Left shows RDF format, right shows NVH format and transition to next section
+  - only left: Example A.19. RDF
+  - only right: Example A.20. NVH
+  - only right: Section A.1.5 Pronunciation given both ways
+
+pair-018.png (published p30, rendered p29):
+  - Page numbers: 57 vs 54
+  - Left shows database diagram, right shows structured data properties documentation
+  - only left: Database table diagram
+  - only right: Section heading and definition
+
+pair-019.png (published p205, rendered p184):
+  - Page numbers: 30 vs 29
+  - Different properties section shown from same content area
+
+pair-021.png (published p1, rendered p1):
+  - Page numbers: 4 vs 5
+  - Left shows traditional TOC with page numbers and right-aligned dots, right shows hierarchical bullet list format
+  - only left: Page numbers shown: 8, 8, 8, 8, 8
+  - only right: Nested bullet structure with indent levels
+
+pair-022.png (published p215, rendered p192):
+  - Page numbers: 1 vs 1
+  - Appearance identical on both sides
+
+pair-023.png (published p30, rendered p30):
+  - Page numbers: 215 vs 192
+  - Left shows earlier subsections, right shows later subsections of same appendix
+  - only left: Section F.1.1
+  - only right: Section F.1.2 and F.1.2.1
+
+pair-024.png (published p145, rendered p136):
+  - Page numbers: 30 vs 30
+  - Duplicate/mirrored content from same section
+
+pair-025.png (published p22, rendered p22):
+  - Page numbers: 22 vs 22
+  - Left shows examples, right shows properties documentation for same content area
+  - only left: Example 18. RDF
+  - only left: Example 19. Relational database
+  - only right: Properties and constraints documentation
+
+pair-026.png (published p123, rendered p120):
+  - Page numbers: 123 vs 120
+  - Different constraint statements for different database tables
+
+pair-027.png (published p15, rendered p16):
+  - Page numbers: 15 vs 16
+  - Left shows theoretical description, right shows practical example URLs
+  - only left: Numbered point 5 with discussion
+  - only right: Example URLs and text
+
+pair-028.png (published p174, rendered p158):
+  - Page numbers: 174 vs 158
+  - Content appears identical, XML structure shown on both sides
+
+pair-029.png (published p131, rendered p125):
+  - Page numbers: 131 vs 125
+  - Left shows JSON, right shows XML and NVH transitions
+  - only left: Example A.8. JSON
+  - only left: Example A.9. RDF
+  - only right: Closing XML tags from Example A.8
+  - only right: Example A.8. JSON
+  - only right: Example A.9. RDF
+  - only right: Example A.10. NVH
+
+pair-030.png (published p88, rendered p83):
+  - Page numbers: 88 vs 83
+  - Different XML element documentation sections
+  - only left: XML element definitions
+  - only right: Different XML element definitions
+
+pair-031.png (published p44, rendered p42):
+  - Page numbers: 44 vs 42
+  - Left shows example RDF code, right shows properties documentation
+  - only left: Example 93. RDF with code
+  - only right: Section 4.2.3 property definition
+
+pair-032.png (published p186, rendered p167):
+  - Page numbers: 166 vs 167
+  - Left shows RDF example, right shows JSON example first then RDF example
+  - only left: Example A.116. RDF
+  - only right: Example A.115. JSON
+  - only right: Example A.116. RDF
+
+pair-033.png (published p4, rendered p5):
+  - Page numbers: 4 vs 5
+  - TOC page numbers differ on all entries: left shows 8, right shows 9 for same sections
+
+pair-034.png (published p111, rendered p107):
+  - Page numbers: 111 vs 107
+  - Diagrams appear very similar with minor rendering differences in layout
+
+pair-035.png (published p56, rendered p53):
+  - Page numbers: 56 vs 53
+  - Left shows section start, right shows properties details from same section
+  - only left: Section heading and introduction
+  - only right: Properties description
+
+pair-036.png (published p5, rendered p6):
+  - Page numbers: 5 vs 6
+  - Different TOC sections shown: left shows section 4.4 (Annotation Module), right shows section 4.2 (Controlled Values Module)
+  - only left: Section 4.4 entries
+  - only right: Section 4.2 entries
+INCOMPLETE: pair-001.png: 3 of 5 left_lines are not on published page 180: not copied from the page
+INCOMPLETE: pair-001.png: 3 of 5 right_lines are not on rendered page 163: not copied from the page
+INCOMPLETE: pair-002.png: 3 of 3 left_lines are not on published page 146: not copied from the page
+INCOMPLETE: pair-002.png: 3 of 3 right_lines are not on rendered page 137: not copied from the page
+INCOMPLETE: pair-003.png: 4 of 5 left_lines are not on published page 162: not copied from the page
+INCOMPLETE: pair-005.png: 1 of 4 right_lines are not on rendered page 165: not copied from the page
+INCOMPLETE: pair-006.png: 4 of 4 right_lines are not on rendered page 168: not copied from the page
+INCOMPLETE: pair-008.png: 3 of 3 left_lines are not on published page 210: not copied from the page
+INCOMPLETE: pair-008.png: 4 of 4 right_lines are not on rendered page 188: not copied from the page
+INCOMPLETE: pair-009.png: 2 of 5 right_lines are not on rendered page 143: not copied from the page
+INCOMPLETE: pair-010.png: fewer than 3 left_lines copied that show the page was read
+INCOMPLETE: pair-010.png: fewer than 3 right_lines copied that show the page was read
+INCOMPLETE: pair-011.png: 5 of 5 left_lines are not on published page 124: not copied from the page
+INCOMPLETE: pair-011.png: 4 of 4 right_lines are not on rendered page 121: not copied from the page
+INCOMPLETE: pair-012.png: fewer than 3 left_lines copied that show the page was read
+INCOMPLETE: pair-012.png: 3 of 3 right_lines are not on rendered page 7: not copied from the page
+INCOMPLETE: pair-014.png: 2 of 5 left_lines are not on published page 6: not copied from the page
+INCOMPLETE: pair-015.png: fewer than 3 left_lines copied that show the page was read
+INCOMPLETE: pair-017.png: 4 of 4 left_lines are not on published page 57: not copied from the page
+INCOMPLETE: pair-017.png: 3 of 3 right_lines are not on rendered page 54: not copied from the page
+INCOMPLETE: pair-018.png: fewer than 3 left_lines copied that show the page was read
+INCOMPLETE: pair-018.png: 2 of 3 right_lines are not on rendered page 29: not copied from the page
+INCOMPLETE: pair-019.png: 3 of 3 left_lines are not on published page 205: not copied from the page
+INCOMPLETE: pair-019.png: fewer than 3 right_lines copied that show the page was read
+INCOMPLETE: pair-020.png: 3 of 3 left_lines are not on published page 4: not copied from the page
+INCOMPLETE: pair-020.png: 3 of 3 right_lines are not on rendered page 5: not copied from the page
+INCOMPLETE: pair-021.png: 4 of 4 left_lines are not on published page 1: not copied from the page
+INCOMPLETE: pair-021.png: 4 of 4 right_lines are not on rendered page 1: not copied from the page
+INCOMPLETE: pair-022.png: fewer than 3 left_lines copied that show the page was read
+INCOMPLETE: pair-022.png: fewer than 3 right_lines copied that show the page was read
+INCOMPLETE: pair-023.png: 3 of 3 left_lines are not on published page 30: not copied from the page
+INCOMPLETE: pair-023.png: 4 of 4 right_lines are not on rendered page 30: not copied from the page
+INCOMPLETE: pair-024.png: 3 of 3 left_lines are not on published page 145: not copied from the page
+INCOMPLETE: pair-024.png: fewer than 3 right_lines copied that show the page was read
+INCOMPLETE: pair-026.png: fewer than 3 left_lines copied that show the page was read
+INCOMPLETE: pair-026.png: fewer than 3 right_lines copied that show the page was read
+INCOMPLETE: pair-027.png: 2 of 4 left_lines are not on published page 15: not copied from the page
+INCOMPLETE: pair-027.png: 1 of 4 right_lines are not on rendered page 16: not copied from the page
+INCOMPLETE: pair-029.png: 2 of 3 left_lines are not on published page 131: not copied from the page
+INCOMPLETE: pair-029.png: 2 of 4 right_lines are not on rendered page 125: not copied from the page
+INCOMPLETE: pair-032.png: 1 of 4 left_lines are not on published page 186: not copied from the page
+INCOMPLETE: pair-034.png: fewer than 3 left_lines copied that show the page was read
+INCOMPLETE: pair-034.png: fewer than 3 right_lines copied that show the page was read
+INCOMPLETE: pair-036.png: 2 of 5 right_lines are not on rendered page 6: not copied from the page
+
+REVIEW: REJECTED (run the review again)

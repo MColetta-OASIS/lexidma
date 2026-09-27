@@ -1,0 +1,22 @@
+[
+{"pair": "pair-008.png",
+ "left_lines": ["Appendix D DMLex UML diagram (Normative)", "CROSSLINGUAL MODULE", "CONTROLLED VALUES MODULE", "ANNOTATION MODULE", "CORE", "ETYMOLOGY MODULE", "LINKING MODULE"],
+ "right_lines": ["Appendix D DMLex UML diagram (Normative)", "CROSSLINGUAL MODULE", "CONTROLLED VALUES MODULE", "ANNOTATION MODULE", "CORE", "ETYMOLOGY MODULE", "LINKING MODULE", "Appendix E DMLex plain text description (Informative)"],
+ "only_left": ["diagram occupies almost the full page height at large scale; no Appendix E content on this page"],
+ "only_right": ["the same diagram rendered smaller/compressed near the top of the page; below it, heading 'Appendix E DMLex plain text description (Informative)', a body paragraph ('This description uses the NVH schema notation style...'), and an NVH code box beginning 'core@lexicographicResource:' all appear on the same page"],
+ "differences": ["footer copyright line: left 'All rights reserved.' (page 210 of 218) vs right 'All Rights Reserved.' (page 188 of 195)", "the same six module box labels (CROSSLINGUAL MODULE, CONTROLLED VALUES MODULE, ANNOTATION MODULE, CORE, ETYMOLOGY MODULE, LINKING MODULE) are legible on both sides of the diagram; only the diagram's scale/compactness differs, which is consistent with the right edition fitting more content per page"]},
+
+{"pair": "pair-023.png",
+ "left_lines": ["Properties", "text REQUIRED (exactly one) and UNIQUE. Normalised string. The example itself.", "sourceIdentity OPTIONAL (zero or one). Normalised string. An abbreviation, a code or some", "other string of text which identifies the source. The sourceIdentityTag object type can be used", "to explain the meaning of the source identifiers, to constrain which source identifiers are allowed to"],
+ "right_lines": ["soundFile OPTIONAL (zero or one). An Internationalized Resource Identifier (IRI) pointing to a file", "which contains a sound recording of the example.", "listingOrder REQUIRED (exactly one). Number. The position of this example object among", "examples of the same sense. This can be implicit from the serialization.", "Example 46. XML"],
+ "only_left": ["purple shaded XML/JSON/RDF code blocks (Examples 46-48) lower on the page"],
+ "only_right": ["white bordered code blocks (Examples 46 XML, 47 JSON, 48 RDF, 49 Relational database ER diagram, 50 NVH); inline code terms ('soundFile', 'listingOrder') shown with a light gray shaded box vs left's plain bold monospace"],
+ "differences": ["footer copyright line: left 'All rights reserved.' vs right 'All Rights Reserved.'; both pages are numbered 30 in their own document ('Page 30 of 218' left, 'Page 30 of 195' right)"]},
+
+{"pair": "pair-033.png",
+ "left_lines": ["Table of Contents", "1 Introduction (Normative) .......... 8", "1.1 Modular structure of DMLex .......... 8", "1.2 Implementing DMLex .......... 8", "1.3 The metamodel behind DMLex .......... 8"],
+ "right_lines": ["Table of Contents", "1 Introduction (Normative) .......... 9", "1.1 Modular structure of DMLex .......... 9", "1.2 Implementing DMLex .......... 9", "1.3 The metamodel behind DMLex .......... 9"],
+ "only_left": ["flat plain-text TOC entries, no bullet symbols, in black (non-hyperlink) text"],
+ "only_right": ["nested bulleted TOC (•, o, ▪ symbols per indent level) in blue underlined hyperlink text; a page number is present for every entry (9, 9, 9, 9, 9, 10, 10, 11, 11, 11, 12, 13, 14, 14, 14, 16, 17, 20, 21, 23, 24, 25, 27, 28, 29, 31...)"],
+ "differences": ["footer copyright line: left 'All rights reserved.' (page 4 of 218) vs right 'All Rights Reserved.' (page 5 of 195)", "page numbers for the same sections differ by one between editions (e.g. section 1 is page 8 on the left, page 9 on the right) - a pagination offset, not a missing number"]}
+]

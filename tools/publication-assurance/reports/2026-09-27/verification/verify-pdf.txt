@@ -1,0 +1,63 @@
+published_pages: 218
+rendered_pages: 195
+published_tokens: 65790
+rendered_tokens: 65345
+diff_regions: 0
+accepted_deviations: 42
+line_wrap_regions: 230
+moved_blocks: 1
+regions_compared: 1
+contents_entries_published: 171
+contents_numbered_published: 171
+contents_entries_rendered: 171
+contents_numbered_rendered: 171
+running_lines_published: (2, ['Standards Track Work Product Copyright © OASIS Open 2025. All rights reserved. Page # of #', 'dmlex-v1.0-os 29 April 2025'])
+running_lines_rendered: (2, ['Standards Track Work Product Copyright © OASIS Open 2025. All Rights Reserved. Page # of #', 'dmlex-v1.0-os 29 April 2025'])
+running_lines_only_published: (0, [])
+running_lines_only_rendered: (0, [])
+rendered_pages_without_running_line: (0, [])
+empty: (0, [])
+ACCEPTED: PUB[Specification URIs] PDF[] -- OASIS Markdown template (CSAF/NIEM) has no 'Specification URIs' heading; stage URLs follow directly
+ACCEPTED: PUB[version] PDF[stage] -- Naming Directives v1.7 (2 Jan 2024) label: 'This stage / Previous stage / Latest stage'
+ACCEPTED: PUB[version] PDF[stage] -- Naming Directives v1.7 (2 Jan 2024) label: 'This stage / Previous stage / Latest stage'
+ACCEPTED: PUB[version] PDF[stage] -- Naming Directives v1.7 (2 Jan 2024) label: 'This stage / Previous stage / Latest stage'
+ACCEPTED: PUB[Key words : The key words MUST , MUST NOT , REQUIRED , SHALL , SHALL NOT , SHOULD , SHOULD NOT , RECOMMENDED , MAY , and OPTIONAL in this document are to be interpreted as de - scribed in BCP 14 [ RFC2119 ] and [ RFC8174 ] if , and only if , they appear in all capitals , as shown here .] PDF[] -- Key words paragraph moved after Status (source order of legalnotice elements); text identical, see paired insert
+ACCEPTED: PUB[] PDF[. Key words : The key words MUST , MUST NOT , REQUIRED , SHALL , SHALL NOT , SHOULD , SHOULD NOT , RECOMMENDED , MAY , and OPTIONAL in this document are to be interpreted as described in BCP 14 [ RFC2119 ] and [ RFC8174 ] if , and only if , they appear in all capitals , as shown here] -- paired with the delete above: same paragraph, new position
+ACCEPTED: PUB[:] PDF[] -- 'Notices:' front-matter label rendered as the '## Notices' heading, as in the CSAF template
+ACCEPTED: PUB[Appendixes] PDF[Appendix] -- the DocBook contents group the appendices under 'Appendixes' and letter them 'A'; the Markdown template's contents name each 'Appendix A'
+ACCEPTED: PUB[] PDF[Appendix] -- the Markdown template's contents name each appendix 'Appendix B' where the DocBook contents print 'B'
+ACCEPTED: PUB[] PDF[Appendix] -- the Markdown template's contents name each appendix 'Appendix B' where the DocBook contents print 'B'
+ACCEPTED: PUB[] PDF[Appendix] -- the Markdown template's contents name each appendix 'Appendix B' where the DocBook contents print 'B'
+ACCEPTED: PUB[] PDF[Appendix] -- the Markdown template's contents name each appendix 'Appendix B' where the DocBook contents print 'B'
+ACCEPTED: PUB[] PDF[Appendix] -- the Markdown template's contents name each appendix 'Appendix B' where the DocBook contents print 'B'
+ACCEPTED: PUB[] PDF[Appendix] -- the Markdown template's contents name each appendix 'Appendix B' where the DocBook contents print 'B'
+ACCEPTED: PUB[] PDF[Appendix] -- the Markdown template's contents name each appendix 'Appendix B' where the DocBook contents print 'B'
+ACCEPTED: PUB[sklize #] PDF[sklizeň] -- PUBLISHED PDF DEFECT: its font has no ň and FOP prints '#'; the published HTML and the source have 'sklizeň'
+ACCEPTED: PUB[sklize #] PDF[sklizeň] -- PUBLISHED PDF DEFECT: its font has no ň and FOP prints '#'; the published HTML and the source have 'sklizeň'
+ACCEPTED: PUB[sklize #] PDF[sklizeň] -- PUBLISHED PDF DEFECT: its font has no ň and FOP prints '#'; the published HTML and the source have 'sklizeň'
+ACCEPTED: PUB[sklize #] PDF[sklizeň] -- PUBLISHED PDF DEFECT: its font has no ň and FOP prints '#'; the published HTML and the source have 'sklizeň'
+ACCEPTED: PUB[sklize #] PDF[sklizeň] -- PUBLISHED PDF DEFECT: its font has no ň and FOP prints '#'; the published HTML and the source have 'sklizeň'
+ACCEPTED: PUB[] PDF[Example A . 63 . JSON] -- PUBLISHED PDF LAYOUT: where a page break splits Example A.63, FOP prints its caption on the same line as the example's code, so the text layer reads them interleaved
+ACCEPTED: PUB[Example A . 63 .] PDF[] -- PUBLISHED PDF LAYOUT: where a page break splits Example A.63, FOP prints its caption on the same line as the example's code, so the text layer reads them interleaved
+ACCEPTED: PUB[JSON] PDF[] -- PUBLISHED PDF LAYOUT: where a page break splits Example A.63, FOP prints its caption on the same line as the example's code, so the text layer reads them interleaved
+ACCEPTED: PUB[] PDF[Example A . 64 . RDF ex : lexicon a dmlex : LexicographicResource ; dmlex : entry ex : microscope , ex : lens ,] -- PUBLISHED PDF LAYOUT: FOP prints the 'Example A.64. RDF' caption partway through the example, where it broke the page; see the paired delete
+ACCEPTED: PUB[Example A . 64 . RDF] PDF[] -- paired with the insert above: the same caption, printed mid-example in the published PDF
+ACCEPTED: PUB[] PDF[Example A . 87 . JSON] -- PUBLISHED PDF LAYOUT: where a page break splits Example A.87, FOP prints its caption on the same line as the example's code, so the text layer reads them interleaved
+ACCEPTED: PUB[Example A . 87 . JSON] PDF[" langCode " :] -- PUBLISHED PDF LAYOUT: where a page break splits Example A.87, FOP prints its caption on the same line as the example's code, so the text layer reads them interleaved
+ACCEPTED: PUB[" langCode " :] PDF[] -- PUBLISHED PDF LAYOUT: where a page break splits Example A.63/A.87/A.88, FOP prints its caption on the same line as the example's code, so the text layer reads them interleaved
+ACCEPTED: PUB[aRDF] PDF[RDF] -- PUBLISHED PDF LAYOUT: where a page break splits Example A.88, FOP prints its caption on the same line as the example's code, so the text layer reads them interleaved
+ACCEPTED: PUB[] PDF[a] -- PUBLISHED PDF LAYOUT: where a page break splits Example A.88, FOP prints its caption on the same line as the example's code, so the text layer reads them interleaved
+ACCEPTED: PUB[skul #] PDF[skulō] -- PUBLISHED PDF DEFECT: its font has no ō and FOP prints '#'; the published HTML and the source have 'skulō'
+ACCEPTED: PUB[skul #] PDF[skulō] -- PUBLISHED PDF DEFECT: its font has no ō and FOP prints '#'; the published HTML and the source have 'skulō'
+ACCEPTED: PUB[skul #] PDF[skulō] -- PUBLISHED PDF DEFECT: its font has no ō and FOP prints '#'; the published HTML and the source have 'skulō'
+ACCEPTED: PUB[skul #] PDF[skulō] -- PUBLISHED PDF DEFECT: its font has no ō and FOP prints '#'; the published HTML and the source have 'skulō'
+ACCEPTED: PUB[skul #] PDF[skulō] -- PUBLISHED PDF DEFECT: its font has no ō and FOP prints '#'; the published HTML and the source have 'skulō'
+ACCEPTED: PUB[skul #] PDF[skulō] -- PUBLISHED PDF DEFECT: its font has no ō and FOP prints '#'; the published HTML and the source have 'skulō'
+ACCEPTED: PUB[skul #] PDF[skulō] -- PUBLISHED PDF DEFECT: its font has no ō and FOP prints '#'; the published HTML and the source have 'skulō'
+ACCEPTED: PUB[skul #] PDF[skulō] -- PUBLISHED PDF DEFECT: its font has no ō and FOP prints '#'; the published HTML and the source have 'skulō'
+ACCEPTED: PUB[skul #] PDF[skulō] -- PUBLISHED PDF DEFECT: its font has no ō and FOP prints '#'; the published HTML and the source have 'skulō'
+ACCEPTED: PUB[skul #] PDF[skulō] -- PUBLISHED PDF DEFECT: its font has no ō and FOP prints '#'; the published HTML and the source have 'skulō'
+ACCEPTED: PUB[csd04 . xmlTracking] PDF[Tracking] -- SOURCE DEFECT: empty <ulink url='csd04.xml'/> inside the F.1.2.1 title leaks the filename into the heading
+ACCEPTED: PUB[csd03 . xmlTracking] PDF[Tracking] -- SOURCE DEFECT: empty <ulink url='csd03.xml'/> inside the F.1.2.2 title
+
+RESULT: PASS

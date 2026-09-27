@@ -37,7 +37,7 @@ defaults:
 
 env:
   PANDOC_VERSION: 3.8.2.1
-  PA_REF: v1.9.2
+  PA_REF: v1.10.0
 
 jobs:
   render-and-gate:
@@ -83,8 +83,29 @@ jobs:
           CHROME: google-chrome
         run: _pa/render/render.sh "${{ matrix.md }}" "${{ matrix.schemas }}" _publication
 
+      # The v1.0 edition has a published original to be checked against: its
+      # HTML, and its PDF, whose contents page numbers, list letters and
+      # footer no HTML comparison can see. The live PDF sits behind
+      # Cloudflare; if it cannot be fetched the step says so and moves on.
+      - name: Verify against the published HTML and PDF
+        if: matrix.md == 'dmlex-v1.0/markdown'
+        run: |
+          set -o pipefail
+          P=_pa/converters/docbook-to-markdown/profiles/dmlex
+          python3 _pa/verify/verify_md.py "${{ matrix.stage }}/dmlex-v1.0-os.md" \
+            _pa/tests/fixtures/verify_md/dmlex-v1.0-os/published-dmlex-v1.0-os.html \
+            --rendered "${{ matrix.stage }}/dmlex-v1.0-os.html" \
+            --allow "$P/allow.json" --allow "$P/allow-rendered.json" | grep -v '^ACCEPTED'
+          if curl -fsSL -o "$RUNNER_TEMP/published.pdf" \
+              https://docs.oasis-open.org/lexidma/dmlex/v1.0/os/dmlex-v1.0-os.pdf; then
+            python3 _pa/verify/verify_pdf.py "${{ matrix.stage }}/dmlex-v1.0-os.pdf" "$RUNNER_TEMP/published.pdf" \
+              --allow "$P/allow-pdf.json" | grep -v '^ACCEPTED'
+          else
+            echo "::warning::The published PDF could not be fetched; the PDF comparison did not run."
+          fi
+
       - name: OASIS publication gate
-        uses: OASIS-Docs/publication-assurance@v1.9.2
+        uses: OASIS-Docs/publication-assurance@v1.10.0
         with:
           fail-on-blockers: ${{ matrix.enforce }}
           target: ${{ matrix.stage }}

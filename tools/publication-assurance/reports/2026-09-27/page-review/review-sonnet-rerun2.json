@@ -1,0 +1,15 @@
+[
+{"pair": "pair-015.png",
+ "left_lines": ["<lexicographicResource> dmlex:labelTypeTag [", "dmlex:description \"...\" ;", "4.2.6 partOfSpeechTag", "Represents one (of many) possible values for tag of partOfSpeech. Example: Section A.1.6, “How", "to use partOfSpeechTag and inflectedFormTag”."],
+ "right_lines": ["tag REQUIRED (exactly one) and UNIQUE. Normalised string. An abbreviation, a code or some other", "string of text.", "description OPTIONAL (zero or one). Normalised string. A human-readable description of what the", "tag means.", "for OPTIONAL (zero or one). Normalised string. A statement about constraints and recommendation"],
+ "only_left": ["purple shaded code blocks (Examples 107 JSON, 108 RDF, 110 NVH); Example 109 Relational database ER diagram ('labelTypeTags' / 'sameAs' tables) in a plain white/bordered box"],
+ "only_right": ["white bordered code blocks (Examples 111 XML, 112 JSON, 113 RDF, 114 Relational database, 115 NVH); inline code terms (tag, description, for, sameAs) shown with a light gray shaded box vs left's plain bold monospace"],
+ "differences": ["footer copyright line: left 'All rights reserved.' (page 48 of 218) vs right 'All Rights Reserved.' (page 46 of 195)"]},
+
+{"pair": "pair-018.png",
+ "left_lines": ["Properties", "text REQUIRED (exactly one) and UNIQUE. Normalised string. The example itself.", "sourceIdentity OPTIONAL (zero or one). Normalised string. An abbreviation, a code or some", "other string of text which identifies the source. The sourceIdentityTag object type can be used", "to explain the meaning of the source identifiers, to constrain which source identifiers are allowed to"],
+ "right_lines": ["<pronunciation> dmlex:transcription [", "a dmlex:Transcription ;", "Represents a sentence or other text fragment which illustrates the headword being used.", "sourceIdentity OPTIONAL (zero or one). Normalised string. An abbreviation, a code or some other", "string of text which identifies the source. The sourceIdentityTag object type can be used to explain"],
+ "only_left": ["purple shaded code blocks (Examples 46 XML, 47 JSON, 48 RDF) lower on the page"],
+ "only_right": ["white bordered code blocks (Examples 42 JSON, 43 RDF, 44 Relational database ER diagram, 45 NVH); heading '3.12 example' and its property list appear on this page"],
+ "differences": ["footer copyright line: left 'All rights reserved.' (page 30 of 218) vs right 'All Rights Reserved.' (page 29 of 195)"]}
+]

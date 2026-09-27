@@ -1,0 +1,189 @@
+{
+ "pairs": [
+  {
+   "rendered_page": 163,
+   "published_page": 180,
+   "pair": "pair-001.png"
+  },
+  {
+   "rendered_page": 137,
+   "published_page": 146,
+   "pair": "pair-002.png"
+  },
+  {
+   "rendered_page": 149,
+   "published_page": 162,
+   "pair": "pair-003.png"
+  },
+  {
+   "rendered_page": 195,
+   "published_page": 218,
+   "pair": "pair-004.png"
+  },
+  {
+   "rendered_page": 165,
+   "published_page": 182,
+   "pair": "pair-005.png"
+  },
+  {
+   "rendered_page": 168,
+   "published_page": 187,
+   "pair": "pair-006.png"
+  },
+  {
+   "rendered_page": 141,
+   "published_page": 152,
+   "pair": "pair-007.png"
+  },
+  {
+   "rendered_page": 188,
+   "published_page": 210,
+   "pair": "pair-008.png"
+  },
+  {
+   "rendered_page": 143,
+   "published_page": 153,
+   "pair": "pair-009.png"
+  },
+  {
+   "rendered_page": 156,
+   "published_page": 171,
+   "pair": "pair-010.png"
+  },
+  {
+   "rendered_page": 121,
+   "published_page": 124,
+   "pair": "pair-011.png"
+  },
+  {
+   "rendered_page": 7,
+   "published_page": 5,
+   "pair": "pair-012.png"
+  },
+  {
+   "rendered_page": 9,
+   "published_page": 8,
+   "pair": "pair-013.png"
+  },
+  {
+   "rendered_page": 8,
+   "published_page": 6,
+   "pair": "pair-014.png"
+  },
+  {
+   "rendered_page": 46,
+   "published_page": 48,
+   "pair": "pair-015.png"
+  },
+  {
+   "rendered_page": 127,
+   "published_page": 133,
+   "pair": "pair-016.png"
+  },
+  {
+   "rendered_page": 54,
+   "published_page": 57,
+   "pair": "pair-017.png"
+  },
+  {
+   "rendered_page": 29,
+   "published_page": 30,
+   "pair": "pair-018.png"
+  },
+  {
+   "rendered_page": 184,
+   "published_page": 205,
+   "pair": "pair-019.png"
+  },
+  {
+   "rendered_page": 5,
+   "published_page": 4,
+   "planted": "right-column",
+   "pair": "pair-020.png"
+  },
+  {
+   "rendered_page": 1,
+   "published_page": 1,
+   "pair": "pair-021.png"
+  },
+  {
+   "rendered_page": 192,
+   "published_page": 215,
+   "pair": "pair-022.png"
+  },
+  {
+   "rendered_page": 30,
+   "published_page": 30,
+   "pair": "pair-023.png"
+  },
+  {
+   "rendered_page": 136,
+   "published_page": 145,
+   "pair": "pair-024.png"
+  },
+  {
+   "rendered_page": 22,
+   "published_page": 22,
+   "pair": "pair-025.png"
+  },
+  {
+   "rendered_page": 120,
+   "published_page": 123,
+   "pair": "pair-026.png"
+  },
+  {
+   "rendered_page": 16,
+   "published_page": 15,
+   "pair": "pair-027.png"
+  },
+  {
+   "rendered_page": 158,
+   "published_page": 174,
+   "pair": "pair-028.png"
+  },
+  {
+   "rendered_page": 125,
+   "published_page": 131,
+   "pair": "pair-029.png"
+  },
+  {
+   "rendered_page": 83,
+   "published_page": 88,
+   "pair": "pair-030.png"
+  },
+  {
+   "rendered_page": 42,
+   "published_page": 44,
+   "pair": "pair-031.png"
+  },
+  {
+   "rendered_page": 167,
+   "published_page": 186,
+   "pair": "pair-032.png"
+  },
+  {
+   "rendered_page": 5,
+   "published_page": 4,
+   "pair": "pair-033.png"
+  },
+  {
+   "rendered_page": 107,
+   "published_page": 111,
+   "pair": "pair-034.png"
+  },
+  {
+   "rendered_page": 53,
+   "published_page": 56,
+   "pair": "pair-035.png"
+  },
+  {
+   "rendered_page": 6,
+   "published_page": 5,
+   "pair": "pair-036.png"
+  }
+ ],
+ "planted_pair": "pair-020.png",
+ "planted": "right-column",
+ "published": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/os/dmlex-v1.0-os.pdf",
+ "rendered": "../rendered/dmlex-v1.0-os.pdf"
+}

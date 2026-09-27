@@ -1,0 +1,629 @@
+published_pages: 218
+rendered_pages: 194
+published_tokens: 65790
+rendered_tokens: 64717
+diff_regions: 143
+accepted_deviations: 34
+line_wrap_regions: 230
+moved_blocks: 1
+regions_compared: 1
+contents_entries_published: 171
+contents_numbered_published: 171
+contents_entries_rendered: 133
+contents_numbered_rendered: 0
+running_lines_published: (2, ['Standards Track Work Product Copyright © OASIS Open 2025. All rights reserved. Page # of #', 'dmlex-v1.0-os 29 April 2025'])
+running_lines_rendered: (2, ['Standards Track Work Product Copyright © OASIS Open 2025. All Rights Reserved. Page # of #', 'dmlex-v1.0-os 29 April 2025'])
+running_lines_only_published: (0, [])
+running_lines_only_rendered: (0, [])
+rendered_pages_without_running_line: (0, [])
+empty: (0, [])
+
+[delete] published p4, rendered p5: ...Table of Contents 1 Introduction ( Normative )
+  PUB: <page>
+  PDF: 
+
+[delete] published p4, rendered p5: ...<page> 1 . 1 Modular structure of DMLex
+  PUB: <page>
+  PDF: 
+
+[delete] published p4, rendered p5: ...of DMLex <page> 1 . 2 Implementing DMLex
+  PUB: <page>
+  PDF: 
+
+[delete] published p4, rendered p5: ...<page> 1 . 3 The metamodel behind DMLex
+  PUB: <page>
+  PDF: 
+
+[delete] published p4, rendered p5: ...<page> 1 . 3 . 1 Object types
+  PUB: <page>
+  PDF: 
+
+[delete] published p4, rendered p5: ...types <page> 1 . 3 . 2 Properties
+  PUB: <page>
+  PDF: 
+
+[delete] published p4, rendered p5: ...<page> 1 . 3 . 3 Tree structures
+  PUB: <page>
+  PDF: 
+
+[delete] published p4, rendered p5: ...<page> 1 . 3 . 4 Relational structures
+  PUB: <page>
+  PDF: 
+
+[delete] published p4, rendered p5: ...<page> 1 . 3 . 5 Unique identifiers
+  PUB: <page>
+  PDF: 
+
+[delete] published p4, rendered p5: ...5 Unique identifiers <page> 1 . 4 Definitions
+  PUB: <page>
+  PDF: 
+
+[delete] published p4, rendered p5: ...<page> 1 . 4 Definitions <page> 2 Conformance
+  PUB: <page>
+  PDF: 
+
+[delete] published p4, rendered p5: ...Definitions <page> 2 Conformance <page> 3 DMLex Core
+  PUB: <page>
+  PDF: 
+
+[delete] published p4, rendered p5: ...DMLex Core <page> 3 . 1 Optional roots
+  PUB: <page>
+  PDF: 
+
+[delete] published p4, rendered p5: ...Optional roots <page> 3 . 2 Fragment identification
+  PUB: <page>
+  PDF: 
+
+[delete] published p4, rendered p5: .... 2 . 1 DMLex fragment identification strings
+  PUB: <page>
+  PDF: 
+
+[delete] published p4, rendered p5: ...fragment identification strings <page> 3 . 3 lexicographicResource
+  PUB: <page>
+  PDF: 
+
+[delete] published p4, rendered p5: .... 3 lexicographicResource <page> 3 . 4 entry
+  PUB: <page>
+  PDF: 
+
+[delete] published p4, rendered p5: .... 4 entry <page> 3 . 5 partOfSpeech
+  PUB: <page>
+  PDF: 
+
+[delete] published p4, rendered p5: .... 5 partOfSpeech <page> 3 . 6 inflectedForm
+  PUB: <page>
+  PDF: 
+
+[delete] published p4, rendered p5: .... 6 inflectedForm <page> 3 . 7 sense
+  PUB: <page>
+  PDF: 
+
+[delete] published p4, rendered p5: .... 7 sense <page> 3 . 8 definition
+  PUB: <page>
+  PDF: 
+
+[delete] published p4, rendered p5: .... 8 definition <page> 3 . 9 label
+  PUB: <page>
+  PDF: 
+
+[delete] published p4, rendered p5: .... 9 label <page> 3 . 10 pronunciation
+  PUB: <page>
+  PDF: 
+
+[delete] published p4, rendered p5: .... 10 pronunciation <page> 3 . 11 transcription
+  PUB: <page>
+  PDF: 
+
+[delete] published p4, rendered p5: .... 11 transcription <page> 3 . 12 example
+  PUB: <page>
+  PDF: 
+
+[delete] published p4, rendered p5: ...<page> 4 DMLex OPTIONAL Modules ( Normative )
+  PUB: <page>
+  PDF: 
+
+[delete] published p4, rendered p5: ...) <page> 4 . 1 DMLex Crosslingual Module
+  PUB: <page>
+  PDF: 
+
+[delete] published p4, rendered p5: ...4 . 1 . 1 Extensions to lexicographicResource
+  PUB: <page>
+  PDF: 
+
+[delete] published p4, rendered p5: ...lexicographicResource <page> 4 . 1 . 2 translationLanguage
+  PUB: <page>
+  PDF: 
+
+[delete] published p4, rendered p5: ...4 . 1 . 3 Extensions to sense
+  PUB: <page>
+  PDF: 
+
+[delete] published p4, rendered p5: ...sense <page> 4 . 1 . 4 headwordTranslation
+  PUB: <page>
+  PDF: 
+
+[delete] published p4, rendered p5: ...headwordTranslation <page> 4 . 1 . 5 headwordExplanation
+  PUB: <page>
+  PDF: 
+
+[delete] published p4, rendered p5: ...4 . 1 . 6 Extensions to example
+  PUB: <page>
+  PDF: 
+
+[delete] published p4, rendered p5: ...example <page> 4 . 1 . 7 exampleTranslation
+  PUB: <page>
+  PDF: 
+
+[delete] published p4, rendered p5: ...4 . 1 . 8 Extensions to partOfSpeech
+  PUB: <page>
+  PDF: 
+
+[delete] published p4, rendered p5: ...4 . 1 . 9 Extensions to label
+  PUB: <page>
+  PDF: 
+
+[delete] published p4, rendered p5: ...4 . 1 . 10 Extensions to pronunciation
+  PUB: <page>
+  PDF: 
+
+[delete] published p4, rendered p5: ...4 . 1 . 11 Extensions to inflectedForm
+  PUB: <page>
+  PDF: 
+
+[delete] published p4, rendered p5: ...<page> 4 . 2 DMLex Controlled Values Module
+  PUB: <page>
+  PDF: 
+
+[delete] published p4, rendered p5: ...4 . 2 . 1 Extensions to lexicographicResource
+  PUB: <page>
+  PDF: 
+
+[delete] published p4, rendered p5: ...lexicographicResource <page> 4 . 2 . 2 definitionTypeTag
+  PUB: <page>
+  PDF: 
+
+[delete] published p4, rendered p5: ...definitionTypeTag <page> 4 . 2 . 3 inflectedFormTag
+  PUB: <page>
+  PDF: 
+
+[delete] published p4, rendered p6: ...inflectedFormTag <page> 4 . 2 . 4 labelTag
+  PUB: <page>
+  PDF: 
+
+[delete] published p4, rendered p6: ...labelTag <page> 4 . 2 . 5 labelTypeTag
+  PUB: <page>
+  PDF: 
+
+[delete] published p4, rendered p6: ...labelTypeTag <page> 4 . 2 . 6 partOfSpeechTag
+  PUB: <page>
+  PDF: 
+
+[delete] published p4, rendered p6: ...partOfSpeechTag <page> 4 . 2 . 7 sourceIdentityTag
+  PUB: <page>
+  PDF: 
+
+[delete] published p4, rendered p6: ...sourceIdentityTag <page> 4 . 2 . 8 transcriptionSchemeTag
+  PUB: <page>
+  PDF: 
+
+[delete] published p4, rendered p6: ...transcriptionSchemeTag <page> 4 . 2 . 9 sameAs
+  PUB: <page>
+  PDF: 
+
+[delete] published p4, rendered p6: ...sameAs <page> 4 . 3 DMLex Linking Module
+  PUB: <page>
+  PDF: 
+
+[delete] published p4, rendered p6: ...4 . 3 . 1 Extensions to lexicographicResource
+  PUB: <page>
+  PDF: 
+
+[delete] published p4, rendered p6: ...lexicographicResource <page> 4 . 3 . 2 relation
+  PUB: <page>
+  PDF: 
+
+[delete] published p4, rendered p6: ...relation <page> 4 . 3 . 3 member
+  PUB: <page>
+  PDF: 
+
+[delete] published p4, rendered p6: ...member <page> 4 . 3 . 4 relationType
+  PUB: <page>
+  PDF: 
+
+[delete] published p4, rendered p6: ...relationType <page> 4 . 3 . 5 memberType
+  PUB: <page>
+  PDF: 
+
+[delete] published p4, rendered p6: ...4 . 3 . 6 Extensions to sameAs
+  PUB: <page>
+  PDF: 
+
+[delete] published p5, rendered p6: ...sameAs <page> 4 . 4 DMLex Annotation Module
+  PUB: <page>
+  PDF: 
+
+[delete] published p5, rendered p6: ...4 . 4 . 1 Extensions to entry
+  PUB: <page>
+  PDF: 
+
+[delete] published p5, rendered p6: ...4 . 4 . 2 Extensions to headwordTranslation
+  PUB: <page>
+  PDF: 
+
+[delete] published p5, rendered p6: ...headwordTranslation <page> 4 . 4 . 3 placeholderMarker
+  PUB: <page>
+  PDF: 
+
+[delete] published p5, rendered p6: ...4 . 4 . 4 Extensions to definition
+  PUB: <page>
+  PDF: 
+
+[delete] published p5, rendered p6: ...4 . 4 . 5 Extensions to example
+  PUB: <page>
+  PDF: 
+
+[delete] published p5, rendered p6: ...4 . 4 . 6 Extensions to exampleTranslation
+  PUB: <page>
+  PDF: 
+
+[delete] published p5, rendered p6: ...exampleTranslation <page> 4 . 4 . 7 headwordMarker
+  PUB: <page>
+  PDF: 
+
+[delete] published p5, rendered p6: ...headwordMarker <page> 4 . 4 . 8 collocateMarker
+  PUB: <page>
+  PDF: 
+
+[delete] published p5, rendered p6: ...4 . 4 . 9 Extensions to label
+  PUB: <page>
+  PDF: 
+
+[delete] published p5, rendered p6: ...label <page> 4 . 5 DMLex Etymology Module
+  PUB: <page>
+  PDF: 
+
+[delete] published p5, rendered p6: ...4 . 5 . 1 Extensions to entry
+  PUB: <page>
+  PDF: 
+
+[delete] published p5, rendered p6: ...entry <page> 4 . 5 . 2 etymology
+  PUB: <page>
+  PDF: 
+
+[delete] published p5, rendered p6: ...etymology <page> 4 . 5 . 3 etymon
+  PUB: <page>
+  PDF: 
+
+[delete] published p5, rendered p6: ...etymon <page> 4 . 5 . 4 etymonUnit
+  PUB: <page>
+  PDF: 
+
+[delete] published p5, rendered p6: ...4 . 5 . 5 Extensions to lexicographicResource
+  PUB: <page>
+  PDF: 
+
+[delete] published p5, rendered p6: ...lexicographicResource <page> 4 . 5 . 6 etymonType
+  PUB: <page>
+  PDF: 
+
+[delete] published p5, rendered p6: ...etymonType <page> 4 . 5 . 7 etymonLanguage
+  PUB: <page>
+  PDF: 
+
+[delete] published p5, rendered p6: ...4 . 5 . 8 Extensions to partOfSpeech
+  PUB: <page>
+  PDF: 
+
+[delete] published p5, rendered p6: ...4 . 5 . 9 Extensions to sameAs
+  PUB: <page>
+  PDF: 
+
+[delete] published p5, rendered p6: ...<page> 5 DMLex REQUIRED Serializations ( Normative )
+  PUB: <page>
+  PDF: 
+
+[delete] published p5, rendered p6: .... 1 DMLex XML serialization ( Normative )
+  PUB: <page>
+  PDF: 
+
+[delete] published p5, rendered p6: ...1 . 1 Design Principles ( Informative )
+  PUB: <page>
+  PDF: 
+
+[delete] published p5, rendered p6: ...1 . 2 Whitespace handling ( Normative )
+  PUB: <page>
+  PDF: 
+
+[delete] published p5, rendered p6: ...1 . 3 Element order ( Normative )
+  PUB: <page>
+  PDF: 
+
+[delete] published p5, rendered p6: ...4 DMLex XML serialization elements ( Normative )
+  PUB: <page>
+  PDF: 
+
+[delete] published p5, rendered p6: .... 2 DMLex JSON serialization ( Normative )
+  PUB: <page>
+  PDF: 
+
+[delete] published p5, rendered p6: ...<page> 5 . 2 . 1 Design principles
+  PUB: <page>
+  PDF: 
+
+[delete] published p5, rendered p6: ...2 DMLex JSON serialization objects ( Normative )
+  PUB: <page>
+  PDF: 
+
+[delete] published p5, rendered p6: .... 3 DMLex RDF serialization ( Normative )
+  PUB: <page>
+  PDF: 
+
+[delete] published p5, rendered p6: ...<page> 5 . 3 . 1 Design principles
+  PUB: <page>
+  PDF: 
+
+[delete] published p5, rendered p6: .... 3 . 2 DMLex RDF serialization elements
+  PUB: <page>
+  PDF: 
+
+[delete] published p5, rendered p6: ...4 DMLex relational database serialization ( Normative )
+  PUB: <page>
+  PDF: 
+
+[delete] published p5, rendered p7: ...4 . 1 Design principles ( Informative )
+  PUB: <page>
+  PDF: 
+
+[delete] published p5, rendered p7: ...4 . 2 Database diagrams ( Informative )
+  PUB: <page>
+  PDF: 
+
+[replace] published p5, rendered p7: ...DMLex relational database serialization tables ( Normative )
+  PUB: <page> Appendixes
+  PDF: Appendix
+
+[delete] published p5, rendered p7: ...A Informative material on serializations ( Informative )
+  PUB: <page>
+  PDF: 
+
+[delete] published p5, rendered p7: ...<page> A . 1 Examples ( Informative )
+  PUB: <page>
+  PDF: 
+
+[delete] published p5, rendered p7: ...A . 1 . 1 A basic entry
+  PUB: <page>
+  PDF: 
+
+[delete] published p5, rendered p7: .... 1 . 2 How to use inflectedForm
+  PUB: <page>
+  PDF: 
+
+[delete] published p5, rendered p7: .... 1 . 3 Pronunciation given as transcription
+  PUB: <page>
+  PDF: 
+
+[delete] published p5, rendered p7: .... 4 Pronunciation given as a sound file
+  PUB: <page>
+  PDF: 
+
+[delete] published p5, rendered p7: .... 1 . 5 Pronunciation given both ways
+  PUB: <page>
+  PDF: 
+
+[delete] published p5, rendered p7: .... 6 How to use partOfSpeechTag and inflectedFormTag
+  PUB: <page>
+  PDF: 
+
+[delete] published p5, rendered p7: .... 7 Mapping controlled values to external inventories
+  PUB: <page>
+  PDF: 
+
+[delete] published p5, rendered p7: ...1 . 8 Defining a bilingual lexicographic resource
+  PUB: <page>
+  PDF: 
+
+[delete] published p5, rendered p7: ...1 . 9 Defining a multilingual lexicographic resource
+  PUB: <page>
+  PDF: 
+
+[delete] published p5, rendered p7: ...to use headwordTranslation in a bilingual lexicographic resource
+  PUB: <page>
+  PDF: 
+
+[delete] published p5, rendered p7: ...to use headwordTranslation in a multilingual lexicographic resource
+  PUB: <page>
+  PDF: 
+
+[delete] published p5, rendered p7: .... 1 . 12 How to use headwordExplanation
+  PUB: <page>
+  PDF: 
+
+[delete] published p5, rendered p7: .... 1 . 13 Modelling parts and wholes
+  PUB: <page>
+  PDF: 
+
+[delete] published p5, rendered p7: ...<page> A . 1 . 14 Modelling antonyms
+  PUB: <page>
+  PDF: 
+
+[delete] published p5, rendered p7: ...<page> A . 1 . 15 Modelling synonyms
+  PUB: <page>
+  PDF: 
+
+[delete] published p5, rendered p7: ...<page> A . 1 . 16 Modelling variants
+  PUB: <page>
+  PDF: 
+
+[delete] published p5, rendered p7: ...<page> A . 1 . 17 Modelling subsenses
+  PUB: <page>
+  PDF: 
+
+[delete] published p6, rendered p7: ...18 Modelling subentries ( at subsense level )
+  PUB: <page>
+  PDF: 
+
+[delete] published p6, rendered p7: ...19 Modelling subentries ( at sense level )
+  PUB: <page>
+  PDF: 
+
+[delete] published p6, rendered p7: ...<page> A . 1 . 20 Using placeholderMarker
+  PUB: <page>
+  PDF: 
+
+[delete] published p6, rendered p7: ...21 Using placeholderMarker in a bilingual lexicographic resource
+  PUB: <page>
+  PDF: 
+
+[delete] published p6, rendered p7: ...<page> A . 1 . 22 Using headwordMarker
+  PUB: <page>
+  PDF: 
+
+[delete] published p6, rendered p7: ...<page> A . 1 . 23 Using collocateMarker
+  PUB: <page>
+  PDF: 
+
+[delete] published p6, rendered p7: ...<page> A . 1 . 24 Modelling etymology
+  PUB: <page>
+  PDF: 
+
+[delete] published p6, rendered p7: ...1 . 25 Modelling etymology types and language
+  PUB: <page>
+  PDF: 
+
+[delete] published p6, rendered p7: .... 2 DMLex NVH serialization ( Informative )
+  PUB: <page>
+  PDF: 
+
+[delete] published p6, rendered p7: ...2 . 1 Design Principles ( Informative )
+  PUB: <page>
+  PDF: 
+
+[replace] published p6, rendered p7: ...2 DMLex NVH serialization nodes ( Informative )
+  PUB: <page> A . 2 . 2 . 1 NVH node : lexicographicResource <page> A . 2 . 2 . 2 NVH node : entry <page> A . 2 . 2 . 3 NVH node : pos <page> A . 2 . 2 . 4 NVH node : form <page> A . 2 . 2 . 5 NVH node : sense <page> A . 2 . 2 . 6 NVH node : definition <page> A . 2 . 2 . 7 NVH node : label <page> A . 2 . 2 . 8 NVH node : pronunciation <page> A . 2 . 2 . 9 NVH node : transcription <page> A . 2 . 2 . 10 NVH node : example <page> A . 2 . 2 . 11 NVH node : translationLanguage <page> A . 2 . 2 . 12 NVH nodes : [ PREFIX ] translation <page> A . 2 . 2 . 13 NVH nodes : [ PREFIX ] explanation <page> A . 2 . 2 . 14 NVH nodes : [ PREFIX ] exampleTranslation <page> A . 2 . 2 . 15 NVH node : definitionTypeTag <page> A . 2 . 2 . 16 NVH node : formTag <page> A . 2 . 2 . 17 NVH node : labelTag <page> A . 2 . 2 . 18 NVH node : labelTypeTag <page> A . 2 . 2 . 19 NVH node : posTag <page> A . 2 . 2 . 20 NVH node : sourceIdentityTag <page> A . 2 . 2 . 21 NVH node : transcriptionSchemeTag <page> A . 2 . 2 . 22 NVH node : sameAs <page> A . 2 . 2 . 23 NVH node : relation <page> A . 2 . 2 . 24 NVH nodes : [ PREFIX ] member <page> A . 2 . 2 . 25 NVH node : relationType <page> A . 2 . 2 . 26 NVH node : memberType <page> A . 2 . 2 . 27 NVH node : placeholder <page> A . 2 . 2 . 28 NVH node : headword <page> A . 2 . 2 . 29 NVH node : collocate <page> A . 2 . 2 . 30 NVH node : etymology <page> A . 2 . 2 . 31 NVH node : etymon <page> A . 2 . 2 . 32 NVH nodes : [ PREFIX ] etymonUnit <page> A . 2 . 2 . 33 NVH node : etymonType <page> A . 2 . 2 . 34 NVH node : etymonLanguage <page>
+  PDF: Appendix
+
+[delete] published p6, rendered p7: ...: etymonLanguage <page> B References ( Normative )
+  PUB: <page>
+  PDF: 
+
+[delete] published p6, rendered p7: ...B . 1 Normative references ( Normative )
+  PUB: <page>
+  PDF: 
+
+[replace] published p6, rendered p7: ...B . 2 Informative references ( Informative )
+  PUB: <page>
+  PDF: Appendix
+
+[replace] published p6, rendered p7: ...C Machine Readable Validation Artifacts ( Normative )
+  PUB: <page>
+  PDF: Appendix
+
+[replace] published p6, rendered p7: ...<page> D DMLex UML diagram ( Normative )
+  PUB: <page>
+  PDF: Appendix
+
+[replace] published p6, rendered p7: ...E DMLex plain text description ( Informative )
+  PUB: <page>
+  PDF: Appendix
+
+[delete] published p6, rendered p7: ...<page> F Specification Change Tracking ( Informative )
+  PUB: <page>
+  PDF: 
+
+[delete] published p6, rendered p7: ...) <page> F . 1 Tracking of changes
+  PUB: <page>
+  PDF: 
+
+[delete] published p6, rendered p7: ...during the OASIS publishing process after Public Reviews
+  PUB: <page>
+  PDF: 
+
+[replace] published p6, rendered p7: ...of changes made in response to Public Reviews
+  PUB: <page> F . 1 . 2 . 1 Tracking of changes in response to the 4th Public Review <page> F . 1 . 2 . 2 Tracking of changes in response to the 3rd Public Review <page> F . 1 . 2 . 3 Tracking of changes in response to the 2nd Public Review <page> F . 1 . 2 . 4 Tracking of changes in response to the 1st Public Review <page>
+  PDF: Appendix
+
+[replace] published p7, rendered p7: ...Public Review <page> G Acknowledgements ( Informative )
+  PUB: <page>
+  PDF: Appendix
+
+[delete] published p7, rendered p8: ...Informative ) <page> H Notices ( Informative )
+  PUB: <page>
+  PDF: 
+
+[replace] published p12, rendered p11: .... 2 Conformance 1 . DMLex Instances Conformance
+  PUB: a
+  PDF: 1
+
+[replace] published p12, rendered p11: ...one of the normative DMLex Serialization Specifications .
+  PUB: b
+  PDF: 2
+
+[replace] published p12, rendered p11: ...DMLex Serialization Specifications . 2 . Application Conformance
+  PUB: a
+  PDF: 1
+
+[replace] published p12, rendered p11: ...DMLex Instances to be considered DMLex compliant .
+  PUB: b
+  PDF: 2
+
+[replace] published p12, rendered p12: ...the extension ' s own processing requirements .
+  PUB: c
+  PDF: 3
+
+[replace] published p12, rendered p12: ...or without a specifically set target Agent .
+  PUB: d
+  PDF: 4
+
+[replace] published p12, rendered p12: ...Agents as per point c . above .
+  PUB: e
+  PDF: 5
+
+[replace] published p12, rendered p12: ...by a different application , provided that :
+  PUB: i
+  PDF: 1
+
+[replace] published p12, rendered p12: ...the same DMLex Se - rialization Specification ,
+  PUB: ii
+  PDF: 2
+
+[replace] published p12, rendered p12: ...relevant Processing Requirements . 3 . Backwards Compatibility
+  PUB: a
+  PDF: 1
+ACCEPTED: PUB[Specification URIs] PDF[] -- OASIS Markdown template (CSAF/NIEM) has no 'Specification URIs' heading; stage URLs follow directly
+ACCEPTED: PUB[version] PDF[stage] -- Naming Directives v1.7 (2 Jan 2024) label: 'This stage / Previous stage / Latest stage'
+ACCEPTED: PUB[version] PDF[stage] -- Naming Directives v1.7 (2 Jan 2024) label: 'This stage / Previous stage / Latest stage'
+ACCEPTED: PUB[version] PDF[stage] -- Naming Directives v1.7 (2 Jan 2024) label: 'This stage / Previous stage / Latest stage'
+ACCEPTED: PUB[Key words : The key words MUST , MUST NOT , REQUIRED , SHALL , SHALL NOT , SHOULD , SHOULD NOT , RECOMMENDED , MAY , and OPTIONAL in this document are to be interpreted as de - scribed in BCP 14 [ RFC2119 ] and [ RFC8174 ] if , and only if , they appear in all capitals , as shown here .] PDF[] -- Key words paragraph moved after Status (source order of legalnotice elements); text identical, see paired insert
+ACCEPTED: PUB[] PDF[. Key words : The key words MUST , MUST NOT , REQUIRED , SHALL , SHALL NOT , SHOULD , SHOULD NOT , RECOMMENDED , MAY , and OPTIONAL in this document are to be interpreted as described in BCP 14 [ RFC2119 ] and [ RFC8174 ] if , and only if , they appear in all capitals , as shown here] -- paired with the delete above: same paragraph, new position
+ACCEPTED: PUB[:] PDF[] -- 'Notices:' front-matter label rendered as the '## Notices' heading, as in the CSAF template
+ACCEPTED: PUB[sklize #] PDF[sklizeň] -- PUBLISHED PDF DEFECT: its font has no ň and FOP prints '#'; the published HTML and the source have 'sklizeň'
+ACCEPTED: PUB[sklize #] PDF[sklizeň] -- PUBLISHED PDF DEFECT: its font has no ň and FOP prints '#'; the published HTML and the source have 'sklizeň'
+ACCEPTED: PUB[sklize #] PDF[sklizeň] -- PUBLISHED PDF DEFECT: its font has no ň and FOP prints '#'; the published HTML and the source have 'sklizeň'
+ACCEPTED: PUB[sklize #] PDF[sklizeň] -- PUBLISHED PDF DEFECT: its font has no ň and FOP prints '#'; the published HTML and the source have 'sklizeň'
+ACCEPTED: PUB[sklize #] PDF[sklizeň] -- PUBLISHED PDF DEFECT: its font has no ň and FOP prints '#'; the published HTML and the source have 'sklizeň'
+ACCEPTED: PUB[] PDF[Example A . 63 . JSON] -- PUBLISHED PDF LAYOUT: where a page break splits Example A.63, FOP prints its caption on the same line as the example's code, so the text layer reads them interleaved
+ACCEPTED: PUB[Example A . 63 .] PDF[] -- PUBLISHED PDF LAYOUT: where a page break splits Example A.63, FOP prints its caption on the same line as the example's code, so the text layer reads them interleaved
+ACCEPTED: PUB[JSON] PDF[] -- PUBLISHED PDF LAYOUT: where a page break splits Example A.63, FOP prints its caption on the same line as the example's code, so the text layer reads them interleaved
+ACCEPTED: PUB[] PDF[Example A . 64 . RDF ex : lexicon a dmlex : LexicographicResource ; dmlex : entry ex : microscope , ex : lens ,] -- PUBLISHED PDF LAYOUT: FOP prints the 'Example A.64. RDF' caption partway through the example, where it broke the page; see the paired delete
+ACCEPTED: PUB[Example A . 64 . RDF] PDF[] -- paired with the insert above: the same caption, printed mid-example in the published PDF
+ACCEPTED: PUB[] PDF[Example A . 87 . JSON] -- PUBLISHED PDF LAYOUT: where a page break splits Example A.87, FOP prints its caption on the same line as the example's code, so the text layer reads them interleaved
+ACCEPTED: PUB[Example A . 87 . JSON] PDF[" langCode " :] -- PUBLISHED PDF LAYOUT: where a page break splits Example A.87, FOP prints its caption on the same line as the example's code, so the text layer reads them interleaved
+ACCEPTED: PUB[" langCode " :] PDF[] -- PUBLISHED PDF LAYOUT: where a page break splits Example A.63/A.87/A.88, FOP prints its caption on the same line as the example's code, so the text layer reads them interleaved
+ACCEPTED: PUB[aRDF] PDF[RDF] -- PUBLISHED PDF LAYOUT: where a page break splits Example A.88, FOP prints its caption on the same line as the example's code, so the text layer reads them interleaved
+ACCEPTED: PUB[] PDF[a] -- PUBLISHED PDF LAYOUT: where a page break splits Example A.88, FOP prints its caption on the same line as the example's code, so the text layer reads them interleaved
+ACCEPTED: PUB[skul #] PDF[skulō] -- PUBLISHED PDF DEFECT: its font has no ō and FOP prints '#'; the published HTML and the source have 'skulō'
+ACCEPTED: PUB[skul #] PDF[skulō] -- PUBLISHED PDF DEFECT: its font has no ō and FOP prints '#'; the published HTML and the source have 'skulō'
+ACCEPTED: PUB[skul #] PDF[skulō] -- PUBLISHED PDF DEFECT: its font has no ō and FOP prints '#'; the published HTML and the source have 'skulō'
+ACCEPTED: PUB[skul #] PDF[skulō] -- PUBLISHED PDF DEFECT: its font has no ō and FOP prints '#'; the published HTML and the source have 'skulō'
+ACCEPTED: PUB[skul #] PDF[skulō] -- PUBLISHED PDF DEFECT: its font has no ō and FOP prints '#'; the published HTML and the source have 'skulō'
+ACCEPTED: PUB[skul #] PDF[skulō] -- PUBLISHED PDF DEFECT: its font has no ō and FOP prints '#'; the published HTML and the source have 'skulō'
+ACCEPTED: PUB[skul #] PDF[skulō] -- PUBLISHED PDF DEFECT: its font has no ō and FOP prints '#'; the published HTML and the source have 'skulō'
+ACCEPTED: PUB[skul #] PDF[skulō] -- PUBLISHED PDF DEFECT: its font has no ō and FOP prints '#'; the published HTML and the source have 'skulō'
+ACCEPTED: PUB[skul #] PDF[skulō] -- PUBLISHED PDF DEFECT: its font has no ō and FOP prints '#'; the published HTML and the source have 'skulō'
+ACCEPTED: PUB[skul #] PDF[skulō] -- PUBLISHED PDF DEFECT: its font has no ō and FOP prints '#'; the published HTML and the source have 'skulō'
+ACCEPTED: PUB[csd04 . xmlTracking] PDF[Tracking] -- SOURCE DEFECT: empty <ulink url='csd04.xml'/> inside the F.1.2.1 title leaks the filename into the heading
+ACCEPTED: PUB[csd03 . xmlTracking] PDF[Tracking] -- SOURCE DEFECT: empty <ulink url='csd03.xml'/> inside the F.1.2.2 title
+UNUSED ALLOW RULE: {'published': 'Appendixes', 'markdown': 'Appendix', 'reason': "the DocBook contents group the appendices under 'Appendixes' and letter them 'A'; the Markdown template's contents name each 'Appendix A'"}
+UNUSED ALLOW RULE: {'published': '', 'markdown': 'Appendix', 'count': 7, 'reason': "the Markdown template's contents name each appendix 'Appendix B' where the DocBook contents print 'B'"}
+
+RESULT: FAIL

@@ -1,0 +1,409 @@
+{
+ "published_pages": 218,
+ "rendered_pages": 195,
+ "published_tokens": 65790,
+ "rendered_tokens": 65345,
+ "diff_regions": 0,
+ "accepted_deviations": 42,
+ "line_wrap_regions": 230,
+ "moved_blocks": 1,
+ "regions_compared": 1,
+ "contents_entries_published": 171,
+ "contents_numbered_published": 171,
+ "contents_entries_rendered": 171,
+ "contents_numbered_rendered": 171,
+ "running_lines_published": [
+  "Standards Track Work Product Copyright © OASIS Open 2025. All rights reserved. Page # of #",
+  "dmlex-v1.0-os 29 April 2025"
+ ],
+ "running_lines_rendered": [
+  "Standards Track Work Product Copyright © OASIS Open 2025. All Rights Reserved. Page # of #",
+  "dmlex-v1.0-os 29 April 2025"
+ ],
+ "running_lines_only_published": [],
+ "running_lines_only_rendered": [],
+ "rendered_pages_without_running_line": [],
+ "empty": [],
+ "allow_rules_unused": [],
+ "diffs": [],
+ "accepted": [
+  {
+   "op": "delete",
+   "published": "Specification URIs",
+   "markdown": "",
+   "context_before": "1 . 0 OASIS Standard 29 April 2025",
+   "published_page": 1,
+   "rendered_page": 1,
+   "reason": "OASIS Markdown template (CSAF/NIEM) has no 'Specification URIs' heading; stage URLs follow directly"
+  },
+  {
+   "op": "replace",
+   "published": "version",
+   "markdown": "stage",
+   "context_before": "OASIS Standard 29 April 2025 Specification URIs This",
+   "published_page": 1,
+   "rendered_page": 1,
+   "reason": "Naming Directives v1.7 (2 Jan 2024) label: 'This stage / Previous stage / Latest stage'"
+  },
+  {
+   "op": "replace",
+   "published": "version",
+   "markdown": "stage",
+   "context_before": "- os . pdf ( Authoritative ) Previous",
+   "published_page": 1,
+   "rendered_page": 1,
+   "reason": "Naming Directives v1.7 (2 Jan 2024) label: 'This stage / Previous stage / Latest stage'"
+  },
+  {
+   "op": "replace",
+   "published": "version",
+   "markdown": "stage",
+   "context_before": "- cs01 . pdf ( Authoritative ) Latest",
+   "published_page": 1,
+   "rendered_page": 1,
+   "reason": "Naming Directives v1.7 (2 Jan 2024) label: 'This stage / Previous stage / Latest stage'"
+  },
+  {
+   "op": "delete",
+   "published": "Key words : The key words MUST , MUST NOT , REQUIRED , SHALL , SHALL NOT , SHOULD , SHOULD NOT , RECOMMENDED , MAY , and OPTIONAL in this document are to be interpreted as de - scribed in BCP 14 [ RFC2119 ] and [ RFC8174 ] if , and only if , they appear in all capitals , as shown here .",
+   "markdown": "",
+   "context_before": "/ ns / dmlex - 1 . 0",
+   "published_page": 2,
+   "rendered_page": 2,
+   "reason": "Key words paragraph moved after Status (source order of legalnotice elements); text identical, see paired insert"
+  },
+  {
+   "op": "insert",
+   "published": "",
+   "markdown": ". Key words : The key words MUST , MUST NOT , REQUIRED , SHALL , SHALL NOT , SHOULD , SHOULD NOT , RECOMMENDED , MAY , and OPTIONAL in this document are to be interpreted as described in BCP 14 [ RFC2119 ] and [ RFC8174 ] if , and only if , they appear in all capitals , as shown here",
+   "context_before": "content in the separate plain text file prevails",
+   "published_page": 2,
+   "rendered_page": 2,
+   "reason": "paired with the delete above: same paragraph, new position"
+  },
+  {
+   "op": "delete",
+   "published": ":",
+   "markdown": "",
+   "context_before": "- v1 . 0 . html . Notices",
+   "published_page": 3,
+   "rendered_page": 4,
+   "reason": "'Notices:' front-matter label rendered as the '## Notices' heading, as in the CSAF template"
+  },
+  {
+   "op": "replace",
+   "published": "Appendixes",
+   "markdown": "Appendix",
+   "context_before": "relational database serialization tables ( Normative ) <page>",
+   "published_page": 5,
+   "rendered_page": 7,
+   "reason": "the DocBook contents group the appendices under 'Appendixes' and letter them 'A'; the Markdown template's contents name each 'Appendix A'"
+  },
+  {
+   "op": "insert",
+   "published": "",
+   "markdown": "Appendix",
+   "context_before": "2 . 34 NVH node : etymonLanguage <page>",
+   "published_page": 6,
+   "rendered_page": 8,
+   "reason": "the Markdown template's contents name each appendix 'Appendix B' where the DocBook contents print 'B'"
+  },
+  {
+   "op": "insert",
+   "published": "",
+   "markdown": "Appendix",
+   "context_before": ". 2 Informative references ( Informative ) <page>",
+   "published_page": 6,
+   "rendered_page": 8,
+   "reason": "the Markdown template's contents name each appendix 'Appendix B' where the DocBook contents print 'B'"
+  },
+  {
+   "op": "insert",
+   "published": "",
+   "markdown": "Appendix",
+   "context_before": "Machine Readable Validation Artifacts ( Normative ) <page>",
+   "published_page": 6,
+   "rendered_page": 8,
+   "reason": "the Markdown template's contents name each appendix 'Appendix B' where the DocBook contents print 'B'"
+  },
+  {
+   "op": "insert",
+   "published": "",
+   "markdown": "Appendix",
+   "context_before": "D DMLex UML diagram ( Normative ) <page>",
+   "published_page": 6,
+   "rendered_page": 8,
+   "reason": "the Markdown template's contents name each appendix 'Appendix B' where the DocBook contents print 'B'"
+  },
+  {
+   "op": "insert",
+   "published": "",
+   "markdown": "Appendix",
+   "context_before": "DMLex plain text description ( Informative ) <page>",
+   "published_page": 6,
+   "rendered_page": 8,
+   "reason": "the Markdown template's contents name each appendix 'Appendix B' where the DocBook contents print 'B'"
+  },
+  {
+   "op": "insert",
+   "published": "",
+   "markdown": "Appendix",
+   "context_before": "in response to the 1st Public Review <page>",
+   "published_page": 7,
+   "rendered_page": 8,
+   "reason": "the Markdown template's contents name each appendix 'Appendix B' where the DocBook contents print 'B'"
+  },
+  {
+   "op": "insert",
+   "published": "",
+   "markdown": "Appendix",
+   "context_before": "Review <page> G Acknowledgements ( Informative ) <page>",
+   "published_page": 7,
+   "rendered_page": 8,
+   "reason": "the Markdown template's contents name each appendix 'Appendix B' where the DocBook contents print 'B'"
+  },
+  {
+   "op": "replace",
+   "published": "sklize #",
+   "markdown": "sklizeň",
+   "context_before": "headwordTranslation ( langCode : cs , text :",
+   "published_page": 145,
+   "rendered_page": 136,
+   "reason": "PUBLISHED PDF DEFECT: its font has no ň and FOP prints '#'; the published HTML and the source have 'sklizeň'"
+  },
+  {
+   "op": "replace",
+   "published": "sklize #",
+   "markdown": "sklizeň",
+   "context_before": "= \" cs \" > < text >",
+   "published_page": 145,
+   "rendered_page": 136,
+   "reason": "PUBLISHED PDF DEFECT: its font has no ň and FOP prints '#'; the published HTML and the source have 'sklizeň'"
+  },
+  {
+   "op": "replace",
+   "published": "sklize #",
+   "markdown": "sklizeň",
+   "context_before": "cs \" , \" text \" : \"",
+   "published_page": 146,
+   "rendered_page": 137,
+   "reason": "PUBLISHED PDF DEFECT: its font has no ň and FOP prints '#'; the published HTML and the source have 'sklizeň'"
+  },
+  {
+   "op": "replace",
+   "published": "sklize #",
+   "markdown": "sklizeň",
+   "context_before": "dmlex : HeadwordTranslation ; dmlex : text \"",
+   "published_page": 147,
+   "rendered_page": 138,
+   "reason": "PUBLISHED PDF DEFECT: its font has no ň and FOP prints '#'; the published HTML and the source have 'sklizeň'"
+  },
+  {
+   "op": "replace",
+   "published": "sklize #",
+   "markdown": "sklizeň",
+   "context_before": "_ translation : Ernte cs _ translation :",
+   "published_page": 147,
+   "rendered_page": 138,
+   "reason": "PUBLISHED PDF DEFECT: its font has no ň and FOP prints '#'; the published HTML and the source have 'sklizeň'"
+  },
+  {
+   "op": "insert",
+   "published": "",
+   "markdown": "Example A . 63 . JSON",
+   "context_before": "< / relationType > < / lexicographicResource >",
+   "published_page": 152,
+   "rendered_page": 141,
+   "reason": "PUBLISHED PDF LAYOUT: where a page break splits Example A.63, FOP prints its caption on the same line as the example's code, so the text layer reads them interleaved"
+  },
+  {
+   "op": "delete",
+   "published": "Example A . 63 .",
+   "markdown": "",
+   "context_before": "\" , \" entries \" : [ {",
+   "published_page": 152,
+   "rendered_page": 141,
+   "reason": "PUBLISHED PDF LAYOUT: where a page break splits Example A.63, FOP prints its caption on the same line as the example's code, so the text layer reads them interleaved"
+  },
+  {
+   "op": "delete",
+   "published": "JSON",
+   "markdown": "",
+   "context_before": "A . 63 . \" id \" :",
+   "published_page": 152,
+   "rendered_page": 141,
+   "reason": "PUBLISHED PDF LAYOUT: where a page break splits Example A.63, FOP prints its caption on the same line as the example's code, so the text layer reads them interleaved"
+  },
+  {
+   "op": "insert",
+   "published": "",
+   "markdown": "Example A . 64 . RDF ex : lexicon a dmlex : LexicographicResource ; dmlex : entry ex : microscope , ex : lens ,",
+   "context_before": "\" navigate \" } ] } ] }",
+   "published_page": 153,
+   "rendered_page": 142,
+   "reason": "PUBLISHED PDF LAYOUT: FOP prints the 'Example A.64. RDF' caption partway through the example, where it broke the page; see the paired delete"
+  },
+  {
+   "op": "delete",
+   "published": "Example A . 64 . RDF",
+   "markdown": "",
+   "context_before": "; dmlex : hint dmlex : navigate ;",
+   "published_page": 153,
+   "rendered_page": 142,
+   "reason": "paired with the insert above: the same caption, printed mid-example in the published PDF"
+  },
+  {
+   "op": "insert",
+   "published": "",
+   "markdown": "Example A . 87 . JSON",
+   "context_before": "< / relationType > < / lexicographicResource >",
+   "published_page": 170,
+   "rendered_page": 154,
+   "reason": "PUBLISHED PDF LAYOUT: where a page break splits Example A.87, FOP prints its caption on the same line as the example's code, so the text layer reads them interleaved"
+  },
+  {
+   "op": "replace",
+   "published": "Example A . 87 . JSON",
+   "markdown": "\" langCode \" :",
+   "context_before": ": / / example . com \" ,",
+   "published_page": 170,
+   "rendered_page": 154,
+   "reason": "PUBLISHED PDF LAYOUT: where a page break splits Example A.87, FOP prints its caption on the same line as the example's code, so the text layer reads them interleaved"
+  },
+  {
+   "op": "delete",
+   "published": "\" langCode \" :",
+   "markdown": "",
+   "context_before": ". 87 . JSON \" en \" ,",
+   "published_page": 170,
+   "rendered_page": 154,
+   "reason": "PUBLISHED PDF LAYOUT: where a page break splits Example A.63/A.87/A.88, FOP prints its caption on the same line as the example's code, so the text layer reads them interleaved"
+  },
+  {
+   "op": "replace",
+   "published": "aRDF",
+   "markdown": "RDF",
+   "context_before": "} ] } Example A . 88 .",
+   "published_page": 171,
+   "rendered_page": 155,
+   "reason": "PUBLISHED PDF LAYOUT: where a page break splits Example A.88, FOP prints its caption on the same line as the example's code, so the text layer reads them interleaved"
+  },
+  {
+   "op": "insert",
+   "published": "",
+   "markdown": "a",
+   "context_before": "A . 88 . aRDF ex : lexicon",
+   "published_page": 171,
+   "rendered_page": 155,
+   "reason": "PUBLISHED PDF LAYOUT: where a page break splits Example A.88, FOP prints its caption on the same line as the example's code, so the text layer reads them interleaved"
+  },
+  {
+   "op": "replace",
+   "published": "skul #",
+   "markdown": "skulō",
+   "context_before": "school \" ) from Proto - Germanic *",
+   "published_page": 192,
+   "rendered_page": 172,
+   "reason": "PUBLISHED PDF DEFECT: its font has no ō and FOP prints '#'; the published HTML and the source have 'skulō'"
+  },
+  {
+   "op": "replace",
+   "published": "skul #",
+   "markdown": "skulō",
+   "context_before": "langCode : gem - pro , text :",
+   "published_page": 192,
+   "rendered_page": 172,
+   "reason": "PUBLISHED PDF DEFECT: its font has no ō and FOP prints '#'; the published HTML and the source have 'skulō'"
+  },
+  {
+   "op": "replace",
+   "published": "skul #",
+   "markdown": "skulō",
+   "context_before": "ool \" ) from Proto - Germanic *",
+   "published_page": 193,
+   "rendered_page": 172,
+   "reason": "PUBLISHED PDF DEFECT: its font has no ō and FOP prints '#'; the published HTML and the source have 'skulō'"
+  },
+  {
+   "op": "replace",
+   "published": "skul #",
+   "markdown": "skulō",
+   "context_before": "= \" true \" > < text >",
+   "published_page": 193,
+   "rendered_page": 172,
+   "reason": "PUBLISHED PDF DEFECT: its font has no ō and FOP prints '#'; the published HTML and the source have 'skulō'"
+  },
+  {
+   "op": "replace",
+   "published": "skul #",
+   "markdown": "skulō",
+   "context_before": "\\ \" ) from Proto - Germanic *",
+   "published_page": 194,
+   "rendered_page": 173,
+   "reason": "PUBLISHED PDF DEFECT: its font has no ō and FOP prints '#'; the published HTML and the source have 'skulō'"
+  },
+  {
+   "op": "replace",
+   "published": "skul #",
+   "markdown": "skulō",
+   "context_before": "pro \" , \" text \" : \"",
+   "published_page": 194,
+   "rendered_page": 173,
+   "reason": "PUBLISHED PDF DEFECT: its font has no ō and FOP prints '#'; the published HTML and the source have 'skulō'"
+  },
+  {
+   "op": "replace",
+   "published": "skul #",
+   "markdown": "skulō",
+   "context_before": "\\ \" ) from Proto - Germanic *",
+   "published_page": 195,
+   "rendered_page": 174,
+   "reason": "PUBLISHED PDF DEFECT: its font has no ō and FOP prints '#'; the published HTML and the source have 'skulō'"
+  },
+  {
+   "op": "replace",
+   "published": "skul #",
+   "markdown": "skulō",
+   "context_before": "dmlex : EtymonUnit ; dmlex : text \"",
+   "published_page": 195,
+   "rendered_page": 174,
+   "reason": "PUBLISHED PDF DEFECT: its font has no ō and FOP prints '#'; the published HTML and the source have 'skulō'"
+  },
+  {
+   "op": "replace",
+   "published": "skul #",
+   "markdown": "skulō",
+   "context_before": "\" ) fro m Proto - Germanic *",
+   "published_page": 196,
+   "rendered_page": 174,
+   "reason": "PUBLISHED PDF DEFECT: its font has no ō and FOP prints '#'; the published HTML and the source have 'skulō'"
+  },
+  {
+   "op": "replace",
+   "published": "skul #",
+   "markdown": "skulō",
+   "context_before": ": derivation gem - pro _ etymonUnit :",
+   "published_page": 196,
+   "rendered_page": 174,
+   "reason": "PUBLISHED PDF DEFECT: its font has no ō and FOP prints '#'; the published HTML and the source have 'skulō'"
+  },
+  {
+   "op": "replace",
+   "published": "csd04 . xmlTracking",
+   "markdown": "Tracking",
+   "context_before": ". F . 1 . 2 . 1",
+   "published_page": 215,
+   "rendered_page": 192,
+   "reason": "SOURCE DEFECT: empty <ulink url='csd04.xml'/> inside the F.1.2.1 title leaks the filename into the heading"
+  },
+  {
+   "op": "replace",
+   "published": "csd03 . xmlTracking",
+   "markdown": "Tracking",
+   "context_before": ". F . 1 . 2 . 2",
+   "published_page": 215,
+   "rendered_page": 192,
+   "reason": "SOURCE DEFECT: empty <ulink url='csd03.xml'/> inside the F.1.2.2 title"
+  }
+ ]
+}

@@ -1,0 +1,185 @@
+planted fault: pair-020.png (right-column): FOUND
+
+pair-001.png (published p180, rendered p163):
+  - footer copyright line: left reads 'All rights reserved.'; right reads 'All Rights Reserved.'
+  - page numbers differ (left 180 of 218, right 163 of 195) - expected, editions paginate differently
+  - only left: code block has a lavender/purple shaded background with no border
+  - only right: code block has a white background with a thin gray border
+  - only right: Example A.101. NVH section with an additional NVH code example, not present on this left page
+
+pair-002.png (published p146, rendered p137):
+  - footer copyright line: left 'All rights reserved.' vs right 'All Rights Reserved.'
+  - only left: code block has a lavender/purple shaded background
+  - only right: code block has a white background with a thin gray border
+
+pair-003.png (published p162, rendered p149):
+  - footer copyright line capitalization differs (left lowercase 'rights reserved.', right 'Rights Reserved.')
+  - page numbers differ (162 of 218 vs 149 of 195) - expected
+  - only left: purple shaded code block
+  - only right: white bordered code block
+
+pair-004.png (published p218, rendered p195):
+  - footer copyright line: left 'All rights reserved.' vs right 'All Rights Reserved.' (both are the last page of their document, 218 of 218 vs 195 of 195)
+  - body text on both sides reads 'All Rights Reserved.' with capital R,R - only the FOOTER capitalization differs between editions
+  - only left: heading 'Appendix H Notices (Informative)' with underline rule (this is the start of the appendix on the left page); body text uses straight quotes around "OASIS" and "OASIS IPR Policy"
+  - only right: this right page is a mid-appendix continuation with no heading (due to different pagination)
+
+pair-005.png (published p182, rendered p165):
+  - footer copyright capitalization difference
+  - only left: purple shaded code blocks for Examples A.104-A.107
+  - only right: white bordered code blocks; also shows heading 'A.1.21 Using placeholderMarker in a bilingual lexicographic resource' and Examples A.108-A.110 on the same page, due to more compact pagination
+
+pair-006.png (published p187, rendered p168):
+  - footer copyright capitalization difference
+  - only left: purple shaded XML code block
+  - only right: white bordered code blocks; heading 'A.1.23 Using collocateMarker' and Example A.118 appear on this page (pagination difference)
+
+pair-007.png (published p152, rendered p141):
+  - footer copyright capitalization difference
+  - only left: purple shaded JSON code block
+  - only right: white bordered code blocks; closing RDF tags visible at top of page from the previous example (pagination offset)
+
+pair-008.png (published p210, rendered p188):
+  - footer copyright line: left 'All rights reserved.' (page 210 of 218) vs right 'All Rights Reserved.' (page 188 of 195)
+  - the same six module box labels (CROSSLINGUAL MODULE, CONTROLLED VALUES MODULE, ANNOTATION MODULE, CORE, ETYMOLOGY MODULE, LINKING MODULE) are legible on both sides of the diagram; only the diagram's scale/compactness differs, which is consistent with the right edition fitting more content per page
+  - only left: diagram occupies almost the full page height at large scale; no Appendix E content on this page
+  - only right: the same diagram rendered smaller/compressed near the top of the page; below it, heading 'Appendix E DMLex plain text description (Informative)', a body paragraph ('This description uses the NVH schema notation style...'), and an NVH code box beginning 'core@lexicographicResource:' all appear on the same page
+
+pair-009.png (published p153, rendered p143):
+  - footer copyright capitalization difference
+  - only left: purple shaded RDF code block
+  - only right: white bordered code block; also includes 'Example A.65. NVH' and 'Example A.66. Suggested rendering for human users' sections on the same page
+
+pair-010.png (published p171, rendered p156):
+  - footer copyright capitalization difference
+  - only left: purple shaded code block
+  - only right: white bordered code block; includes 'Example A.89. NVH' heading and NVH code snippet at the bottom of the page
+
+pair-011.png (published p124, rendered p121):
+  - inline-code styling differs consistently (unshaded on left, gray-boxed on right)
+  - footer copyright capitalization difference
+  - only left: inline code identifiers (id, entryID, description, etc.) shown as plain bold monospace text with no background shading
+  - only right: inline code identifiers (type, note, listingOrder, id, etymonID, etc.) shown with a light gray shaded background box
+
+pair-012.png (published p5, rendered p7):
+  - TOC visual style differs (plain vs hyperlinked/bulleted) consistently; both sides show a page number for every entry here
+  - only left: flat plain-text TOC entries with no bullet symbols, in black (non-hyperlink) text
+  - only right: nested bulleted TOC (circle/square bullet symbols per indent level) in blue underlined hyperlink text
+
+pair-013.png (published p8, rendered p9):
+  - body text is identical; only the line-wrap points differ due to different page width/typesetting
+  - footer copyright capitalization difference
+
+pair-014.png (published p6, rendered p8):
+  - TOC visual style difference (same as other TOC pages); page numbers are present on both sides here
+  - footer copyright capitalization difference
+  - only left: flat plain-text TOC, no bullets, black text
+  - only right: nested bulleted, blue hyperlinked TOC
+
+pair-015.png (published p48, rendered p46):
+  - footer copyright line: left 'All rights reserved.' (page 48 of 218) vs right 'All Rights Reserved.' (page 46 of 195)
+  - only left: purple shaded code blocks (Examples 107 JSON, 108 RDF, 110 NVH); Example 109 Relational database ER diagram ('labelTypeTags' / 'sameAs' tables) in a plain white/bordered box
+  - only right: white bordered code blocks (Examples 111 XML, 112 JSON, 113 RDF, 114 Relational database, 115 NVH); inline code terms (tag, description, for, sameAs) shown with a light gray shaded box vs left's plain bold monospace
+
+pair-016.png (published p133, rendered p127):
+  - footer copyright capitalization difference
+  - only left: purple shaded code blocks
+  - only right: white bordered code blocks
+
+pair-017.png (published p57, rendered p54):
+  - footer copyright capitalization difference
+  - only left: Example 142 Relational database ER diagram ('members' table) at top of page; purple shaded NVH code block (Example 143)
+  - only right: white bordered XML/JSON/RDF code blocks for Examples 144-146 further down the page; no ER diagram on this page
+
+pair-018.png (published p30, rendered p29):
+  - footer copyright line: left 'All rights reserved.' (page 30 of 218) vs right 'All Rights Reserved.' (page 29 of 195)
+  - only left: purple shaded code blocks (Examples 46 XML, 47 JSON, 48 RDF) lower on the page
+  - only right: white bordered code blocks (Examples 42 JSON, 43 RDF, 44 Relational database ER diagram, 45 NVH); heading '3.12 example' and its property list appear on this page
+
+pair-019.png (published p205, rendered p184):
+  - footer copyright capitalization difference
+  - only left: inline code terms (lemma, label, id) shown as plain bold monospace text, no background shading
+  - only right: inline code terms (text, headword, collocate, lemma, label, id) shown with a light gray shaded background box
+
+pair-021.png (published p1, rendered p1):
+  - heading wording differs: left 'This version:' / 'Previous version:' / 'Latest version:' vs right 'This stage:' / 'Previous stage:' / 'Latest stage:'
+  - heading color differs: left metadata labels (Technical Committee:, Chair:, Editors:, Additional artifacts:) are black, right equivalents are blue
+  - footer copyright capitalization difference
+  - only left: banner heading 'Specification URIs' above the version links; subheadings read 'This version:', 'Previous version:', 'Latest version:'; these metadata labels ('Chair:', 'Editors:', 'Technical Committee:', etc.) are in plain black bold text
+  - only right: no 'Specification URIs' banner heading; subheadings read 'This stage:', 'Previous stage:', 'Latest stage:' instead; the equivalent metadata labels are in blue bold text
+
+pair-022.png (published p215, rendered p192):
+  - FAULT: left heading reads 'F.1.2.1 csd04.xmlTracking of changes in response to the 4th Public Review' and 'F.1.2.2 csd03.xmlTracking of changes in response to the 3rd Public Review' - a filename ('csd04.xml' / 'csd03.xml') is injected into the heading text with no space. The right page shows the clean heading 'F.1.2.1 Tracking of changes in response to the 4th Public Review' / 'F.1.2.2 Tracking of changes in response to the 3rd Public Review' with no such text.
+  - footer copyright capitalization difference
+  - only left: stray text 'csd04.xml' and 'csd03.xml' concatenated directly onto the headings 'F.1.2.1' and 'F.1.2.2' (see differences)
+
+pair-023.png (published p30, rendered p30):
+  - footer copyright line: left 'All rights reserved.' vs right 'All Rights Reserved.'; both pages are numbered 30 in their own document ('Page 30 of 218' left, 'Page 30 of 195' right)
+  - only left: purple shaded XML/JSON/RDF code blocks (Examples 46-48) lower on the page
+  - only right: white bordered code blocks (Examples 46 XML, 47 JSON, 48 RDF, 49 Relational database ER diagram, 50 NVH); inline code terms ('soundFile', 'listingOrder') shown with a light gray shaded box vs left's plain bold monospace
+
+pair-024.png (published p145, rendered p136):
+  - footer copyright capitalization difference
+  - only left: purple shaded pseudocode/XML code blocks (Examples A.51-A.52)
+  - only right: white bordered code blocks; NVH continuation at top of page from a preceding example not shown on left page
+
+pair-025.png (published p22, rendered p22):
+  - footer copyright capitalization difference
+  - only left: purple shaded RDF code block (Example 18)
+  - only right: white bordered code blocks (Examples 16 XML, 17 JSON, 18 RDF); inline code term 'pronunciation' shown with a gray shaded box vs left's plain text
+
+pair-026.png (published p123, rendered p120):
+  - footer copyright capitalization difference; content offset is expected pagination difference
+  - only right: inline code identifiers (id, definitionID, exampleID, etc.) shown with a light gray shaded background box vs left's plain bold monospace
+
+pair-027.png (published p15, rendered p16):
+  - footer copyright capitalization difference; both sides carry the same 'Note' box text further down the page ('The correct name of this data type in DMLex is lexicographic, not lexical, resource.')
+  - only left: numbered list style (5.) in plain text
+  - only right: bulleted list with monospace-styled URL/identifier examples
+
+pair-028.png (published p174, rendered p158):
+  - footer copyright capitalization difference
+  - only left: purple shaded XML code block
+  - only right: white bordered code blocks; pseudocode continuation visible at top of page from the previous example
+
+pair-029.png (published p131, rendered p125):
+  - footer copyright capitalization difference
+  - only left: purple shaded JSON/RDF/NVH code blocks
+  - only right: white bordered code blocks; XML continuation visible at top of page from the previous example
+
+pair-030.png (published p88, rendered p83):
+  - footer copyright capitalization difference
+  - only left: element name tags (e.g. <placeholderMarker>, <headwordMarker>) shown in blue monospace with no box shading
+  - only right: element name tags (e.g. <etymon>, <etymonUnit>, <etymonType>) shown in a light gray shaded monospace box
+
+pair-031.png (published p44, rendered p42):
+  - footer copyright capitalization difference
+  - only left: purple shaded RDF code block
+  - only right: white bordered code blocks for Examples 96-98 lower on the page
+
+pair-032.png (published p186, rendered p167):
+  - footer copyright capitalization difference
+  - only left: purple shaded code blocks
+  - only right: white bordered code blocks
+
+pair-033.png (published p4, rendered p5):
+  - footer copyright line: left 'All rights reserved.' (page 4 of 218) vs right 'All Rights Reserved.' (page 5 of 195)
+  - page numbers for the same sections differ by one between editions (e.g. section 1 is page 8 on the left, page 9 on the right) - a pagination offset, not a missing number
+  - only left: flat plain-text TOC entries, no bullet symbols, in black (non-hyperlink) text
+  - only right: nested bulleted TOC (•, o, ▪ symbols per indent level) in blue underlined hyperlink text; a page number is present for every entry (9, 9, 9, 9, 9, 10, 10, 11, 11, 11, 12, 13, 14, 14, 14, 16, 17, 20, 21, 23, 24, 25, 27, 28, 29, 31...)
+
+pair-034.png (published p111, rendered p107):
+  - same table names and columns appear on both sides as far as legible; only the scale/layout of the ER diagram differs
+  - footer copyright capitalization difference
+  - only left: diagram rendered larger, occupying more vertical space, with fewer tables visible per row
+  - only right: diagram rendered smaller/more compact, with the same tables (partsOfSpeech, inflectedForms, labels, transcriptions, definitions, examples, partOfSpeechTags, inflectedFormTags, labelTags, labelTypeTags, transcriptionSchemeTags, definitionTypeTags, sourceIdentityTags, sameAs) laid out more tightly
+
+pair-035.png (published p56, rendered p53):
+  - footer copyright capitalization difference; content otherwise matches (pagination offset only)
+
+pair-036.png (published p5, rendered p6):
+  - this pair shows the same left/right page content as pair-033.png (same page pair, re-supplied); footer copyright capitalization difference; no missing-page-number fault here
+  - only left: flat plain-text TOC, no bullets, black text
+  - only right: nested bulleted, blue hyperlinked TOC; page numbers present for every entry
+
+REVIEW: ACCEPTED
