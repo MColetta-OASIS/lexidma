@@ -57,51 +57,6 @@
       "message": "Conformance section is not populated with numbered clauses: no clause identifiers were extracted."
     },
     {
-      "severity": "INFO",
-      "check": "content-labels",
-      "message": "Appendix/Annex heading 'Appendix A Informative material on serializations (Informative) <a id='appendix-a-informative-material-on-serializations-informative'></a>' (markdown line 5707) carries no content-type label. Advisory only: confirm whether this appendix/annex is part of the conformance requirements, and if not, label it 'Non-normative' per handbook-Conformance.txt."
-    },
-    {
-      "severity": "WARN",
-      "check": "content-labels",
-      "message": "Examples-pattern heading 'A.1 Examples (Informative) <a id='examples'></a>' (markdown line 5709) carries no content-type label (heading suffix, first-sentence statement, labeled ancestor heading, or document-wide blanket statement): the Handbook classifies Examples as non-normative content and says it should be clearly labelled 'Non-normative' (or 'Informative')."
-    },
-    {
-      "severity": "INFO",
-      "check": "content-labels",
-      "message": "Appendix/Annex heading 'Appendix B References (Normative) <a id='references'></a>' (markdown line 9645) carries no content-type label. Advisory only: confirm whether this appendix/annex is part of the conformance requirements, and if not, label it 'Non-normative' per handbook-Conformance.txt."
-    },
-    {
-      "severity": "INFO",
-      "check": "content-labels",
-      "message": "Appendix/Annex heading 'Appendix C Machine Readable Validation Artifacts (Normative) <a id='Validation'></a>' (markdown line 9707) carries no content-type label. Advisory only: confirm whether this appendix/annex is part of the conformance requirements, and if not, label it 'Non-normative' per handbook-Conformance.txt."
-    },
-    {
-      "severity": "INFO",
-      "check": "content-labels",
-      "message": "Appendix/Annex heading 'Appendix D DMLex UML diagram (Normative) <a id='diagram_uml'></a>' (markdown line 9719) carries no content-type label. Advisory only: confirm whether this appendix/annex is part of the conformance requirements, and if not, label it 'Non-normative' per handbook-Conformance.txt."
-    },
-    {
-      "severity": "INFO",
-      "check": "content-labels",
-      "message": "Appendix/Annex heading 'Appendix E DMLex plain text description (Informative) <a id='diagram_nvh'></a>' (markdown line 9723) carries no content-type label. Advisory only: confirm whether this appendix/annex is part of the conformance requirements, and if not, label it 'Non-normative' per handbook-Conformance.txt."
-    },
-    {
-      "severity": "INFO",
-      "check": "content-labels",
-      "message": "Appendix/Annex heading 'Appendix F Specification Change Tracking (Informative) <a id='specChangeTracking'></a>' (markdown line 9918) carries no content-type label. Advisory only: confirm whether this appendix/annex is part of the conformance requirements, and if not, label it 'Non-normative' per handbook-Conformance.txt."
-    },
-    {
-      "severity": "INFO",
-      "check": "content-labels",
-      "message": "Appendix/Annex heading 'Appendix G Acknowledgements (Informative) <a id='acknowledgements'></a>' (markdown line 9988) carries no content-type label. Advisory only: confirm whether this appendix/annex is part of the conformance requirements, and if not, label it 'Non-normative' per handbook-Conformance.txt."
-    },
-    {
-      "severity": "INFO",
-      "check": "content-labels",
-      "message": "Appendix/Annex heading 'Appendix H Notices (Informative) <a id='full-notices'></a>' (markdown line 10016) carries no content-type label. Advisory only: confirm whether this appendix/annex is part of the conformance requirements, and if not, label it 'Non-normative' per handbook-Conformance.txt."
-    },
-    {
       "severity": "WARN",
       "check": "pdf-sync",
       "message": "PDF cites https://docs.oasis-open.org/lexidma/dmlex/v1.0/ (package is v1.1); expected only as a previous-stage reference -- confirm."
@@ -1992,7 +1947,7 @@
       "title": "Data Model for Lexicography (DMLex) Version 1.1"
     },
     "html-anchors": {
-      "internal_links": "292",
+      "internal_links": "297",
       "anchors": "663",
       "unresolved": "0"
     },
@@ -2055,9 +2010,9 @@
       "track": "markdown",
       "headings_scanned": "327",
       "example_candidates": "1",
-      "example_unlabeled": "1",
+      "example_unlabeled": "0",
       "appendix_candidates": "8",
-      "appendix_unlabeled": "8",
+      "appendix_unlabeled": "0",
       "blanket_statement_classes": "(none)"
     },
     "stage-token": {
@@ -2117,7 +2072,7 @@
       "prong_b_duplicate_buckets": "0",
       "prong_b_unreadable_entries_skipped": "0",
       "prong_c_md_block_urls_scanned": "7",
-      "prong_c_md_anchor_links_scanned": "924",
+      "prong_c_md_anchor_links_scanned": "957",
       "prong_c_md_bare_urls_scanned": "40"
     },
     "xml-namespace": {
@@ -2146,17 +2101,17 @@
       "median_word_height_pt": "11.2",
       "declared_body_pt": "12",
       "declared_by": "markdown-styles-v1.7.3.css",
-      "words": "38122"
+      "words": "38360"
     },
     "pdf-toc-pages": {
-      "contents_entries": "133",
-      "with_page_numbers": "133",
+      "contents_entries": "171",
+      "with_page_numbers": "171",
       "sampled": "20",
       "page_offset": "0",
       "wrong": "0"
     },
     "md-links": {
-      "links_scanned": "269"
+      "links_scanned": "274"
     },
     "fence-collapse": {
       "fences_scanned": "632"
