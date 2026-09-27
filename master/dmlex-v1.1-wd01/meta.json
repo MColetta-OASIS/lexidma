@@ -2,12 +2,12 @@
   "folder": "master/dmlex-v1.1-wd01",
   "pdf": true,
   "publication_ready": false,
-  "published": "2026-09-27 17:44:54",
-  "published_at": "2026-09-27T17:44:54.394402+00:00",
+  "published": "2026-09-27 21:36:15",
+  "published_at": "2026-09-27T21:36:15.648275+00:00",
   "ref": "master",
-  "run_url": "https://github.com/MColetta-OASIS/lexidma/actions/runs/36338021952",
-  "source_sha": "9c7536d3d68810a1d828efd208610354c2508a70",
+  "run_url": "https://github.com/MColetta-OASIS/lexidma/actions/runs/36352271739",
+  "source_sha": "c8dca520c1afd98255f3a62d4f2ca7855f3a1439",
   "target": "_publication/lexidma/dmlex/v1.1/wd01",
   "title": "DMLex v1.1 WD01",
-  "verdict": "NOT publication-ready: 5 blocker(s). 44 of 58 evaluated check classes fully clean; 3 not evaluated; findings: 5 blocker, 51 warning, 10 informational."
+  "verdict": "NOT publication-ready: 5 blocker(s). 45 of 58 evaluated check classes fully clean; 3 not evaluated; findings: 5 blocker, 50 warning, 2 informational."
 }
