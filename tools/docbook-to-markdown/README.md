@@ -11,11 +11,11 @@ DocBook source is unchanged.
 
 The converter and the verifier are part of the OASIS publication tooling,
 [OASIS-Docs/publication-assurance](https://github.com/OASIS-Docs/publication-assurance),
-and this repository uses them from a pinned release (v1.11.0). DMLex is that
+and this repository uses them from a pinned release (v1.11.1). DMLex is that
 converter's first profile: what is particular to DMLex (its main file, its
 entities, the UML figure its build generates, and the accepted differences
 from the published HTML with their reasons) lives in
-[`converters/docbook-to-markdown/profiles/dmlex/`](https://github.com/OASIS-Docs/publication-assurance/tree/v1.11.0/converters/docbook-to-markdown/profiles/dmlex).
+[`converters/docbook-to-markdown/profiles/dmlex/`](https://github.com/OASIS-Docs/publication-assurance/tree/v1.11.1/converters/docbook-to-markdown/profiles/dmlex).
 The guide is
 [docs/MARKDOWN-EDITION.md](https://github.com/OASIS-Docs/publication-assurance/blob/main/docs/MARKDOWN-EDITION.md).
 
@@ -30,7 +30,7 @@ work product.
 ## Regenerating the edition
 
 ```bash
-git clone --depth 1 --branch v1.11.0 https://github.com/OASIS-Docs/publication-assurance _pa
+git clone --depth 1 --branch v1.11.1 https://github.com/OASIS-Docs/publication-assurance _pa
 _pa/converters/docbook-to-markdown/build.sh --profile dmlex dmlex-v1.0/specification out \
     https://docs.oasis-open.org/lexidma/dmlex/v1.0/os/dmlex-v1.0-os.html
 diff out/dmlex-v1.0-os.md dmlex-v1.0/markdown/dmlex-v1.0-os.md
