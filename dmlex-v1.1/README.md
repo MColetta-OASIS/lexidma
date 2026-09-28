@@ -21,7 +21,7 @@ v1.0 edition.
 Markdown has no entities, so the stage lives in the text. To make WD02 or
 CSD01, rename the file to match the stage (`dmlex-v1.1-wd02.md`) and change
 the stage line, the date, the This stage URLs, the citation and the schema
-URLs. Searching for `v1.1/wd01` finds every one. The OASIS publication checks check
+URLs. Searching for `v1.1/wd01` finds every one. The OASIS publication checks compare
 the stage, the URLs and the filename against each other, so anything missed
 is flagged by the `Publication assurance` workflow before it reaches OASIS: as
 a warning while the draft runs report-only, and as a failed run once it is
