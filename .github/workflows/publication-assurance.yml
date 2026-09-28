@@ -1,123 +1,28 @@
-name: Publication assurance
-
-# Renders each Markdown edition of DMLex through the OASIS publication pipeline
-# (Markdown to HTML to PDF), stages it at its docs.oasis-open.org path, and runs
-# the OASIS publication gate (oasis-pub-check) on the staged package. The
-# rendered HTML and PDF are uploaded as an artifact per document.
-#
-# Both jobs run report-only (fail-on-blockers: false): the gate's findings
-# are reported, published and raised as a warning, and the run passes. The
-# v1.0 OASIS Standard is published and cannot change. The v1.1 working draft's
-# only blockers are inherited from v1.0 and await a TC decision; set its
-# enforce back to true once they are resolved, so a new blocker fails the run.
-# See tools/publication-assurance/README.md.
+name: Convert and verify
 
 on:
   push:
-    paths:
-      - 'dmlex-v1.0/markdown/**'
-      - 'dmlex-v1.0/specification/schemas/**'
-      - 'dmlex-v1.1/**'
-      - '.github/workflows/publication-assurance.yml'
   pull_request:
-    paths:
-      - 'dmlex-v1.0/markdown/**'
-      - 'dmlex-v1.0/specification/schemas/**'
-      - 'dmlex-v1.1/**'
-      - '.github/workflows/publication-assurance.yml'
   workflow_dispatch:
 
 permissions:
-  contents: write   # the gate publishes its reports to the pubcheck-reports branch
-  pages: read       # lets the gate link the HTML report on GitHub Pages
-
-defaults:
-  run:
-    shell: bash
-
-env:
-  PANDOC_VERSION: 3.8.2.1
-  PA_REF: v1.10.1
+  contents: read
 
 jobs:
-  render-and-gate:
-    name: ${{ matrix.name }}
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        include:
-          - name: DMLex v1.1 WD01
-            md: dmlex-v1.1
-            schemas: dmlex-v1.1/schemas
-            stage: _publication/lexidma/dmlex/v1.1/wd01
-            enforce: false   # true once the TC resolves the inherited blockers
-          - name: DMLex v1.0 OS (published, report only)
-            md: dmlex-v1.0/markdown
-            schemas: dmlex-v1.0/specification/schemas
-            stage: _publication/lexidma/dmlex/v1.0/os
-            enforce: false
-    steps:
-      - uses: actions/checkout@v4
+  dmlex-v1-0:
+    name: DMLex v1.0 OS
+    uses: OASIS-Docs/publication-assurance/.github/workflows/convert-and-verify.yml@v1.12.0
+    with:
+      markdown: dmlex-v1.0/markdown
+      schemas: dmlex-v1.0/specification/schemas
+      docbook: dmlex-v1.0/specification
+      profile: dmlex
+      published-html: https://docs.oasis-open.org/lexidma/dmlex/v1.0/os/dmlex-v1.0-os.html
+      published-pdf: https://docs.oasis-open.org/lexidma/dmlex/v1.0/os/dmlex-v1.0-os.pdf
 
-      - name: Check out the OASIS renderer at the pinned release
-        uses: actions/checkout@v4
-        with:
-          repository: OASIS-Docs/publication-assurance
-          ref: ${{ env.PA_REF }}
-          path: _pa
-
-      - name: Install pandoc and BeautifulSoup
-        run: |
-          curl -fsSL -o "$RUNNER_TEMP/pandoc.deb" \
-            "https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/pandoc-${PANDOC_VERSION}-1-amd64.deb"
-          sudo dpkg -i "$RUNNER_TEMP/pandoc.deb"
-          sudo apt-get update -q && sudo apt-get install -y poppler-utils
-          python3 -m pip install --quiet beautifulsoup4
-          pandoc --version | head -1
-          google-chrome --version
-
-      - name: Render Markdown to HTML and PDF
-        env:
-          PUBCHECK: '0'
-          CHROME: google-chrome
-        run: _pa/render/render.sh "${{ matrix.md }}" "${{ matrix.schemas }}" _publication
-
-      # The v1.0 edition has a published original to be checked against: its
-      # HTML, and its PDF, whose contents page numbers, list letters and
-      # footer no HTML comparison can see. The live PDF sits behind
-      # Cloudflare; if it cannot be fetched the step says so and moves on.
-      - name: Verify against the published HTML and PDF
-        if: matrix.md == 'dmlex-v1.0/markdown'
-        run: |
-          set -o pipefail
-          P=_pa/converters/docbook-to-markdown/profiles/dmlex
-          python3 _pa/verify/verify_md.py "${{ matrix.stage }}/dmlex-v1.0-os.md" \
-            _pa/tests/fixtures/verify_md/dmlex-v1.0-os/published-dmlex-v1.0-os.html \
-            --rendered "${{ matrix.stage }}/dmlex-v1.0-os.html" \
-            --allow "$P/allow.json" --allow "$P/allow-rendered.json" | grep -v '^ACCEPTED'
-          if curl -fsSL -o "$RUNNER_TEMP/published.pdf" \
-              https://docs.oasis-open.org/lexidma/dmlex/v1.0/os/dmlex-v1.0-os.pdf; then
-            python3 _pa/verify/verify_pdf.py "${{ matrix.stage }}/dmlex-v1.0-os.pdf" "$RUNNER_TEMP/published.pdf" \
-              --allow "$P/allow-pdf.json" | grep -v '^ACCEPTED'
-          else
-            echo "::warning::The published PDF could not be fetched; the PDF comparison did not run."
-          fi
-
-      - name: OASIS publication gate
-        uses: OASIS-Docs/publication-assurance@v1.10.1
-        with:
-          fail-on-blockers: ${{ matrix.enforce }}
-          target: ${{ matrix.stage }}
-          summary-title: ${{ matrix.name }}
-          report-dir: ${{ matrix.stage }}-pubcheck
-
-      - name: Upload the rendered package and gate report
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: ${{ matrix.md == 'dmlex-v1.1' && 'dmlex-v1.1-wd01' || 'dmlex-v1.0-os' }}-rendered
-          path: |
-            ${{ matrix.stage }}
-            ${{ matrix.stage }}-pubcheck
-          if-no-files-found: error
+  dmlex-v1-1-wd01:
+    name: DMLex v1.1 WD01
+    uses: OASIS-Docs/publication-assurance/.github/workflows/convert-and-verify.yml@v1.12.0
+    with:
+      markdown: dmlex-v1.1
+      schemas: dmlex-v1.1/schemas

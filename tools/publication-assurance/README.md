@@ -1,8 +1,8 @@
 # Publication Assurance
 
 [![Publication assurance](https://github.com/MColetta-OASIS/lexidma/actions/workflows/publication-assurance.yml/badge.svg?branch=markdown-conversion)](https://github.com/MColetta-OASIS/lexidma/actions/workflows/publication-assurance.yml?query=branch%3Amarkdown-conversion)
-[![pub-check](https://img.shields.io/badge/oasis--pub--check-v1.10.1-2c4a8a)](https://github.com/OASIS-Docs/publication-assurance/releases/tag/v1.10.1)
-[![Checks](https://img.shields.io/badge/checks-178-6741d9)](https://github.com/OASIS-Docs/publication-assurance/blob/v1.10.1/pub-check/CHECKS.md)
+[![pub-check](https://img.shields.io/badge/oasis--pub--check-v1.12.0-2c4a8a)](https://github.com/OASIS-Docs/publication-assurance/releases/tag/v1.12.0)
+[![Checks](https://img.shields.io/badge/checks-178-6741d9)](https://github.com/OASIS-Docs/publication-assurance/blob/v1.12.0/pub-check/CHECKS.md)
 [![Latest reports](https://img.shields.io/badge/latest_reports-24_Sep_2026-2f9e44)](reports/2026-09-24/)
 
 **Latest run: [reports/2026-09-24](reports/2026-09-24/)**, with the audit,
@@ -28,16 +28,16 @@ Every change to a Markdown edition runs the same three steps in CI:
 2. **Stage.** The HTML, PDF, Markdown, figures and schemas are laid out at the
    path they would have on `docs.oasis-open.org`, for example
    `lexidma/dmlex/v1.1/wd01/`.
-3. **Gate.** `oasis-pub-check` runs its 178 checks on the staged package: naming,
-   front matter, links, cited files, schemas, PDF against source and more. A
-   blocker fails the build. Warnings do not.
+3. **Check.** `oasis-pub-check` runs its 178 checks on the staged package:
+   naming, front matter, links, cited files, schemas, PDF against source and
+   more. A blocker fails the build. Warnings do not.
 
 The TC sees the same verdict that OASIS TC Administration sees at intake, while
 the document is still the TC's to change.
 
 The renderer is part of the OASIS publication tooling and is used from a
 pinned release: `render/render.sh` in
-[OASIS-Docs/publication-assurance v1.10.1](https://github.com/OASIS-Docs/publication-assurance/tree/v1.10.1/render),
+[OASIS-Docs/publication-assurance v1.12.0](https://github.com/OASIS-Docs/publication-assurance/tree/v1.12.0/render),
 with `render/compare.mjs` for side-by-side screenshots. This directory keeps
 what is DMLex's own:
 
@@ -54,14 +54,14 @@ what is DMLex's own:
 - Node.js 18 or later (`render.sh` installs `puppeteer-core` next to itself on
   first run)
 - poppler (`pdfinfo`, `pdftotext`), for the contents page numbers and the
-  gate's PDF checks
+  PDF checks in the OASIS publication checks
 - Chrome or Chromium; set `CHROME` to the binary if it is not found
 - `git`, to fetch the release
 
 ## Usage
 
 ```bash
-git clone --depth 1 --branch v1.10.1 https://github.com/OASIS-Docs/publication-assurance _pa
+git clone --depth 1 --branch v1.12.0 https://github.com/OASIS-Docs/publication-assurance _pa
 _pa/render/render.sh MD_DIR SCHEMAS_DIR OUT_ROOT
 ```
 
@@ -72,8 +72,8 @@ _pa/render/render.sh MD_DIR SCHEMAS_DIR OUT_ROOT
 | `OUT_ROOT` | Receives the staged tree |
 
 The publish path comes from the "This stage" URL in the Markdown, so the
-directory, the filenames and the cover are the ones the gate checks against
-each other.
+directory, the filenames and the cover are the ones the OASIS publication
+checks compare against each other.
 
 ```bash
 # the v1.1 working draft
@@ -85,34 +85,24 @@ _pa/render/render.sh dmlex-v1.0/markdown dmlex-v1.0/specification/schemas _publi
 
 The output is `_publication/lexidma/dmlex/<version>/<stage>/` with
 `<name>.html`, `<name>.pdf`, `<name>.md`, the figures and `schemas/`. The last
-line of output is the gate's verdict. The exit status is 0 when the package is
+line of output is the check result. The exit status is 0 when the package is
 publishable and 1 when it has blockers. With `PUBCHECK=0` the script stops
 after staging.
 
 ## CI
 
-`.github/workflows/publication-assurance.yml` runs on any change to a Markdown
-edition, its schemas or this directory. It has one job per edition:
+`.github/workflows/publication-assurance.yml` calls the OASIS
+[convert-and-verify workflow](https://github.com/OASIS-Docs/publication-assurance/blob/v1.12.0/docs/CONVERT-AND-VERIFY.md)
+on every push, with one job per edition:
 
-| Job | Gate |
+| Job | What it runs |
 |---|---|
-| DMLex v1.1 WD01 | Report only for now: its blockers are all inherited from v1.0 and await a TC decision. Switch to enforced (`enforce: true`) once they are resolved |
-| DMLex v1.0 OS | Report only: the OASIS Standard is published and cannot change |
+| DMLex v1.0 OS | Converts the DocBook source and fails if the committed Markdown differs; renders the HTML and PDF; checks both against the published OASIS Standard word for word; runs the OASIS publication checks, report only (the Standard is published and cannot change); prepares page pairs for a visual review |
+| DMLex v1.1 WD01 | Renders and runs the OASIS publication checks, report only until the TC resolves the blockers inherited from v1.0; then add `fail-on-blockers: true` |
 
-The gate step is the published action, pinned to a release:
-
-```yaml
-- uses: OASIS-Docs/publication-assurance@v1.10.1
-  with:
-    target: _publication/lexidma/dmlex/v1.1/wd01
-    fail-on-blockers: false   # report only until the TC resolves the inherited blockers
-```
-
-Report-only runs pass, so the badge above is green, and each blocker still
-appears as a warning on the run, in the job summary and in the published
-Validation Report. The job summary lists every finding. The rendered package and the gate report
-are uploaded as the `dmlex-v1.1-wd01-rendered` and `dmlex-v1.0-os-rendered`
-artifacts.
+Each run's page states the results in one line each ("The PDF matches the
+published PDF") and lists the blockers as warnings. The rendered packages,
+with every report, and the page pairs are the run's downloads.
 
 ## Current Results
 
@@ -120,15 +110,16 @@ The run of 24 September 2026 is in `reports/2026-09-24/`:
 
 | Report | Files |
 |---|---|
-| Publication audit (15 gates, 9 findings) | `dmlex-markdown-edition-publication-audit-2026-09-24.{pdf,docx,md,json}` |
+| Publication audit (15 audit checks, 9 findings) | `dmlex-markdown-edition-publication-audit-2026-09-24.{pdf,docx,md,json}` |
 | Validation, v1.1 WD01 (170 checks) | `dmlex-v1.1-wd01-pub-check-validation-2026-09-24.{pdf,docx,md,json}` |
 | Validation, v1.0 OS Markdown edition | `dmlex-v1.0-os-markdown-pub-check-validation-2026-09-24.{pdf,docx,md,json}` |
 | Rendering comparison, published against Markdown, HTML and PDF | `dmlex-rendering-comparison-2026-09-24.{pdf,docx,md}` and `comparison/` |
 | Rendered PDFs | `rendered/dmlex-v1.1-wd01.pdf`, `rendered/dmlex-v1.0-os.pdf` |
 
 The Markdown edition reproduces the published standard word for word, with
-every code block identical. The gate's remaining blockers are all in the
-published v1.0 source and carry into v1.1 until the TC changes them:
+every code block identical. The remaining blockers from the OASIS publication
+checks are all in the published v1.0 source and carry into v1.1 until the TC
+changes them:
 
 | Blocker | Where | What the TC decides |
 |---|---|---|
@@ -141,7 +132,7 @@ in Appendix F, and "OASIS OASIS Standard" in the citation.
 
 ## Provenance
 
-The pipeline, the gate and these reports are provided by OASIS staff (TC
+The pipeline, the OASIS publication checks and these reports are provided by OASIS staff (TC
 Administration) as a publication service. They are not a contribution to the
 TC's work product. The rendered documents contain the TC's text without
 technical change.
