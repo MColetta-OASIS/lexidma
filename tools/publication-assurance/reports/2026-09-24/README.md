@@ -13,7 +13,7 @@
 [![Audit](https://img.shields.io/badge/publication_audit-PASS-2f9e44)](dmlex-markdown-edition-publication-audit-2026-09-24.pdf)
 [![WD01 gate](https://img.shields.io/badge/v1.1_WD01_gate-3_TC_decisions-f08c00)](#what-the-tc-needs-to-decide)
 [![pub-check](https://img.shields.io/badge/oasis--pub--check-v1.4.2-2c4a8a)](https://github.com/OASIS-Docs/publication-assurance/releases/tag/v1.4.2)
-[![DocBook to Markdown](https://github.com/MColetta-OASIS/lexidma/actions/workflows/docbook-to-markdown.yml/badge.svg?branch=markdown-conversion)](https://github.com/MColetta-OASIS/lexidma/actions/workflows/docbook-to-markdown.yml?query=branch%3Amarkdown-conversion)
+[![Markdown edition](https://github.com/MColetta-OASIS/lexidma/actions/workflows/markdown-edition.yml/badge.svg?branch=markdown-conversion)](https://github.com/MColetta-OASIS/lexidma/actions/workflows/markdown-edition.yml?query=branch%3Amarkdown-conversion)
 
 The Markdown edition of DMLex Version 1.0 OASIS Standard, and the new
 [Version 1.1 Working Draft 01](../../../../dmlex-v1.1/dmlex-v1.1-wd01.md), rendered
@@ -80,7 +80,7 @@ for the full size.
 
 | Step | Tool |
 |---|---|
-| DocBook to Markdown, verified word by word against the published HTML | [`tools/docbook-to-markdown`](../../../docbook-to-markdown/) |
+| Markdown edition from the DocBook source, verified word by word against the published HTML | [`tools/docbook-to-markdown`](../../../docbook-to-markdown/) |
 | Render, stage and gate each edition | [`tools/publication-assurance/render.sh`](../../render.sh) |
 | The acceptance criteria | [OASIS-Docs/publication-assurance](https://github.com/OASIS-Docs/publication-assurance), [check catalogue](https://github.com/OASIS-Docs/publication-assurance/blob/main/pub-check/CHECKS.md) |
 | CI on every change | [Publication assurance workflow](https://github.com/MColetta-OASIS/lexidma/actions/workflows/publication-assurance.yml?query=branch%3Amarkdown-conversion) |

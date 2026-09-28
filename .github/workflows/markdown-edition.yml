@@ -1,0 +1,32 @@
+name: Markdown edition
+
+# The Markdown edition of DMLex, produced from the DocBook source by the OASIS
+# docbook-markdown action and checked word for word against the published
+# OASIS Standard. See tools/docbook-to-markdown/README.md.
+
+on:
+  push:
+    paths:
+      - 'dmlex-v1.0/specification/**'
+      - 'dmlex-v1.0/markdown/**'
+      - '.github/workflows/markdown-edition.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  markdown-edition:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: OASIS-Docs/publication-assurance/docbook-markdown@v1.11.0
+        id: edition
+        with:
+          source: dmlex-v1.0/specification
+          profile: dmlex
+          published-html: https://docs.oasis-open.org/lexidma/dmlex/v1.0/os/dmlex-v1.0-os.html
+
+      # DMLex keeps its edition in the repository: fail if it is out of date.
+      - name: Check the committed edition is current
+        run: git diff --no-index --exit-code dmlex-v1.0/markdown/dmlex-v1.0-os.md "${{ steps.edition.outputs.markdown }}"
